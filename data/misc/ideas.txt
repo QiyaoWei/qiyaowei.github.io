@@ -1,0 +1,18 @@
+NeuralODE uses nets to parametrize an ODE. Gradient descent can be seen as an ODE (dθ/dt = -▽f). Can we combine these two ODEs together into one (maybe second order) ODE and solve it directly?
+
+Can we expand the expressive power of DEQ by using PDE? If you use PDE where none of the variables are dependent then that’s like training an ensemble. If we use dependent variables then what will backprop look like?
+
+What would NTK-DEQs look like?
+
+NeuralODE can also be seen as an infinite-depth network as the integrator timesteps approach zero. How close is this resemblance? And what connection does it have with DEQs?
+
+Interesting to see learning theory or optimization applied to NeuralODE: Sample complexity? Generalization? Number of iterations? Model complexity?
+
+How do we combine geometric deep learning and reinforcement learning? Do we ask our algorithm to learn data-invariant value functions?
+
+
+
+Actual project ideas that I don't have time to do:
+1. I think it's interesting to prune BNNs, whether after training or at initialization, whether making weights deterministic or simply dropping them. It would make them run so much faster
+2. Both pruning at initialization and gradient activation maps have sanity check papers that are very worthy. Such is worthwhile effort in any direction of research where algorithms are most empirical. An example would be adversarial attacks and defense.
+3. Sanity check papers on initialization pruning have proved that SNIP, GraSP, and SynFlow all have the same shortcomings. Could there be a unified perspective of these algorithms (e.g. from a path analysis perspective) that explains the failure cases?
