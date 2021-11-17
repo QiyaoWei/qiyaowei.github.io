@@ -10,6 +10,8 @@ Interesting to see learning theory or optimization applied to NeuralODE: Sample 
 
 How do we combine geometric deep learning and reinforcement learning? Do we ask our algorithm to learn data-invariant value functions?
 
+What if Britain made the other decision on August 4th, 1914?
+
 
 
 Legit project ideas that I don't have time to do:

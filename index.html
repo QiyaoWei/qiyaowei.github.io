@@ -97,8 +97,48 @@
                             to a flexible implementation that could easily be extended.</p>
                     </td>
                 </tr>
+
+                <tr onmouseout="cmc_stop()" onmouseover="cmc_start()">
+                    <td style="padding:20px;width:25%;vertical-align:middle">
+                        <div class="one">
+                            <div class="two" id='cmc_image'>
+                                <video width=100% height=100% muted autoplay loop>
+                                    <source src="data/misc/cmc.png" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <img src='data/misc/cmc.png' width="160">
+                        </div>
+                        <script type="text/javascript">
+                            function cmc_start() {
+                              document.getElementById('cmc_image').style.opacity = "1";
+                            }
+
+                            function cmc_stop() {
+                              document.getElementById('cmc_image').style.opacity = "0";
+                            }
+                            cmc_stop()
+
+                        </script>
+                    </td>
+                    <td style="padding:20px;width:75%;vertical-align:middle">
+                        <a href="https://github.com/QiyaoWei/Distributed-CMC">
+                            <papertitle>Distributed CMC</papertitle>
+                        </a>
+                        <br>
+                        <strong>Qiyao Wei</strong>,
+                        <a href="https://ai.stanford.edu/~optas/">Panos Achlioptas</a>,
+                        <br>
+                        <em>Github</em>, 2021
+                        <br>
+                        <a href="https://github.com/QiyaoWei/Distributed-CMC">Code</a>
+                        /
+
+                        <p>Extend original CMC to multi-gpu training</p>
+                    </td>
+                </tr>
             <p>
-                One ICLR 2022 submission coming soon!
+                One ICLR 2022 submission under review!
             </p>
             <p>
                 One patent coming soon!
@@ -256,6 +296,10 @@
                         <p>
                             <a href="https://www.cs.ubc.ca/~nickhar/F18-531/NotesHoeffding.pdf">Here</a> is a great
                             derivation of Hoeffding's bound, making connection with union bounds.
+                        </p>
+                        <p>
+                            <a href="https://ptolemy.berkeley.edu/projects/embedded/eecsx44/lectures/Spring2013/Picard.pdf">Here</a> is a great
+                            derivation of Banach Fixed Point Theorem and Picard-Lindelof Theorem.
                         </p>
                     </td>
                 </tr>
