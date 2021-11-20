@@ -1,5 +1,6 @@
 __pycache__
 **.pyc
+.git/
 .idea/
-*.DS_Store
+.DS_Store
 temp.py
