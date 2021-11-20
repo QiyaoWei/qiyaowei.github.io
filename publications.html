@@ -31,6 +31,100 @@
 <div>
       <h4>Significant Bits</h4>
 
+      <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <tr onmouseout="deq_stop()" onmouseover="deq_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                      <div class="two" id='deq_image'>
+                          <video width=100% height=100% muted autoplay loop>
+                              <source src="data/pub/deq/evolution.mp4" type="video/mp4">
+                              Your browser does not support the video tag.
+                          </video>
+                      </div>
+                      <img src='data/pub/deq/final_features.png' width="160">
+                  </div>
+                  <script type="text/javascript">
+                      function deq_start() {
+                        document.getElementById('deq_image').style.opacity = "1";
+                      }
+
+                      function deq_stop() {
+                        document.getElementById('deq_image').style.opacity = "0";
+                      }
+                      deq_stop()
+
+                  </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://julialang.org/blog/2021/10/DEQ/">
+                      <papertitle>Composability in Julia: Implementing Deep Equilibrium Models via Neural ODEs</papertitle>
+                  </a>
+                  <br>
+                  <strong>Qiyao Wei</strong>,
+                  <a href="https://frankschae.github.io/">Frank Schäfer</a>,
+                  <a href="https://avik-pal.github.io/">Avik Pal</a>,
+                  <a href="https://chrisrackauckas.com/">Chris Rackauckas</a>,
+                  <br>
+                  <em>Julialang</em>, 2021
+                  <br>
+                  <a href="https://julialang.org/blog/2021/10/DEQ/">Blog</a>
+                  /
+                  <a href="https://julialang.org/blog/2021/10/DEQ/">Code</a>
+                  /
+                  <a href="https://news.ycombinator.com/item?id=28945191">News</a>
+
+                  <p></p>
+                  <p>Taking advantage of composability in Julia, we reformulate DEQs using ideas from NeuralODE, leading
+                      to a flexible implementation that could easily be extended.</p>
+              </td>
+          </tr>
+
+          <tr onmouseout="cmc_stop()" onmouseover="cmc_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                      <div class="two" id='cmc_image'>
+                          <video width=100% height=100% muted autoplay loop>
+                              <source src="data/misc/short/cmc.png" type="video/mp4">
+                              Your browser does not support the video tag.
+                          </video>
+                      </div>
+                      <img src='data/misc/short/cmc.png' width="160">
+                  </div>
+                  <script type="text/javascript">
+                      function cmc_start() {
+                        document.getElementById('cmc_image').style.opacity = "1";
+                      }
+
+                      function cmc_stop() {
+                        document.getElementById('cmc_image').style.opacity = "0";
+                      }
+                      cmc_stop()
+
+                  </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+                  <a href="https://github.com/QiyaoWei/Distributed-CMC">
+                      <papertitle>Distributed CMC</papertitle>
+                  </a>
+                  <br>
+                  <strong>Qiyao Wei</strong>,
+                  <a href="https://ai.stanford.edu/~optas/">Panos Achlioptas</a>,
+                  <br>
+                  <em>Github</em>, 2021
+                  <br>
+                  <a href="https://github.com/QiyaoWei/Distributed-CMC">Code</a>
+                  /
+
+                  <p>Extend original CMC to distributed training, in response to <a href="https://github.com/HobbitLong/CMC/issues/5">this issue</a></p>
+              </td>
+          </tr>
+      <p>
+          One ICLR 2022 submission under review!
+      </p>
+      <p>
+          One patent coming soon!
+      </p>
+      </tbody></table>
 
 			<h4>Less Significant Bits</h4>
 
