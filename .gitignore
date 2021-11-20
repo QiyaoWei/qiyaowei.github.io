@@ -1,5 +1,5 @@
 __pycache__
 **.pyc
 .idea/
-**.DS_Store
+*.DS_Store
 temp.py
