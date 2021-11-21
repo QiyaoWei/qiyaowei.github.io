@@ -31,71 +31,118 @@
       <h4>Presentations</h4>
 
       <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr onmouseout="deq_stop()" onmouseover="deq_start()">
+          <tr onmouseout="epi_stop()" onmouseover="epi_start()">
               <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                      <div class="two" id='deq_image'>
+                      <div class="two" id='epi_image'>
                           <video width=100% height=100% muted autoplay loop>
-                              <source src="data/pub/deq/final_features.png" type="video/mp4">
+                              <source src="data/misc/epidemic/infected.png" type="video/mp4">
                               Your browser does not support the video tag.
                           </video>
                       </div>
-                      <img src='data/pub/deq/final_features.png' width="160">
+                      <img src='data/misc/epidemic/infected.png' width="160">
                   </div>
                   <script type="text/javascript">
-                      function deq_start() {
-                        document.getElementById('deq_image').style.opacity = "1";
+                      function epi_start() {
+                        document.getElementById('epi_image').style.opacity = "1";
                       }
 
-                      function deq_stop() {
-                        document.getElementById('deq_image').style.opacity = "0";
+                      function epi_stop() {
+                        document.getElementById('epi_image').style.opacity = "0";
                       }
-                      deq_stop()
+                      epi_stop()
 
                   </script>
               </td>
               <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://julialang.org/blog/2021/10/DEQ/">
-                      <papertitle>Composability in Julia: Implementing Deep Equilibrium Models via Neural ODEs</papertitle>
-                  <a href="https://julialang.org/blog/2021/10/DEQ/">Blog</a>
+                  <!-- <a href="https://julialang.org/blog/2021/10/DEQ/">
+                      <papertitle>Composability in Julia: Implementing Deep Equilibrium Models via Neural ODEs</papertitle> -->
+									<p>Epidemic Control with Reinforcement Learning</p>
+                  <a href="data/misc/epidemic/epidemic_report.pdf">Report</a>
+									<a href="data/misc/epidemic/epidemic_presentation.pdf">Presentation</a>
+									<a href="data/misc/epidemic/Poster.pdf">Poster</a>
                   <p>Vector Institute</p>
               </td>
           </tr>
 
-          <tr onmouseout="deq_stop()" onmouseover="deq_start()">
+          <tr onmouseout="mirror_stop()" onmouseover="mirror_start()">
               <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
-                      <div class="two" id='deq_image'>
+                      <div class="two" id='mirror_image'>
                           <video width=100% height=100% muted autoplay loop>
-                              <source src="data/pub/deq/final_features.png" type="video/mp4">
+                              <source src="data/misc/mirror/mirror.png" type="video/mp4">
                               Your browser does not support the video tag.
                           </video>
                       </div>
-                      <img src='data/pub/deq/final_features.png' width="160">
+                      <img src='data/misc/mirror/mirror.png' width="160">
                   </div>
                   <script type="text/javascript">
-                      function deq_start() {
-                        document.getElementById('deq_image').style.opacity = "1";
+                      function mirror_start() {
+                        document.getElementById('mirror_image').style.opacity = "1";
                       }
 
-                      function deq_stop() {
-                        document.getElementById('deq_image').style.opacity = "0";
+                      function mirror_stop() {
+                        document.getElementById('mirror_image').style.opacity = "0";
                       }
-                      deq_stop()
+                      mirror_stop()
 
                   </script>
               </td>
               <td style="padding:20px;width:75%;vertical-align:middle">
-                  <a href="https://julialang.org/blog/2021/10/DEQ/">
-                      <papertitle>Composability in Julia: Implementing Deep Equilibrium Models via Neural ODEs</papertitle>
-
-                  <a href="https://julialang.org/blog/2021/10/DEQ/">Blog</a>
-
+									<p>Lyapunov Perspective on Mirror Descent</p>
+                  <a href="data/misc/mirror/mirror_descent.pdf">Report</a>
+									<a href="data/misc/mirror/mirror_descent_presentation.pdf">Presentation</a>
+									<a href="data/misc/mirror/max.pdf">Auxiliary MaxCut</a>
+									<a href="data/misc/mirror/qkp.pdf">Auxiliary QKP</a>
+									<a href="data/misc/mirror/snl.pdf">Auxiliary SNL</a>
                   <p>Stanford University</p>
               </td>
           </tr>
 
+          <tr onmouseout="reg_stop()" onmouseover="reg_start()">
+              <td style="padding:20px;width:25%;vertical-align:middle">
+                  <div class="one">
+                      <div class="two" id='reg_image'>
+                          <video width=100% height=100% muted autoplay loop>
+                              <source src="data/misc/ece367/reg.png" type="video/mp4">
+                              Your browser does not support the video tag.
+                          </video>
+                      </div>
+                      <img src='data/misc/ece367/reg.png' width="160">
+                  </div>
+                  <script type="text/javascript">
+                      function reg_start() {
+                        document.getElementById('reg_image').style.opacity = "1";
+                      }
+
+                      function reg_stop() {
+                        document.getElementById('reg_image').style.opacity = "0";
+                      }
+                      reg_stop()
+
+                  </script>
+              </td>
+              <td style="padding:20px;width:75%;vertical-align:middle">
+									<p>Implicit Rank-Minimizing Autoencoder</p>
+                  <a href="data/misc/ece367/reg.pdf">Report</a>
+                  <p>Matrix Algebra & Optimization</p>
+              </td>
+          </tr>
+
       </tbody></table>
+
+			<h4>Teaching NeuroTechUofT</h4>
+
+			<p>This was a particularly satisfying trajectory in my undergrad. I went from <a href="data/misc/neurotech/8.JPG">being</a> <a href="data/misc/neurotech/9.JPG">a</a>
+			<a href="data/misc/neurotech/10.JPG">new</a> <a href="data/misc/neurotech/11.JPG">student</a> to lecturing at seminars, coding sessions, and lots of other events!</p>
+
+			<p>
+      <ul>
+      <li><a href="data/misc/neurotech/1.JPG">This</a>, <a href="data/misc/neurotech/2.JPG">this</a>, and <a href="data/misc/neurotech/3.JPG">this</a> is a picture of me TAing at our <a href="https://www.facebook.com/events/705318366534848/">"Intro to Python"</a> <a href="https://www.facebook.com/1865091597042623/posts/2208800289338417/?d=n">session</a></li>
+			<li><a href="data/misc/neurotech/5.JPG">This</a> and <a href="data/misc/neurotech/6.JPG">this</a> is a picture of me hosting our <a href="https://www.facebook.com/1865091597042623/posts/2206477059570740/?d=n">"Connexion"</a> event</li>
+			<li><a href="data/misc/neurotech/7.JPG">This</a> is a picture of me TAing at our weekly <a href="https://www.facebook.com/1865091597042623/posts/2516324231919353/?d=n">"Hackternoon"</a> event</li>
+			</ul>
+      </p>
 
 			<h4>Shorter Bits</h4>
 
