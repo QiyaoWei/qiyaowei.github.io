@@ -32,7 +32,7 @@
       <h4>Significant Bits</h4>
 
       <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-          <tr onmouseout="deq_start()" onmouseover="deq_start()">
+          <tr onmouseout="deq_stop()" onmouseover="deq_start()">
               <td style="padding:20px;width:25%;vertical-align:middle">
                   <div class="one">
                       <div class="two" id='deq_image'>
@@ -89,65 +89,67 @@
 
 			<h4>Open-source Contributions</h4>
 
-      <tr onmouseout="diff_stop()" onmouseover="diff_start()">
-          <td style="padding:0px;width:25%;vertical-align:middle">
-              <div class="one">
-                  <div class="two" id='diff_image'>
-                      <video width=100% height=100% muted autoplay loop>
-                          <source src="data/pub/diff.png" type="video/mp4">
-                          Your browser does not support the video tag.
-                      </video>
-                  </div>
-                  <img src='data/pub/diff.png' width="160">
-              </div>
-              <script type="text/javascript">
-                  function diff_start() {
-                    document.getElementById('diff_image').style.opacity = "1";
-                  }
+			<table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+		      <tr onmouseout="diff_stop()" onmouseover="diff_start()">
+		          <td style="padding:0px;width:25%;vertical-align:middle">
+		              <div class="one">
+		                  <div class="two" id='diff_image'>
+		                      <video width=100% height=100% muted autoplay loop>
+		                          <source src="data/pub/diff.png" type="video/mp4">
+		                          Your browser does not support the video tag.
+		                      </video>
+		                  </div>
+		                  <img src='data/pub/diff.png' width="160">
+		              </div>
+		              <script type="text/javascript">
+		                  function diff_start() {
+		                    document.getElementById('diff_image').style.opacity = "1";
+		                  }
 
-                  function diff_stop() {
-                    document.getElementById('diff_image').style.opacity = "0";
-                  }
-                  diff_stop()
+		                  function diff_stop() {
+		                    document.getElementById('diff_image').style.opacity = "0";
+		                  }
+		                  diff_stop()
 
-              </script>
-          </td>
-          <td style="padding:0px;width:75%;vertical-align:middle">
-              <a href="https://github.com/SciML/DiffEqFlux.jl">
-                  <papertitle>DiffEqFlux</papertitle>
-              </a>
-					</td>
-      </tr>
+		              </script>
+		          </td>
+		          <td style="padding:0px;width:75%;vertical-align:middle">
+		              <a href="https://github.com/SciML/DiffEqFlux.jl">
+		                  <papertitle>DiffEqFlux</papertitle>
+		              </a>
+							</td>
+		      </tr>
 
-      <tr onmouseout="sparse_stop()" onmouseover="sparse_start()">
-          <td style="padding:0px;width:25%;vertical-align:middle">
-              <div class="one">
-                  <div class="two" id='sparse_image'>
-                      <video width=100% height=100% muted autoplay loop>
-                          <source src="data/pub/sparse.png" type="video/mp4">
-                          Your browser does not support the video tag.
-                      </video>
-                  </div>
-                  <img src='data/pub/sparse.png' width="160">
-              </div>
-              <script type="text/javascript">
-                  function sparse_start() {
-                    document.getElementById('sparse_image').style.opacity = "1";
-                  }
+		      <tr onmouseout="sparse_stop()" onmouseover="sparse_start()">
+		          <td style="padding:0px;width:25%;vertical-align:middle">
+		              <div class="one">
+		                  <div class="two" id='sparse_image'>
+		                      <video width=100% height=100% muted autoplay loop>
+		                          <source src="data/pub/sparse.png" type="video/mp4">
+		                          Your browser does not support the video tag.
+		                      </video>
+		                  </div>
+		                  <img src='data/pub/sparse.png' width="160">
+		              </div>
+		              <script type="text/javascript">
+		                  function sparse_start() {
+		                    document.getElementById('sparse_image').style.opacity = "1";
+		                  }
 
-                  function sparse_stop() {
-                    document.getElementById('sparse_image').style.opacity = "0";
-                  }
-                  sparse_stop()
+		                  function sparse_stop() {
+		                    document.getElementById('sparse_image').style.opacity = "0";
+		                  }
+		                  sparse_stop()
 
-              </script>
-          </td>
-          <td style="padding:0px;width:75%;vertical-align:middle">
-              <a href="https://github.com/JuliaDiff/SparseDiffTools.jl">
-                  <papertitle>SparseDiffTools</papertitle>
-              </a>
-					</td>
-      </tr>
+		              </script>
+		          </td>
+		          <td style="padding:0px;width:75%;vertical-align:middle">
+		              <a href="https://github.com/JuliaDiff/SparseDiffTools.jl">
+		                  <papertitle>SparseDiffTools</papertitle>
+		              </a>
+							</td>
+		      </tr>
+			</tbody></table>
 
 			<h4>Less Significant Bits</h4>
 
@@ -195,8 +197,8 @@
       </tbody></table>
 
 			<h4>Services</h4>
+			<p><a href="data/pub/Poster.png">Poster</a> presentation at ACML2021</p>
 			<p>Volunteer at ADL2021 organized by CCF</p>
-			<p>Poster presentation at ACML2021</p>
 
      <!-- <div class="paper">
           <p class="title"><a href="" target="_blank"><b>This Is the Name of a Paper</b></a></i></p>
