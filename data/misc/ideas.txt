@@ -12,6 +12,8 @@ How do we combine geometric deep learning and reinforcement learning? Do we ask 
 
 What if Britain made the other decision on August 4th, 1914?
 
+If we know that forward diffusion (next state given previous state) is a bunch of small Gaussian steps, can we make the assumption that reverse (previous given next) is also Gaussian?
+
 
 
 Legit project ideas that I don't have time to do:
@@ -19,3 +21,4 @@ Legit project ideas that I don't have time to do:
 2. Both pruning at initialization and gradient activation maps have sanity check papers that are very worthy. Such is worthwhile effort in any direction of research where algorithms are most empirical. An example would be adversarial attacks and defense.
 3. Sanity check papers on initialization pruning have proved that SNIP, GraSP, and SynFlow all have the same shortcomings. Could there be a unified perspective of these algorithms (e.g. from a path analysis perspective) that explains the failure cases?
 4. "Neural Deep Equilibrium Solvers" is a well-appreciated paper in ICLR 2022. Maybe the same idea could be applied to other places where iteration takes a very long time, like DDPM
+5. Second order DEQs
