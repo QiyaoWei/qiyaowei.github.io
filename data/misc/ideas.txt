@@ -2,23 +2,22 @@ NeuralODE uses nets to parametrize an ODE. Gradient descent can be seen as an OD
 
 Can we expand the expressive power of DEQ by using PDE? If you use PDE where none of the variables are dependent then that’s like training an ensemble. If we use dependent variables then what will backprop look like?
 
-What would NTK-DEQs look like?
-
-NeuralODE can also be seen as an infinite-depth network as the integrator timesteps approach zero. How close is this resemblance? And what connection does it have with DEQs?
-
-Interesting to see learning theory or optimization applied to NeuralODE: Sample complexity? Generalization? Number of iterations? Model complexity?
-
 How do we combine geometric deep learning and reinforcement learning? Do we ask our algorithm to learn data-invariant value functions?
 
 What if Britain made the other decision on August 4th, 1914?
 
 If we know that forward diffusion (next state given previous state) is a bunch of small Gaussian steps, can we make the assumption that reverse (previous given next) is also Gaussian?
 
+Are Neural ODEs just weight-tied ResNets? If so, what does that inspire?
 
+Why does switching hypersolvers enforce continuity? Are there other ways to achieve that?
 
 Legit project ideas that I don't have time to do:
 1. I think it's interesting to prune BNNs, whether after training or at initialization, whether making weights deterministic or simply dropping them. It would make them run so much faster
 2. Both pruning at initialization and gradient activation maps have sanity check papers that are very worthy. Such is worthwhile effort in any direction of research where algorithms are most empirical. An example would be adversarial attacks and defense.
 3. Sanity check papers on initialization pruning have proved that SNIP, GraSP, and SynFlow all have the same shortcomings. Could there be a unified perspective of these algorithms (e.g. from a path analysis perspective) that explains the failure cases?
-4. "Neural Deep Equilibrium Solvers" is a well-appreciated paper in ICLR 2022. Maybe the same idea could be applied to other places where iteration takes a very long time, like DDPM
+4. "Neural Deep Equilibrium Solvers" is a well-appreciated paper in ICLR 2022. Maybe the same idea could be applied to other places where iteration takes a very long time, like DDPM or dopri5
 5. Second order DEQs
+6. If we incorporate time information in Neural ODEs, can we overcome the Markov property and model x -> -x?
+7. Interesting to see learning theory or optimization applied to NeuralODE: Sample complexity? Generalization? Number of iterations? Model complexity? Visualize loss landscapes?
+8. Is the end state of Neural ODE the same as DEQ?
