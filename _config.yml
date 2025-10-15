@@ -9,7 +9,7 @@ last_name: Zhang
 email: alzhang@princeton.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Alex Zhang's Website.
-footer_text: # footer test
+footer_text: # footer text
 keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🫡 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
