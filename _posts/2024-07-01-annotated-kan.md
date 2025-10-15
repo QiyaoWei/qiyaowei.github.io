@@ -933,7 +933,7 @@ We mostly adapt the network visualization code from the original repository. Whi
 def plot(model: KAN, folder="./figures", scale=0.5, title=None):
     """
     Function for plotting KANs and visualizing their activations adapted from
-    https://github.com/KindXiaoming/pykan/blob/master/kan/KAN.py#L561
+    the original pykan repository.
     """
     if not os.path.exists(folder):
         os.makedirs(folder)
