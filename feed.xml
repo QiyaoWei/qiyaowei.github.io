@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://qiyaowei.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://qiyaowei.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-10-15T18:08:56+00:00</updated><id>https://qiyaowei.github.io/feed.xml</id><title type="html">blank</title><subtitle>Alex Zhang&apos;s Website.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://qiyaowei.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://qiyaowei.github.io/" rel="alternate" type="text/html" hreflang="en" /><updated>2025-10-15T18:14:41+00:00</updated><id>https://qiyaowei.github.io/feed.xml</id><title type="html">blank</title><subtitle>Alex Zhang&apos;s Website.
 </subtitle><entry><title type="html">Recursive Language Models</title><link href="https://qiyaowei.github.io/blog/2025/rlm/" rel="alternate" type="text/html" title="Recursive Language Models" /><published>2025-10-15T00:00:00+00:00</published><updated>2025-10-15T00:00:00+00:00</updated><id>https://qiyaowei.github.io/blog/2025/rlm</id><content type="html" xml:base="https://qiyaowei.github.io/blog/2025/rlm/"><![CDATA[<h2 id="tldr">tl;dr</h2>
 
 <!-- We explore the use of language models (LMs) that **recursively call themselves or other LMs** before providing a final answer, enabling the processing of near infinite input and output context, as well as avoiding performance degradation of models at longer context lengths. In particular, we propose **Recursive Language Models**, or **RLM**s, a framework where language models can decompose and recursively interact with their input context. We look into a specific instantiation of this framework where GPT-5 is queried in a loop and has access to a Python REPL environment that stores its context in a variable. We demonstrate that an RLM using GPT-5-mini **outperforms** GPT-5 on a split of the challenging new long-context OOLONG <d-cite key="anonymous2025oolong"></d-cite> benchmark by more than **double** the number of correct answers, and is **cheaper** per query on average! On an offline retrieval task (BrowseComp-Plus <d-cite key="chen2025browsecompplusfairtransparentevaluation"></d-cite>), RLM using GPT-5 outperforms ReAct + BM25 and does not degrade in performance when given tens to thousands of documents (10M+ tokens) without the use of a retriever. We are excited to share these results, as well as argue why we believe RLMs are a powerful paradigm for current and future language model systems. -->
@@ -459,7 +459,7 @@ print(f"Average of {(OPS / time_taken \* (1e-9)):.4f} GLOPS")
     <td>84.69% <span style="color:green">&#x25B4;</span></td>
   </tr>
   <tr>
-    <td>ISI (<a href="https://ieeexplore.ieee.org/document/5995504">Fisher vectors</a>)</td>
+    <td>ISI (Fisher vectors)</td>
     <td>73.83%</td>
   </tr>
 </table>
@@ -811,7 +811,7 @@ $$
 <ol>
   <li>Kernel/device functions operate at the <strong>thread-level</strong>, so we have to specify per-thread behavior in our device functions. Variables defined are implicitly accessed through registers.</li>
   <li>We mentioned earlier that CUDA is SIMT — <strong>groups of threads called warps</strong> <strong>share the same instruction</strong> over different data (typically 32 threads per warp). Starting from the <a href="https://en.wikipedia.org/wiki/Volta_(microarchitecture)">Volta architecture</a>, threads actually have their own program counter and <a href="https://www.youtube.com/watch?v=jVzSBkbfdiw&amp;ab_channel=JacobSorber">call stack</a> and can call different instructions.</li>
-  <li>Kernels are launched in “grids” of “<a href="https://en.wikipedia.org/wiki/Thread_block_(CUDA_programming)">thread blocks</a>”; threads/warps in the <strong>same block can access <a href="https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/">shared fast SRAM memory</a></strong>, which is useful for communicating between threads in operations like <a href="https://www.mathworks.com/help/parallel-computing/stencil-operations-on-a-gpu.html">stencils</a> / <a href="https://ulhpc-tutorials.readthedocs.io/en/latest/cuda/exercises/convolution/">convolutions</a>.</li>
+  <li>Kernels are launched in “grids” of “thread blocks”; threads/warps in the <strong>same block can access <a href="https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/">shared fast SRAM memory</a></strong>, which is useful for communicating between threads in operations like <a href="https://www.mathworks.com/help/parallel-computing/stencil-operations-on-a-gpu.html">stencils</a> / <a href="https://ulhpc-tutorials.readthedocs.io/en/latest/cuda/exercises/convolution/">convolutions</a>.</li>
   <li>Each <strong>grid is independent</strong> (and run in parallel), and generally cannot communicate. For example, it is often convenient to launch an independent grid for each batch in the forward pass of a network.</li>
   <li>We <em>usually</em> <strong>launch kernels from the CPU/host</strong>. In PyTorch, it is implicit when we define our model code; in CUDA, it is using the triple bracket notation: <code class="language-plaintext highlighter-rouge">f&lt;&lt;&lt;&lt;a,b&gt;&gt;&gt;&gt;(**kwargs)</code>, where <code class="language-plaintext highlighter-rouge">a</code> is the number of grids, and <code class="language-plaintext highlighter-rouge">b</code> is the number of thread blocks per grid. The hardware is responsible for scheduling these threads on the relevant devices to maximize device usage, or “<a href="https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm">occupancy</a>”.</li>
 </ol>
@@ -1623,7 +1623,7 @@ $$
 
 <hr style="margin-bottom: 20px;margin-top: 20px" />
 
-<p><strong><a href="https://github.com/ggerganov/llama.cpp">llama.cpp (Gerganov, 2022)</a></strong>. One of the coolest solo projects by <a href="https://github.com/ggerganov">Georgi Gerganov</a> is a pure C++ implementation of the <a href="https://en.wikipedia.org/wiki/Llama_(language_model)">LLaMA family</a> that optimizes for non-GPU devices (it now supports GPUs). It has since become a standard tool for running model inference on a variety of language models, and is extremely simple to use with its CLI. The downside is that adapting this code for custom LLMs is difficult without a strong understanding of the underlying implementation.</p>
+<p><strong><a href="https://github.com/ggerganov/llama.cpp">llama.cpp (Gerganov, 2022)</a></strong>. One of the coolest solo projects by <a href="https://github.com/ggerganov">Georgi Gerganov</a> is a pure C++ implementation of the LLaMA family that optimizes for non-GPU devices (it now supports GPUs). It has since become a standard tool for running model inference on a variety of language models, and is extremely simple to use with its CLI. The downside is that adapting this code for custom LLMs is difficult without a strong understanding of the underlying implementation.</p>
 
 <hr style="margin-bottom: 20px;margin-top: 20px" />
 
@@ -1877,7 +1877,7 @@ Andrej Karpathy’s super efficient implementation of GPT-2 (124M parameters) ca
   <li><strong>[2023] Deep Learning Accelerators</strong>: <a href="https://arxiv.org/abs/2306.15552">https://arxiv.org/abs/2306.15552</a>.</li>
   <li><strong>[2023] Deep Learning Pruning</strong>: <a href="https://arxiv.org/abs/2308.06767">https://arxiv.org/abs/2308.06767</a>.</li>
   <li><strong>[2023] Efficient Large Language Models: A Survey</strong>: <a href="https://arxiv.org/abs/2312.03863">https://arxiv.org/abs/2312.03863</a>.</li>
-  <li><strong>[2023]</strong> <strong>Survey on TinyML</strong>: https://ieeexplore.ieee.org/document/10177729.</li>
+  <li><strong>[2023]</strong> <strong>Survey on TinyML</strong>.</li>
   <li><strong>Lil’log.</strong> (<a href="https://lilianweng.github.io/posts/2020-08-06-nas/">https://lilianweng.github.io</a>/). Just the absolute GOAT with lots of topics on deep learning in general.</li>
 </ul>
 
@@ -3441,7 +3441,7 @@ curious reader wants to know at the bottom of this post.</p>
 
 <figure>
     <img src="/assets/img/neurips2023.png" width="400" alt="Visualization of NeurIPS 2023" />
-    <figcaption>Visualization generated from <a href="https://neurips2023.vizhub.ai/?ref=blog.roboflow.com&amp;brushed=%255B%255B14.600000381469727%252C-10%255D%252C%255B798.7249755859375%252C796.664306640625%255D%255D">here.</a></figcaption>
+    <figcaption>Visualization generated from <a href="#">here.</a></figcaption>
 </figure>
 
 <p>2023 was a great year for AI (generative models especially), and the number of submissions to
