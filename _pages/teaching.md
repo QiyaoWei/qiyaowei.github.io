@@ -10,6 +10,7 @@ nav_order: 5
 <h3>school</h3>
 
 \> graduated <i>summa cum laude (highest honors)</i> from princeton university 🐅 with a degree in cs.
+
 <ul>
 <li> <b>Phillip Goldman '86 Senior Prize in Computer Science</b>: Princeton CS department's highest academic honor awarded to a single student (1/216). <a href="https://www.cs.princeton.edu/news/class-day-department-celebrates-accomplishments-graduates">[newsletter]</a> </li>
 <li> <b>Outstanding Senior Thesis Prize</b>: for work on <a href="https://dataspace.princeton.edu/handle/88435/dsp014j03d301r">augmenting decision-making agents with language capabilities. </a> </li>

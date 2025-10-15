@@ -24,73 +24,73 @@ bibliography: efficientdl2024.bib
 toc:
   - name: Part I. The Beginning (1980s - 2011)
   - subsections:
-    - name: I1. Existing Fast Linear Algebra Methods
-    - name: I2. Compute Unified Device Architecture (CUDA), 2006
+      - name: I1. Existing Fast Linear Algebra Methods
+      - name: I2. Compute Unified Device Architecture (CUDA), 2006
   - name: Part II. Oh s*** — Deep learning works! (2012 - 2020)
   - name: Part II1. The first breakthrough on images!
   - name: Part II2. Deep learning frameworks emerge
   - name: Part II3. New deep learning architectures emerge
   - name: Part II4. Efficient convergence. Inductive biases and architectural choices
   - subsections:
-    - name: II4a. Inductive biases that lead to better convergence behavior
-    - name: II4b. Searching the space of solutions (meta-optimization)
+      - name: II4a. Inductive biases that lead to better convergence behavior
+      - name: II4b. Searching the space of solutions (meta-optimization)
   - name: Part II5. Efficient convergence. Optimizers
   - name: Part II6. Pause. How much of this scale is really necessary
   - subsections:
-    - name: II6a. Model Pruning
-    - name: II6b. Embedding Pruning or Hashing
-    - name: II6c. Quantization
-    - name: II6d. The Grandfather of Efficient ML and TinyML
+      - name: II6a. Model Pruning
+      - name: II6b. Embedding Pruning or Hashing
+      - name: II6c. Quantization
+      - name: II6d. The Grandfather of Efficient ML and TinyML
   - name: IIx. Hardware
   - subsections:
-    - name: IIx1. NVIDIA GPUs from Tesla (2006) to Ampere (2020)
-    - name: IIx2. Googles Tensor Processing Units (TPUs)
-    - name: IIx3. Potpourri of other interesting hardware
+      - name: IIx1. NVIDIA GPUs from Tesla (2006) to Ampere (2020)
+      - name: IIx2. Googles Tensor Processing Units (TPUs)
+      - name: IIx3. Potpourri of other interesting hardware
   - name: Part III. The Era of Scale till we Fail (2020 - Now)
   - name: Part III0. Lets talk about the H100 GPU
   - name: Part III1. The Era of Scale (on a single GPU)
   - subsections:
-    - name: III10. Early insights
-    - name: III1a. Shaving complexity through Approximate Methods
-    - name: III1b. Architecture Design
-    - name: III1c. Fine-tuning Large Models Efficiently
-    - name: III1d. Fused kernels and the GPGPU
-    - name: III1e. Deep Learning Compilers
+      - name: III10. Early insights
+      - name: III1a. Shaving complexity through Approximate Methods
+      - name: III1b. Architecture Design
+      - name: III1c. Fine-tuning Large Models Efficiently
+      - name: III1d. Fused kernels and the GPGPU
+      - name: III1e. Deep Learning Compilers
   - name: Part III2. The Era of Scale (distributed version)
   - subsections:
-    - name: III2a. Data parallelism 
-    - name: III2b. Model parallelism
-    - name: III2c. Pipeline parallelism
-    - name: III2d. Architecture-specific Parallelism
-    - name: III2e. Multi-node distributed training
-    - name: III2f. Libraries for distributed deep learning workloads
+      - name: III2a. Data parallelism
+      - name: III2b. Model parallelism
+      - name: III2c. Pipeline parallelism
+      - name: III2d. Architecture-specific Parallelism
+      - name: III2e. Multi-node distributed training
+      - name: III2f. Libraries for distributed deep learning workloads
   - name: Part III3. Scaling Laws
   - name: Part III4. Revisiting downwards scaling
   - subsections:
-    - name: III4a. Small Language Models (SLMs)
-    - name: III4b. Modern quantization techniques
-    - name: III4c. Sparse Parameters
+      - name: III4a. Small Language Models (SLMs)
+      - name: III4b. Modern quantization techniques
+      - name: III4c. Sparse Parameters
   - name: Part III5. What about model inference?
   - subsections:
-    - name: III5a. Generative model serving
-    - name: III5b. Fast decoding strategies
+      - name: III5a. Generative model serving
+      - name: III5b. Fast decoding strategies
   - name: Part N. Modern Day and Beyond
   - subsections:
-    - name: N1. What’s up with these superclusters?
-    - name: N2. How much bigger are industry resources than academia?
-    - name: N3. How fast can we train old models with modern techniques?
-    - name: N4. Recent efforts to scale hybrid or non-Transformer.
-    - name: N5. Model efficiency Benchmarks
-    - name: N6. Startups in the Efficient Deep Learning Space
+      - name: N1. What’s up with these superclusters?
+      - name: N2. How much bigger are industry resources than academia?
+      - name: N3. How fast can we train old models with modern techniques?
+      - name: N4. Recent efforts to scale hybrid or non-Transformer.
+      - name: N5. Model efficiency Benchmarks
+      - name: N6. Startups in the Efficient Deep Learning Space
   - name: Resources
   - subsections:
-    - name: A1. Where to access “free” GPUs? 
-    - name: A2. Large training and finetuning frameworks.
-    - name: A3. Model compression frameworks.
-    - name: A4. Profiling Tools.
-    - name: A5. “From scratch”-style tutorials.
-    - name: A6. Designing deep learning clusters and network topology.
-    - name: A7. Useful surveys on efficiency.
+      - name: A1. Where to access “free” GPUs?
+      - name: A2. Large training and finetuning frameworks.
+      - name: A3. Model compression frameworks.
+      - name: A4. Profiling Tools.
+      - name: A5. “From scratch”-style tutorials.
+      - name: A6. Designing deep learning clusters and network topology.
+      - name: A7. Useful surveys on efficiency.
   - name: Acknowledgements
 
 # Below is an example of injecting additional post-specific styles.
@@ -125,22 +125,23 @@ _styles: >
     margin-top: 10px;
     margin-bottom: 10px;
   }
-
 ---
-*This post offers a comprehensive and chronological guide to advances in deep learning from the perspective of efficiency: things like clusters, individual hardware, deep learning libraries, compilers — even architectural changes. This post is not a survey paper, and is intended to provide the reader with broader intuition about this field —  it would be impossible to include every little detail that has emerged throughout the last 40 years. The posted X thread [https://x.com/a1zhang/status/1851963904491950132](https://x.com/a1zhang/status/1851963904491950132) also has a very high-level summary of what to expect!*
 
-**Preface.** The field of deep learning has flourished in the past decade to the point where it is hard as both a researcher and a student to keep track of what is going on. Sometimes, I even find it hard to keep track of the **actual** direction of the field. In a field that often feels hand-wavy and where many methods and results feel lackluster in practice, I wanted to at least get a sense for progress in how we got to where we are now. 
+_This post offers a comprehensive and chronological guide to advances in deep learning from the perspective of efficiency: things like clusters, individual hardware, deep learning libraries, compilers — even architectural changes. This post is not a survey paper, and is intended to provide the reader with broader intuition about this field — it would be impossible to include every little detail that has emerged throughout the last 40 years. The posted X thread [https://x.com/a1zhang/status/1851963904491950132](https://x.com/a1zhang/status/1851963904491950132) also has a very high-level summary of what to expect!_
+
+**Preface.** The field of deep learning has flourished in the past decade to the point where it is hard as both a researcher and a student to keep track of what is going on. Sometimes, I even find it hard to keep track of the **actual** direction of the field. In a field that often feels hand-wavy and where many methods and results feel lackluster in practice, I wanted to at least get a sense for progress in how we got to where we are now.
 
 I wanted to write this post in a narrative form — to 1) be digestible to the reader rather than an information dump, and 2) allow the reader to view the field from a macroscopic lens and understand why the field moved the way it did. I have tried to be as paper-focused as possible (similar to [Lilian Weng style blogs](https://lilianweng.github.io/)!) and include as many landmark (or just cool) works as I saw fit; if the reader feels something should be included or edited, please let me know<d-footnote>I really hope all of the information is correct and I’ve tried to make sure of it as much as possible, but it is possible I’ve made errors! If you find any, feel free to shoot me an email and let me know! I’m quite a young person, so I was probably playing Minecraft hypixel when some of these breakthroughs happened. Finally, I always recommend reading the original paper when you want to understand something in more depth. There’s no way for me to fit all of the information about every work here (especially the math), so if you’re ever confused and care enough to know the details, I’ve included both citations and a direct link to every mentioned work.</d-footnote>! Before we begin, let me just list out some relevant numbers to give us a bit of appreciation for all of the advances to come. I’ve also added some notes for folks who aren’t familiar with what these numbers really mean.
 
-* NVIDIA’s newest **[Blackwell B200 GPU](https://www.anandtech.com/show/21310/nvidia-blackwell-architecture-and-b200b100-accelerators-announced-going-bigger-with-smaller-data)** is estimated to cost 30k - 40k USD.
-    * For FP8<d-footnote>Recent NVIDIA hardware includes specialized “tensor cores” that can compute matrix multiplication on 8-bit floating point numbers really fast.</d-footnote>, it can achieve up to ~4500 TeraFLOPS<d-footnote>FLOPS means floating-point operations per second, which is a metric for roughly how fast a processor or algorithm is because most operations in deep learning are over floating point numbers.</d-footnote>, which is absolutely insane!
-    * It features 192GB of high-bandwidth memory / DRAM, which is the main GPU memory.
-* **[Llama 3.1 405B](https://ai.meta.com/blog/meta-llama-3-1/)**, Meta’s latest open-source language model is **405B parameters** (~800GB).
-    * It was trained on a whopping **16k NVIDIA H100s** (sitting on their 24k GPU cluster)
-    * It's training dataset was **15 trillion tokens**.
+- NVIDIA’s newest **[Blackwell B200 GPU](https://www.anandtech.com/show/21310/nvidia-blackwell-architecture-and-b200b100-accelerators-announced-going-bigger-with-smaller-data)** is estimated to cost 30k - 40k USD.
+  - For FP8<d-footnote>Recent NVIDIA hardware includes specialized “tensor cores” that can compute matrix multiplication on 8-bit floating point numbers really fast.</d-footnote>, it can achieve up to ~4500 TeraFLOPS<d-footnote>FLOPS means floating-point operations per second, which is a metric for roughly how fast a processor or algorithm is because most operations in deep learning are over floating point numbers.</d-footnote>, which is absolutely insane!
+  - It features 192GB of high-bandwidth memory / DRAM, which is the main GPU memory.
+- **[Llama 3.1 405B](https://ai.meta.com/blog/meta-llama-3-1/)**, Meta’s latest open-source language model is **405B parameters** (~800GB).
+  - It was trained on a whopping **16k NVIDIA H100s** (sitting on their 24k GPU cluster)
+  - It's training dataset was **15 trillion tokens**.
 
 ## Part I. The Beginning (1980s-2011)
+
 The true beginning of deep learning is [hotly contested](https://people.idsia.ch/~juergen/deep-learning-history.html), but I, somewhat arbitrarily, thought it was best to begin with the first usage of backpropagation for deep learning: Yann Lecun’s CNN on a handwritten digits dataset in 1989<d-cite key="6795724"></d-cite>.
 
 <figure>
@@ -150,18 +151,19 @@ The true beginning of deep learning is [hotly contested](https://people.idsia.ch
 </center>
 </figure>
 
-**[Backpropagation Applied to Handwritten Zip Code Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf) (Lecun, 1989<d-cite key="6795724"></d-cite>)**. 
+**[Backpropagation Applied to Handwritten Zip Code Recognition](http://yann.lecun.com/exdb/publis/pdf/lecun-89e.pdf) (Lecun, 1989<d-cite key="6795724"></d-cite>)**.
 It is remarkable how simple this setup is: given a training dataset of 7291 normalized 16x16 images of handwritten digits, they train a 2-layer convolutional network with 12 5x5 learnable kernels, followed by a final projection to 10 logits. They train for **23 epochs (~3 days)**, and approximate the Hessian in Newton’s method to perform weight updates. Without an autodifferentiation engine, they had to write their own backpropagation simulator to compute the relevant derivatives. Finally, these experiments were run on a [SUN-4/260](https://en.m.wikipedia.org/wiki/Sun-4) work station, which is a single-core machine running at **16.67 MHz and 128MB of RAM**.<d-footnote>For reference, a Macbook nowadays will have ~2-3 GHz and 16GB of RAM!</d-footnote>
 
 Andrej Karpathy has a [wonderful blog](https://iclr-blog-track.github.io/2022/03/26/lecun1989/) that attempts to reproduce this paper on modern deep learning libraries with some extra numbers for reference:
-* The original model contains roughly **9760 learnable parameters, 64K MACs**<d-footnote>MAC stands for multiplication-accumulate, which is a common metric for GPUs because they have fused multiply-and-adder instructions for common linear algebra operations</d-footnote>, and **1K activations** in one forward pass.
-* On his Macbook M1 CPU, he trains a roughly equivalent setup in **90 seconds** — it goes to show how far the field has progressed!
+
+- The original model contains roughly **9760 learnable parameters, 64K MACs**<d-footnote>MAC stands for multiplication-accumulate, which is a common metric for GPUs because they have fused multiply-and-adder instructions for common linear algebra operations</d-footnote>, and **1K activations** in one forward pass.
+- On his Macbook M1 CPU, he trains a roughly equivalent setup in **90 seconds** — it goes to show how far the field has progressed!
 
 Some other notable works at the time were the **Long Short-Term Memory (1997)<d-cite key="10.1162/neco.1997.9.8.1735"></d-cite>**, **Deep Belief Networks (2006)<d-cite key="10.1162/neco.2006.18.7.1527"></d-cite>**, and **Restricted Boltsmann Machines (2007)<d-cite key="10.1145/1273496.1273596"></d-cite>**, but I couldn’t really find the hardware, software library, or even programming language used to develop these methods (most likely Lisp / CUDA C++). Furthermore, these methods were more concerned with training stability (e.g. vanishing gradient problem<d-cite key="doi:10.1142/S0218488598000094"></d-cite>) and proving that these methods could converge on non-trivial tasks, so I can only assume “scale” was not really a concern here.
 
 ### I.1. Existing Fast Linear Algebra Methods
-The introduction of the graphics processors in the late 20th century did not immediately accelerate progress in the deep learning community. While we know GPUs and other parallel processors as the primary workhorse of modern deep learning applications, they were originally designed for efficiently rendering polygons and textures in 3D games — for example, if you look at the design of the [NVIDIA GeForce 256 (1999)](https://en.wikipedia.org/wiki/GeForce_256), you’ll notice a distinct lack of modern components like shared memory<d-footnote>Not to be confused with shared memory in the OS setting, I think this naming convention is bad. Shared memory on an NVIDIA GPU is a low-latency cache / SRAM that can be accessed among threads in a threadblock. It is typically used to quickly communicate between threads.</d-footnote> and tensor cores that are critical for modern deep learning workloads.
 
+The introduction of the graphics processors in the late 20th century did not immediately accelerate progress in the deep learning community. While we know GPUs and other parallel processors as the primary workhorse of modern deep learning applications, they were originally designed for efficiently rendering polygons and textures in 3D games — for example, if you look at the design of the [NVIDIA GeForce 256 (1999)](https://en.wikipedia.org/wiki/GeForce_256), you’ll notice a distinct lack of modern components like shared memory<d-footnote>Not to be confused with shared memory in the OS setting, I think this naming convention is bad. Shared memory on an NVIDIA GPU is a low-latency cache / SRAM that can be accessed among threads in a threadblock. It is typically used to quickly communicate between threads.</d-footnote> and tensor cores that are critical for modern deep learning workloads.
 
 **Programming a GPU in the 2000s.** By this point the CUDA ecosystem had not matured, so the [common method for hacking GPUs](https://www.nextplatform.com/2015/10/28/inside-the-programming-evolution-of-gpu-computing/) for general purpose applications was to configure **DirectX** or **OpenGL**, the popular graphics APIs at the time, to perform some rendering operation that involved say a matrix multiplication.<d-footnote>To corroborate the anecdote above, I had heard that this was true in a talk at Princeton given by Turing award winner Patrick Hanrahan.</d-footnote>
 
@@ -173,6 +175,7 @@ The introduction of the graphics processors in the late 20th century did not imm
 </figure>
 
 **Linear Algebra on a CPU.** During this time, a suite of libraries had emerged in parallel for computing and solving common linear algebra paradigms like matrix multiplication, vector addition, dot products, etc. Many of these libraries used or were built off of the **BLAS (Basic Linear Algebra Subprograms)** specification with bindings for C and Fortran. BLAS divides its routines into three levels, mainly based on their runtime complexity (e.g. level 2 contains matrix-vector operations, which are quadratic with respect to the dimension). On CPUs, these libraries take advantage of **SIMD / vectorization**<d-footnote>Modern CPUs allow for processing multiple elements with a single instruction, enabling a form of parallelization. Hardware components like vector registers (see https://cvw.cac.cornell.edu/vector/hardware/registers) also enable this behavior.</d-footnote>, **smart caching**, and **multi-threading** to maximize throughput. It is also pretty well known that MATLAB, NumPy, and SciPy were popular language / libraries used for these tasks, which essentially used BLAS primitives under the hood. Below were some commonly used libraries:
+
 1. **LAPACK (1992)**: The **L**inear **A**lgebra **Pack**age provides implementations of common linear algebra solvers like eigendecomposition and linear least squares.
 2. **Intel MKL (1994)**: The Intel Math Kernel Library is a closed-source library for performing BLAS (now other) operations on x86 CPUs.
 3. **OpenBLAS (2011)**: An open-source version of Intel MKL with similar, but worse, performance on most Intel instruction-set architectures (ISAs).
@@ -184,7 +187,7 @@ import numpy as np
 import time
 
 SZ = 2048
-OPS = SZ * SZ * (2 * SZ - 1)
+OPS = SZ _ SZ _ (2 \* SZ - 1)
 matrix_a = np.random.rand(SZ, SZ).astype(np.float32)
 matrix_b = np.random.rand(SZ, SZ).astype(np.float32)
 
@@ -193,14 +196,16 @@ result = np.dot(matrix_a, matrix_b)
 end_time = time.time()
 
 time_taken = end_time - start_time
-print(f"Average of {(OPS / time_taken * (1e-9)):.4f} GLOPS")
+print(f"Average of {(OPS / time_taken \* (1e-9)):.4f} GLOPS")
 </d-code>
+
 ```
 > Average of 361.4851 GFLOPS
 ```
 
 ### I.2. Compute Unified Device Architecture (CUDA), 2006
-*I really like this [post by Fabien Sanglard](https://fabiensanglard.net/cuda/), which explains the history and motivating design patterns of CUDA and NVIDIA GPUs starting from the Tesla architecture over the years.*
+
+_I really like this [post by Fabien Sanglard](https://fabiensanglard.net/cuda/), which explains the history and motivating design patterns of CUDA and NVIDIA GPUs starting from the Tesla architecture over the years._
 
 <figure>
 <center>
@@ -214,13 +219,15 @@ CUDA was originally designed to enable parallel programmers to work with GPUs wi
 Nowadays, [CUDA has evolved beyond just a C API to include several NVIDIA-supported libraries](https://en.wikipedia.org/wiki/CUDA#Programming_abilities) for various workloads. Many recent changes target maximizing **tensor core** usage, which are specialized cores for fast **generalized matrix multiplication (GEMM)** in a single cycle. If what I’m saying makes no sense, don’t worry — I will talk more extensively about tensor cores and roughly how CUDA is used with NVIDIA GPUs in the next section.
 
 Some notable libraries that I’ve used in practice are:
+
 - **cuBLAS** (Introduced in **CUDA 8.0**): The CUDA API for BLAS primitives.
 - **cuDNN**: The CUDA API for standard deep learning operations (e.g. softmax, activation functions, convolutions, etc.).
 - **CUTLASS** (Introduced in **CUDA 9.0**): A template abstraction ([CuTe layouts](https://github.com/NVIDIA/cutlass/blob/main/media/docs/cute/01_layout.md)) for implementing GEMM for your own kernels — doesn’t have the large overhead of CuBLAS/CuDNN, which supports a wide variety of operations.
 - **cuSPARSE** (Introduced in **CUDA 8.0**): Efficient linear algebra operations on different kinds of sparse storage formats like [coordinate format (COO)](https://docs.nvidia.com/nvpl/_static/sparse/storage_format/sparse_matrix.html#coordinate-coo) and [compressed sparse row (CSR)](https://docs.nvidia.com/nvpl/_static/sparse/storage_format/sparse_matrix.html#compressed-sparse-row-csr).
 
-## Part II: Oh s***— Deep learning works! (2012-2020)
-*Although this section roughly covers the 2010s, many modern methods were derived from works during this time, so you may find some newer techniques mentioned in this section because it felt more natural.*
+## Part II: Oh s\*\*\*— Deep learning works! (2012-2020)
+
+_Although this section roughly covers the 2010s, many modern methods were derived from works during this time, so you may find some newer techniques mentioned in this section because it felt more natural._
 
 While classical techniques in machine learning and statistics (e.g. [SVM](https://www.ibm.com/topics/support-vector-machine#:~:text=What%20are%20SVMs%3F,in%20an%20N%2Ddimensional%20space.), [boosting](https://towardsdatascience.com/boosting-algorithms-explained-d38f56ef3f30), [tree-based methods](https://www.coursera.org/articles/decision-tree-machine-learning), [kernel-based methods](https://people.eecs.berkeley.edu/~jordan/kernels/0521813972c02_p25-46.pdf)) had been showing promise in a variety of fields such as data science, a lot of people initially did not believe in deep learning. There were definitely people working in the field by the [early 2010s](https://www.reddit.com/r/MachineLearning/comments/hoo6m8/d_ml_oldtimers_when_did_deep_learning_really_take/?captcha=1), but the pre-dominant experiments were considered more “proof-of-concept”. At the time, classical techniques in fields like computer vision (e.g. [SIFT](https://www.cs.princeton.edu/courses/archive/fall17/cos429/notes/cos429_fall2017_lecture4_interest_points.pdf) features, [edge detectors](https://www.cs.princeton.edu/courses/archive/fall11/cos429/notes/cos429_f11_lecture03_filtering.pdf)) and machine translation were thought to be considerably better than any deep-learning methods. That is, **until 2012, when team SuperVision dominated every other carefully crafted computer vision technique by an absurd margin**.
 
@@ -260,8 +267,9 @@ While classical techniques in machine learning and statistics (e.g. [SVM](https:
 </figure>
 
 **[AlexNet](https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html) (Krizhevsky et al., 2012<d-cite key="10.5555/2999134.2999257"></d-cite>)**. AlexNet was one of the first deep convolution networks to be successfully trained on a GPU. The model itself is tiny by today’s standards, but at the time it was far larger than anything that could be trained on a CPU. AlexNet was an **8-layer, 60M parameter** model trained on 2 **[GTX580 GPUs](https://www.techpowerup.com/gpu-specs/geforce-gtx-580.c270) with 3GB of RAM** for ~5-6 days. It also featured some important design choices like [ReLU](https://machinelearningmastery.com/rectified-linear-activation-function-for-deep-learning-neural-networks/) activations and [dropout](https://arxiv.org/abs/1207.0580) that are still common in modern neural networks.
-* The original source code in CUDA C++ can be found on [Google Code Archive](https://code.google.com/archive/p/cuda-convnet/).
-* I came across this [GitHub repository by user `albanie`](https://github.com/albanie/convnet-burden) that estimates the throughput of AlexNet’s forward pass to be **~700 MFLOPS**, but I’m not sure where they got this runtime estimate from or what hardware it was run on. Regardless, it is most likely an upper-bound for the actual performance.
+
+- The original source code in CUDA C++ can be found on [Google Code Archive](https://code.google.com/archive/p/cuda-convnet/).
+- I came across this [GitHub repository by user `albanie`](https://github.com/albanie/convnet-burden) that estimates the throughput of AlexNet’s forward pass to be **~700 MFLOPS**, but I’m not sure where they got this runtime estimate from or what hardware it was run on. Regardless, it is most likely an upper-bound for the actual performance.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 **[DanNet](https://arxiv.org/abs/1202.2745) (Cireşan, 2011<d-cite key="cireşan2012multicolumndeepneuralnetworks"></d-cite>)**. DanNet was an earlier work by Dan Cireșan in Jürgen Schmidhuber’s lab that similarly implemented a deep convolutional network on GPUs to accelerate training on a variety of tasks. The method itself achieved [great performance](https://people.idsia.ch/~juergen/DanNet-triggers-deep-CNN-revolution-2011.html) on a variety of image-based benchmarks, but unfortunately the work is often overshadowed by AlexNet and its success on ImageNet.<d-footnote>I want to return to this paper because, while they don’t include the actual hardware used, they mention all the architectural components and dataset details to estimate the efficiency of their approach.</d-footnote>
@@ -271,7 +279,8 @@ While classical techniques in machine learning and statistics (e.g. [SVM](https:
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### Part II.2: Deep learning frameworks emerge
-So it’s 2012, and Alex Krizhevsky, a GPU wizard, has proven that we can successfully use deep learning to blow out the competition on a serious task. As a community, the obvious next step is to build out the infrastructure for deep learning applications so *you don’t need to be a GPU wizard to use these tools*.
+
+So it’s 2012, and Alex Krizhevsky, a GPU wizard, has proven that we can successfully use deep learning to blow out the competition on a serious task. As a community, the obvious next step is to build out the infrastructure for deep learning applications so _you don’t need to be a GPU wizard to use these tools_.
 
 <figure>
 <center>
@@ -282,12 +291,11 @@ So it’s 2012, and Alex Krizhevsky, a GPU wizard, has proven that we can succes
 
 **[Theano](https://arxiv.org/pdf/1211.5590) (2012)**<d-footnote>From what I’m aware of, this library came out earlier, but a lot of the core deep learning features did not come out until 2012.</d-footnote>. Theano was an open-source linear algebra compiler developed by the MILA group at Université de Montréal for Python, and it mainly handled optimizing symbolic tensor expressions under the hood. It also handled multi-GPU setups (e.g. data parallelism) without much effort, making it particularly useful for the new wave of deep learning. Personally, I found it quite unintuitive to use by itself, and nowadays it is used as a backend for Keras.
 
-
 **[Caffe](https://caffe.berkeleyvision.org/) (2013)**. Developed at UC Berkeley, Caffe was an older, high-performance library for developing neural networks in C/C++. Models are defined in configuration files, and the focus on performance allowed developers to easily deploy on low-cost machines like edge devices and mobile. Eventually, a lot of features in Caffe/Caffe2 were merged into PyTorch, and by this point it’s rarely directly used.
 
 **[TensorFlow v1](https://www.tensorflow.org/api_docs/python/tf/compat/v1) (2015)**. Google’s deep learning library targeted Python applications, and felt far more flexible far dealing with the annoying quirks of tensors<d-footnote>Try dealing with tensors in C++ and you’ll quickly see what I mean.</d-footnote>. Like its predecessors, TensorFlow v1 also favored a “graph execution” workflow, meaning the developer had to define a computational graph of their models statically so it could be compiled for training / inference. For performance sake, this is obviously a good thing, but it also meant these frameworks were difficult to debug and hard to get used to.
 
-**[Torch](https://en.wikipedia.org/wiki/Torch_(machine_learning)) (2002) —> [PyTorch](https://pytorch.org/) (2016)**. Torch was originally a linear algebra library for Lua, but eventually it evolved into an “eager execution”-based<d-footnote>The core idea behind eager execution is to execute the model code imperatively. This design paradigm makes the code a lot easier to debug and follow, and is far more “Pythonic” in nature, making it friendly for developers to quickly iterate on their models.</d-footnote> deep learning library for Python. PyTorch is maintained as an open-source software, and is arguably the most popular framework used in deep learning research. It used to be the case that you had to touch TorchScript to make PyTorch code production-level fast, but recent additions like torch.compile(), TorchServe, and ONNX<d-footnote>ONNX was a standard developed jointly by Meta and Microsoft to allow models to be cross-compatible with different frameworks. ONNX is now useful for converting your PyTorch models into other frameworks like Tensorflow for serving. </d-footnote> have made PyTorch more widely used in production code as well.
+**[Torch](<https://en.wikipedia.org/wiki/Torch_(machine_learning)>) (2002) —> [PyTorch](https://pytorch.org/) (2016)**. Torch was originally a linear algebra library for Lua, but eventually it evolved into an “eager execution”-based<d-footnote>The core idea behind eager execution is to execute the model code imperatively. This design paradigm makes the code a lot easier to debug and follow, and is far more “Pythonic” in nature, making it friendly for developers to quickly iterate on their models.</d-footnote> deep learning library for Python. PyTorch is maintained as an open-source software, and is arguably the most popular framework used in deep learning research. It used to be the case that you had to touch TorchScript to make PyTorch code production-level fast, but recent additions like torch.compile(), TorchServe, and ONNX<d-footnote>ONNX was a standard developed jointly by Meta and Microsoft to allow models to be cross-compatible with different frameworks. ONNX is now useful for converting your PyTorch models into other frameworks like Tensorflow for serving. </d-footnote> have made PyTorch more widely used in production code as well.
 
 **[TensorFlow v2](https://www.tensorflow.org/tutorials/quickstart/beginner) (2019) & [Keras](https://keras.io/) (2015)**. Keras was developed independently by François Chollet, and like PyTorch, it was designed to be intuitive for developers to define and train their models in a modular way. Eventually, Keras merged into TensorFlow, and TensorFlow 2 was released to enable eager execution development in TensorFlow. TensorFlow 2 has a lot of design differences than PyTorch, but I find it relatively easy to use one after you’ve learned the other.
 
@@ -298,10 +306,10 @@ By this point, we’ve set the stage for deep learning to flourish — framework
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### Part II.3: New deep learning architectures emerge
-*Here is where the focus of the field begins to diverge into applying these networks to different domains. For the sake of brevity, I am going to assume the reader is familiar with all of these works, so I will very loosely gloss over what they are. **Feel free to skip this section**.*
+
+_Here is where the focus of the field begins to diverge into applying these networks to different domains. For the sake of brevity, I am going to assume the reader is familiar with all of these works, so I will very loosely gloss over what they are. **Feel free to skip this section**._
 
 **Recurrent Networks ([1980s - 1990s ish](https://ai.stackexchange.com/questions/8190/where-can-i-find-the-original-paper-that-introduced-rnns))**. Recurrent neural networks (RNNs) were popular at the nascent period of deep learning, with methods like [GRU](https://en.wikipedia.org/wiki/Gated_recurrent_unit) and [LSTM](https://en.wikipedia.org/wiki/Long_short-term_memory) being used in many time-series and language tasks. Their sequential nature made them hard to scale on parallel processors, making them somewhat obscure for a long time after. More recently, recurrent networks have been re-popularized in the form of state-space models (SSMs) for linear dynamical systems. Early versions of these SSMs used the [linear-time-invariance (LTI)](https://en.wikipedia.org/wiki/Linear_time-invariant_system) assumption to rewrite [sequential computations as a convolution](https://hazyresearch.stanford.edu/blog/2023-02-15-long-convs) <d-cite key="gu2022efficientlymodelinglongsequences"></d-cite> at the cost of flexibility. Recent works<d-cite key="gu2024mambalineartimesequencemodeling"></d-cite> have removed these assumptions through efficient hardware implementations of critical algorithms like the [Fast Fourier Transform](https://en.wikipedia.org/wiki/Fast_Fourier_transform).
-
 
 **Convolutional Neural Networks (CNN)**. CNNs were there from the beginning, and they still remain popular in the computer vision domain. The main component is the convolutional layer, which contains learnable “kernels”<d-footnote>Kernel is an annoyingly overloaded term. In this case, it just means a small matrix that is convolved around an input.</d-footnote> that are applied through a convolution operation on an N-dimensional input. Convolutional layers are nice because the learned kernels are often somewhat interpretable, and they have built in invariants that work well for learning spatial structure.
 
@@ -318,11 +326,13 @@ By this point, we’ve set the stage for deep learning to flourish — framework
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### Part II.4: Efficient convergence. Inductive biases and architectural choices
+
 A natural question any researcher has when first exploring a domain is whether the existing mechanisms and algorithms are optimal. It was known that without tricks like dropout, regularization, the correct activation functions, learning rate scheduler, inductive biases, etc. your model would diverge or overfit on your data. It is way too difficult to pinpoint all of the architectural design changes over the years, and in, for example, the large language space, many of these changes are sort of “open secrets” — many researchers and engineers at large labs are probably aware of these tricks (e.g. [local attention](https://arxiv.org/abs/2004.05150), [RoPE](https://arxiv.org/abs/2104.09864) embeddings, [ReLU^2](https://arxiv.org/abs/2109.08668)) but as a regular person like myself, it is hard to figure out these details from academic papers. This section will be dedicated to some cool changes that have emerged as empirically useful over the years.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 #### II.4.a: Inductive biases that lead to better convergence behavior
+
 There are many tricks that have been known empirically to lead to better convergence behavior for a lot of models — it is known that many older models struggled to even converge! We still don’t have a rigorous understanding for why many of these tricks are useful, but in this section we list some important architecture changes that have led to better convergence behavior. It’s not always 100% clear why these tricks work so well, so I won’t justify here.
 
 - **Dropout (p)**. During training, randomly mask out $p$. It is believed to be an implicit regularizer.
@@ -334,19 +344,21 @@ There are many tricks that have been known empirically to lead to better converg
 - **ReLU and variants**. For a lot of tasks, especially in NLP, ReLU and its smooth variants seem to work very well as activation functions.
 - **Adam & AdamW**. These momentum-based optimizers have proven to be the most impactful in deep learning despite a lot of research being done in this field.
 - **Attention**. The most famous deep learning mechanism today, attention seems to work very well at interactions over sequential data.
-    - **RoPE**. [Rotary embeddings](https://arxiv.org/abs/2104.09864) have similar properties to standard positional encodings, but can be written as matrix multiplications (which we love) and work better in a lot of settings.
-    - **ALiBi**. Additive [attention biases](https://arxiv.org/abs/2108.12409) have proven to work pretty well for length generalization.
+  - **RoPE**. [Rotary embeddings](https://arxiv.org/abs/2104.09864) have similar properties to standard positional encodings, but can be written as matrix multiplications (which we love) and work better in a lot of settings.
+  - **ALiBi**. Additive [attention biases](https://arxiv.org/abs/2108.12409) have proven to work pretty well for length generalization.
 - **bfloat16**. Low-precision training in general has shown to be practical and useful, and the **bf16** datatype, which trades of precision for a wider dynamic range than **fp16**, has shown to be more stable in deep learning training.
 - **Mixture of Experts.** It turns out we can keep scaling our models without all the parameters being active, and we still observe scaling laws.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 #### II.4.b: Searching the space of solutions (meta-optimization)
+
 A lot of traditional machine learning techniques revolve around doing some kind of [grid-search](https://www.dremio.com/wiki/grid-search/) and [k-folds cross-validation](https://machinelearningmastery.com/k-fold-cross-validation/) to find the best possible model. In modern deep learning, it’s **very hard** to do this, especially when a single **training run can cost millions of dollars**. One of the more interesting spaces is **neural architecture search (NAS)**, where we search a space of model configurations to find models that optimize some metric (e.g. performance, cost, speed) given some set of constraints. NAS isn’t really used in large model training, but it is extremely useful for trying to fit models onto low-cost devices — I’m not sure how much NAS has evolved since 2020, but I would highly recommend reading [Lilian Weng’s blog on NAS](https://lilianweng.github.io/posts/2020-08-06-nas/)!
 
 **[Sakana AI’s Evolutionary Model Merge](https://sakana.ai/evolutionary-model-merge/) (Sakana AI, 2024)**. One of the newer works in NAS for language models is the evolutionary model merge algorithm, which takes components of already trained models and combines them to form various language and multi-modal foundation models. I haven’t played enough with these works to understand how effective they are, but they do demonstrate the ability to create unique models like a Japanese Math LLM with SOTA performance.
 
 ## Part II.5: Efficient convergence. Optimizers
+
 Recently, I’ve gotten the sense that optimizers are largely overlooked by many people because [Adam](https://pytorch.org/docs/stable/generated/torch.optim.Adam.html) “just works”. From the perspective of efficiency, if we can 1) compute our optimizers faster, 2) reduce the memory load of stored statistics, and 3) converge faster, then these are all wins to consider. The standard gradient descent update is written as
 
 <p>
@@ -358,6 +370,7 @@ where $t$ is the iteration, $\eta$ is the learning rate, $\theta$ is the model p
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 **Momentum [[intro](https://towardsdatascience.com/stochastic-gradient-descent-with-momentum-a84097641a5d)]**. Theoretical guarantees for SGD and GD require knowing the smoothness behavior of the loss function, which in practice is not known. In practice, SGD suffers from “steep” regions in the loss curve that cause oscillatory behavior, motivating the use of the descent trajectory as a prior to dampen oscillations. The canonical momentum update is (where $\gamma$ is a constant around $0.9$ according to ([Ruder et al. 2016](https://arxiv.org/abs/1609.04747))). The momentum version of SGD introduces a new term that depends on the gradient:
+
 <p><span>
 <center>
 $$
@@ -373,6 +386,7 @@ $$
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 **[Adam](https://arxiv.org/abs/1412.6980) (Kingma and Ba, 2014<d-cite key="kingma2017adammethodstochasticoptimization"></d-cite>)**. It wasn’t mentioned, but [Adagrad](https://www.jmlr.org/papers/volume12/duchi11a/duchi11a.pdf) and [RMSprop](https://www.cs.toronto.edu/~tijmen/csc321/slides/lecture_slides_lec6.pdf) introduced **per-parameter adaptive learning rates** and an **exponentially decaying average of past gradients**. Adam combines these ideas by storing first and second moment estimates of the gradients $g_t$, which is shown in the equations below.<d-footnote>The actual Adam also introduces a bias-correcting beta scheduler that modifies the first and second moment estimates slightly. They observed that because the estimates are zero-initialized, they are biased towards 0 if not normalized properly. Furthermore, a variant of Adam, called AdamW, also introduces iterative weight decay and is shown to work well in practice.</d-footnote>
+
 <p><span>
 <center>
 $$
@@ -394,6 +408,7 @@ From a memory perspective, storing these extra statistics per parameter implies 
 **Preconditioning [[intro](https://www.mit.edu/~gfarina/2024/67220s24_L12_newton/L12.pdf)]**. Adam has remained the canonical optimizer for a long time, and most people are aware that it is a (stochastic) [first-order optimizer](https://math.stackexchange.com/questions/2201384/what-is-the-definition-of-a-first-order-method). The benefit of a first-order optimizer is that they are relatively quick and only store extra statistics that is linear in the number of learnable parameters. However, it would be a more accurate estimate to use the second, third, etc. order estimates of our [loss function Taylor expansion](https://math.stackexchange.com/questions/2957673/second-order-taylor-series-terms-in-gradient-descent) to approximate the correct update. We motivated Adam based on per-coordinate scaling factors, which is basically just applying a diagonal preconditioner to the gradient! Optimizers like [Shampoo](https://arxiv.org/abs/1802.09568) and [Adagrad](https://www.jmlr.org/papers/volume12/duchi11a/duchi11a.pdf) store preconditioners, but at varying levels of granularity (e.g. block diagonal vs. dense preconditioning matrix). On the [AlgoPerf](https://arxiv.org/pdf/2306.07179) benchmark in particular, Shampoo has been shown to converge quicker than all pre-existing optimizers.
 
 ## Part II.6: Pause. How much of this scale is really necessary
+
 If you recall how `std::vector<T>` in the [C++ standard library](https://en.cppreference.com/w/cpp/standard_library) is implemented under the hood, you’ll remember that we have a capacity that marks allocated memory, and a true array size that is the memory that is actually being “used”. This terrible analogy was thought of at 4am just to say that as we continue to scale, a natural question is whether each parameter in the model is really that important.
 
 <figure>
@@ -404,6 +419,7 @@ If you recall how `std::vector<T>` in the [C++ standard library](https://en.cppr
 </figure>
 
 ### II.6.a: Model Pruning
+
 **[Learning both Weights and Connections for Efficient Neural Network](https://proceedings.neurips.cc/paper_files/paper/2015/file/ae0eb3eed39d2bcef4622b2499a05fe6-Paper.pdf) (Song et al., 2015<d-cite key="han2015learningweightsconnectionsefficient"></d-cite>)**. One of the first successful pruning works in deep learning was done for convolutional models (e.g. [VGG16](https://arxiv.org/abs/1409.1556), LeNet, AlexNet) on ImageNet. The idea was to first train the models, then **zero out weights below a certain norm threshold**, then fine-tune the pruned model to completion. They motivate this simple strategy as an implicit regularizer for overfitting, and show **~10x model compression rates while preserving 99% of the performance**.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
@@ -436,12 +452,13 @@ SynFlow was one of the first works to consider pruning from the perspective of �
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**Are pruned models fast?** From a hardware perspective, randomly pruning weights *does not provide a large speed-up* because operations like weight matrix multiplication rely on locality and targeting blocks of a matrix at one time. The standard implementation is to apply a $0$-mask to each pruned weight -- which clearly provides no speed-ups -- but clever implementations of pruning can target sparsity-aware kernels like in [cuSPARSE](https://docs.nvidia.com/cuda/cusparse/) and [CUTLASS](https://developer.nvidia.com/blog/cutlass-linear-algebra-cuda/)<d-footnote>Check out some of the Han Song lectures like https://www.youtube.com/watch?v=sZzc6tAtTrM&ab_channel=MITHANLab for more information on these topics.</d-footnote>. [Subsequent works](https://arxiv.org/pdf/2308.06767) on pruning focus on particular architectures or ensuring hardware-aware speed-ups through structured pruning (e.g. [2:4 pruning](https://developer.nvidia.com/blog/accelerating-inference-with-sparsity-using-ampere-and-tensorrt/)). Honestly though, model pruning hasn’t seen that much production-success because 1) many companies can afford to use larger models and 2) pruning generally often is not hardware-friendly, i.e. a 50% pruned model is much slower than a model that is just 50% of the number of parameters. 
+**Are pruned models fast?** From a hardware perspective, randomly pruning weights _does not provide a large speed-up_ because operations like weight matrix multiplication rely on locality and targeting blocks of a matrix at one time. The standard implementation is to apply a $0$-mask to each pruned weight -- which clearly provides no speed-ups -- but clever implementations of pruning can target sparsity-aware kernels like in [cuSPARSE](https://docs.nvidia.com/cuda/cusparse/) and [CUTLASS](https://developer.nvidia.com/blog/cutlass-linear-algebra-cuda/)<d-footnote>Check out some of the Han Song lectures like https://www.youtube.com/watch?v=sZzc6tAtTrM&ab_channel=MITHANLab for more information on these topics.</d-footnote>. [Subsequent works](https://arxiv.org/pdf/2308.06767) on pruning focus on particular architectures or ensuring hardware-aware speed-ups through structured pruning (e.g. [2:4 pruning](https://developer.nvidia.com/blog/accelerating-inference-with-sparsity-using-ampere-and-tensorrt/)). Honestly though, model pruning hasn’t seen that much production-success because 1) many companies can afford to use larger models and 2) pruning generally often is not hardware-friendly, i.e. a 50% pruned model is much slower than a model that is just 50% of the number of parameters.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### II.6.b: Embedding Pruning or Hashing
-[Recommendation systems](https://www.nvidia.com/en-us/glossary/recommendation-system/) is a practical field where “pruning” is somewhat applicable. In recommendation systems, users and items are typically **represented as an ID that maps to a $O(10)$-dimensional embedding**, meaning for social media companies like Meta and Snapchat, they will have on the **order of millions or billions** of embeddings in their models. For some napkin calculations, a full-precision 1B parameter embedding table with 64-dimensions each is 2 bytes * 64 * 10^9 = 128 GB for the embedding table, which is actually small in production settings! Without going into too much detail about the models themselves (for now, just abstract them as some kind of large transformer model), the **embedding tables take up more than 90% of the memory** load of learnable parameters. 
+
+[Recommendation systems](https://www.nvidia.com/en-us/glossary/recommendation-system/) is a practical field where “pruning” is somewhat applicable. In recommendation systems, users and items are typically **represented as an ID that maps to a $O(10)$-dimensional embedding**, meaning for social media companies like Meta and Snapchat, they will have on the **order of millions or billions** of embeddings in their models. For some napkin calculations, a full-precision 1B parameter embedding table with 64-dimensions each is 2 bytes _ 64 _ 10^9 = 128 GB for the embedding table, which is actually small in production settings! Without going into too much detail about the models themselves (for now, just abstract them as some kind of large transformer model), the **embedding tables take up more than 90% of the memory** load of learnable parameters.
 
 Intuitively, under a [vector space](https://princeton-introml.github.io/files/ch20.pdf) and with some assumptions about [constraining the norm](https://mbernste.github.io/posts/normed_vector_space/) of each embedding, it is easy to see that we can probably [cluster these embeddings](https://towardsdatascience.com/introduction-to-embedding-clustering-and-similarity-11dd80b00061) in some meaningful way, and map multiple IDs to the same embedding without incurring much error. Many ideas in RecSys are not shared publicly, but common techniques like [double hashing](https://arxiv.org/pdf/2007.14523) and [locality-sensitive hashing](https://dl.acm.org/doi/10.5555/645925.671516) are used in practice.
 
@@ -452,11 +469,12 @@ Intuitively, under a [vector space](https://princeton-introml.github.io/files/ch
 </center>
 </figure>
 
-**Learning to Embed Categorical Features without Embedding Tables for Recommendation (Kang et al. 2020<d-cite key="kang2021learningembedcategoricalfeatures"></d-cite>)**. Deep Hash Embedding (DHE) is a technique to replace an embedding table with a smaller, learnable transformation (e.g. a neural network). In other words, the hashing function is also implicitly learned alongside the embeddings themselves. Surprisingly, computing embeddings on the fly is pretty effective, but the unclear part for me is whether the values of the IDs have some implicit biasing effect on the embeddings produced. 
+**Learning to Embed Categorical Features without Embedding Tables for Recommendation (Kang et al. 2020<d-cite key="kang2021learningembedcategoricalfeatures"></d-cite>)**. Deep Hash Embedding (DHE) is a technique to replace an embedding table with a smaller, learnable transformation (e.g. a neural network). In other words, the hashing function is also implicitly learned alongside the embeddings themselves. Surprisingly, computing embeddings on the fly is pretty effective, but the unclear part for me is whether the values of the IDs have some implicit biasing effect on the embeddings produced.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### II.6.c: Quantization
+
 <figure>
 <center>
     <img src="/assets/img/efficient_dl/9.png" style="width:90%" alt="Quantization.">
@@ -503,14 +521,16 @@ $$
 </p>
 
 I’ve used the superscript to denote the number of bits used to represent that number. To clarify, the mantissa is the decimal part of the number $1.x$. In other words, in FP32, we have $23$ mantissa bits and $8$ exponent bits. However, other representations also exist to modify the representable range (increase exponent bits) or the precision (increase mantissa bits), which can be beneficial in deep learning applications.
-* **[BF16](https://arxiv.org/pdf/1905.12322)**. The IEEE754 standard for FP16 uses 5 exponent bits and 8 mantissa bits. It was discovered by the Google Brain team, however, that using 8 exponent bits, which has the **same dynamic range as FP32**, was more stable than FP16 due to large gradients in LLM training. Furthermore, BF16 has the benefit of being able to **easily convert to and from FP32** — just chop the last 16 bits of the mantissa!
-* **FP8**. NVIDIA’s newest [H100s have Tensor Core support for 8-bit floating points](https://www.nvidia.com/en-us/data-center/h100/), which are represented as either E5M2 or E4M3<d-footnote>E5M2 meaning 5 exponent bits and 2 mantissa bits, and E4M3 meaning 4 exponent bits and 2 mantissa bits. Notice that with 8 bits, we can never do the FP32 → BF16 trick, but we can go from FP16 to E5M2.</d-footnote>. We will talk more about Tensor Cores soon.
+
+- **[BF16](https://arxiv.org/pdf/1905.12322)**. The IEEE754 standard for FP16 uses 5 exponent bits and 8 mantissa bits. It was discovered by the Google Brain team, however, that using 8 exponent bits, which has the **same dynamic range as FP32**, was more stable than FP16 due to large gradients in LLM training. Furthermore, BF16 has the benefit of being able to **easily convert to and from FP32** — just chop the last 16 bits of the mantissa!
+- **FP8**. NVIDIA’s newest [H100s have Tensor Core support for 8-bit floating points](https://www.nvidia.com/en-us/data-center/h100/), which are represented as either E5M2 or E4M3<d-footnote>E5M2 meaning 5 exponent bits and 2 mantissa bits, and E4M3 meaning 4 exponent bits and 2 mantissa bits. Notice that with 8 bits, we can never do the FP32 → BF16 trick, but we can go from FP16 to E5M2.</d-footnote>. We will talk more about Tensor Cores soon.
 
 **Automatic Mixed-Precision training (2018)**. In 2018, NVIDIA released the [Apex extension](https://github.com/NVIDIA/apex) to PyTorch, which introduced [automatic mixed-precision (AMP)](https://pytorch.org/docs/stable/amp.html) training on CUDA devices. The core idea is that lower precision BLAS operations are significantly faster with the introduction of hardware units like NVIDIA Tensor Cores, but not all operations (e.g. logarithms, trig functions) are [safe to downcast](https://residentmario.github.io/pytorch-training-performance-guide/mixed-precision.html#how-pytorch-automatic-mixed-precision-works) due to their sensitivity to dynamic ranges / precision. Under the hood, [torch.amp has a list of “safe” operations that are downcast to FP16/BF16](https://pytorch.org/docs/stable/amp.html#ops-that-can-autocast-to-float16) to provide essentially free speed-ups to the programmer. In most modern training schemes, **you should be using AMP** unless you want full control over your model operations.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### II.6.d: The Grandfather of Efficient ML and TinyML
+
 <figure>
 <center>
     <img src="/assets/img/efficient_dl/10.png" style="width:90%" alt="Deep compression.">
@@ -523,11 +543,13 @@ I’ve used the superscript to denote the number of bits used to represent that 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ## Part II.x: Hardware
-*If you don’t know anything about a GPU except that it’s really good at parallel workloads, this section is a gold mine of information! I think this section motivates a lot of the future work very well, especially as we begin to consider hardware-aware algorithms for scaling our models. Otherwise, I would skip ahead to [Chapter III](#part-iii-the-era-of-scale-till-we-fail-2020-now).*
+
+_If you don’t know anything about a GPU except that it’s really good at parallel workloads, this section is a gold mine of information! I think this section motivates a lot of the future work very well, especially as we begin to consider hardware-aware algorithms for scaling our models. Otherwise, I would skip ahead to [Chapter III](#part-iii-the-era-of-scale-till-we-fail-2020-now)._
 
 You’ve probably noticed that up until this point, a lot of the aforementioned works were interested in improving and tweaking architectural components for the sake of better convergence behavior and ease of scaling. If your model doesn’t fit on a single GPU, find a way to divvy it up on multiple GPUs — we can sort of ignore optimizing for memory accesses, node-to-node latency, and other systems-y lingo because at this scale, it’s probably fast enough<d-footnote>This isn’t entirely true, of course. There were definitely people who cared about these kinds of “engineering” problems, but AI wasn’t really a “product” yet. It was cool, and it had a growing list of applications, but nothing at the scale of a Google search engine or a streaming platform. </d-footnote>. But as the field began to mature, people began thinking more about **hardware-aware algorithms** and how to utilize a lot of the new features offered by the CUDA ecosystem and NVIDIA GPUs. We focus a lot on CUDA because of its strong support in most deep learning applications, but also recognize and discuss other alternatives.
 
 ### II.x.1: NVIDIA GPUs from Tesla (2006) to Ampere (2020)
+
 <figure>
 <center>
     <img src="/assets/img/efficient_dl/11.png" style="width:80%" alt="CUDA.">
@@ -535,7 +557,7 @@ You’ve probably noticed that up until this point, a lot of the aforementioned 
 </center>
 </figure>
 
-Let’s continue where we [left off](#i2-compute-unified-device-architecture-cuda-2006). A lot of this section will appear kind of hand-wavy, but don’t worry — it makes a lot of sense to just assume things are a certain way before digging into why. If you ever become interested in the why, you’ll have to start reading denser sources of information. I recommend the [PPMP textbook](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands/dp/0124159923) and the [GPU MODE Discord](https://discord.com/invite/Wu4pdW8QqM)!  
+Let’s continue where we [left off](#i2-compute-unified-device-architecture-cuda-2006). A lot of this section will appear kind of hand-wavy, but don’t worry — it makes a lot of sense to just assume things are a certain way before digging into why. If you ever become interested in the why, you’ll have to start reading denser sources of information. I recommend the [PPMP textbook](https://www.amazon.com/Programming-Massively-Parallel-Processors-Hands/dp/0124159923) and the [GPU MODE Discord](https://discord.com/invite/Wu4pdW8QqM)!
 
 **Compute Structure.** Let’s first talk about why GPUs are so **good at parallelized computations**. CPUs were designed to handle very complicated logic like [branching (think if-else operations)](https://blog.cloudflare.com/branch-predictor/), and a large portion of the [processor die](https://superuser.com/questions/324284/what-is-meant-by-the-terms-cpu-core-die-and-package) is dedicated to this. NVIDIA GPUs instead [trade off this chip space for more cores and specific hardware units](https://superuser.com/questions/324284/what-is-meant-by-the-terms-cpu-core-die-and-package) that can perform instructions like small matrix multiplications in very few cycles. It’s like having 100 automatic sewing robots (GPU) vs. a human (CPU). Sure, the human being is smarter and more flexible/capable for general tasks, but if the task is to maximize production of clothes, it is much more useful to have the sewing robots. Starting from the [Tesla series GPUs](https://en.wikipedia.org/wiki/Nvidia_Tesla), NVIDIA used many CUDA cores with the [SIMT (single-instruction, multiple threads)](https://cvw.cac.cornell.edu/gpu-architecture/gpu-characteristics/simt_warp) abstraction, so effectively a GPU really was just a bunch of small processors running in parallel. To understand how this abstraction works together with actual workloads, however, we need to understand how data is moved from the memory to the actual processors.
 
@@ -550,10 +572,10 @@ Let’s continue where we [left off](#i2-compute-unified-device-architecture-cud
 
 **Hierarchical Memory Structure.** The above is an extremely simplified view of how compute and memory are divided in a GPU starting from the Tesla architecture. Let’s **assume** that performing some kind of memory access from global memory (DRAM) is slow. This design emphasizes data reuse to minimize access to global memory. From **Figure 12**, we can also observe that different hierarchies of memory are shared across different abstractions (e.g. L2 cache is shared among SMs, but L1 cache is per SM), which is extremely important for optimization.
 
-* **SMs** ([streaming multiprocessors](https://fabiensanglard.net/cuda/)) are the individual units that run their own processes<d-footnote>This is not entirely true. SMs actually have their own CUDA cores / streaming processors that get assigned the relevant work, but for our abstraction it suffices not to think about them.</d-footnote>, and you generally have on the order of $O(100)$ of these. For now, **assume** that they can run many threads (up to 1024) at the same time. 
-  * Each SM has its own [registers](https://carpentries-incubator.github.io/lesson-gpu-programming/global_local_memory.html) (256K per SM on an A100), which are the fastest form of memory to access and write to.
-* **L1** and **L2 caches** are a form of fast (roughly 10x faster than DRAM) but small memory — just assume for now that they are a limited but extremely valuable resource.
-* **[DRAM](https://www.tomshardware.com/news/glossary-dram-ram-graphics-cards-gddr-definition,38002.html)** (dynamic random access memory) is the main working memory on a GPU. When you hear the term “A100 40GB”, it means that you are dealing with an A100 GPU with 40GB of DRAM. It is also often labelled as “high-bandwidth memory” (HBM).
+- **SMs** ([streaming multiprocessors](https://fabiensanglard.net/cuda/)) are the individual units that run their own processes<d-footnote>This is not entirely true. SMs actually have their own CUDA cores / streaming processors that get assigned the relevant work, but for our abstraction it suffices not to think about them.</d-footnote>, and you generally have on the order of $O(100)$ of these. For now, **assume** that they can run many threads (up to 1024) at the same time.
+  - Each SM has its own [registers](https://carpentries-incubator.github.io/lesson-gpu-programming/global_local_memory.html) (256K per SM on an A100), which are the fastest form of memory to access and write to.
+- **L1** and **L2 caches** are a form of fast (roughly 10x faster than DRAM) but small memory — just assume for now that they are a limited but extremely valuable resource.
+- **[DRAM](https://www.tomshardware.com/news/glossary-dram-ram-graphics-cards-gddr-definition,38002.html)** (dynamic random access memory) is the main working memory on a GPU. When you hear the term “A100 40GB”, it means that you are dealing with an A100 GPU with 40GB of DRAM. It is also often labelled as “high-bandwidth memory” (HBM).
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -565,11 +587,12 @@ Let’s continue where we [left off](#i2-compute-unified-device-architecture-cud
 </figure>
 
 **Streaming Multiprocessors (SMs), Thread Blocks, Warps.** The CUDA programming model is a bit convoluted at first glance, and it’s hard to motivate the design choices without understanding the hardware. Generally, the most important thing to understand is that:
+
 1. Kernel/device functions operate at the **thread-level**, so we have to specify per-thread behavior in our device functions. Variables defined are implicitly accessed through registers.
-2. We mentioned earlier that CUDA is SIMT — **groups of threads called warps** **share the same instruction** over different data (typically 32 threads per warp). Starting from the [Volta architecture](https://en.wikipedia.org/wiki/Volta_(microarchitecture)), threads actually have their own [program counter](https://personal.utdallas.edu/~dodge/EE2310/lec13.pdf) and [call stack](https://www.youtube.com/watch?v=jVzSBkbfdiw&ab_channel=JacobSorber) and can call different instructions.
-3. Kernels are launched in “grids” of “[thread blocks](https://en.wikipedia.org/wiki/Thread_block_(CUDA_programming))”; threads/warps in the **same block can access [shared fast SRAM memory](https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/)**, which is useful for communicating between threads in operations like [stencils](https://www.mathworks.com/help/parallel-computing/stencil-operations-on-a-gpu.html) / [convolutions](https://ulhpc-tutorials.readthedocs.io/en/latest/cuda/exercises/convolution/). 
+2. We mentioned earlier that CUDA is SIMT — **groups of threads called warps** **share the same instruction** over different data (typically 32 threads per warp). Starting from the [Volta architecture](<https://en.wikipedia.org/wiki/Volta_(microarchitecture)>), threads actually have their own [program counter](https://personal.utdallas.edu/~dodge/EE2310/lec13.pdf) and [call stack](https://www.youtube.com/watch?v=jVzSBkbfdiw&ab_channel=JacobSorber) and can call different instructions.
+3. Kernels are launched in “grids” of “[thread blocks](<https://en.wikipedia.org/wiki/Thread_block_(CUDA_programming)>)”; threads/warps in the **same block can access [shared fast SRAM memory](https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/)**, which is useful for communicating between threads in operations like [stencils](https://www.mathworks.com/help/parallel-computing/stencil-operations-on-a-gpu.html) / [convolutions](https://ulhpc-tutorials.readthedocs.io/en/latest/cuda/exercises/convolution/).
 4. Each **grid is independent** (and run in parallel), and generally cannot communicate. For example, it is often convenient to launch an independent grid for each batch in the forward pass of a network.
-5. We *usually* **launch kernels from the CPU/host**. In PyTorch, it is implicit when we define our model code; in CUDA, it is using the triple bracket notation: `f<<<<a,b>>>>(**kwargs)`, where `a` is the number of grids, and `b` is the number of thread blocks per grid. The hardware is responsible for scheduling these threads on the relevant devices to maximize device usage, or “[occupancy](https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm)”.
+5. We _usually_ **launch kernels from the CPU/host**. In PyTorch, it is implicit when we define our model code; in CUDA, it is using the triple bracket notation: `f<<<<a,b>>>>(**kwargs)`, where `a` is the number of grids, and `b` is the number of thread blocks per grid. The hardware is responsible for scheduling these threads on the relevant devices to maximize device usage, or “[occupancy](https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm)”.
 
 An example template of launching a CUDA kernel from the host is below.
 
@@ -581,9 +604,9 @@ __global__ void func(float *a, float *b) {
 }
 
 int main(int argc, char* argv[]) {
-	float* a, b; // with cudaMalloc, these are device pointers.
-	// Example of launching a GPU kernel from the CPU.
-	func<<<blk_in_grid, thr_per_blk>>>(a, b);
+float* a, b; // with cudaMalloc, these are device pointers.
+// Example of launching a GPU kernel from the CPU.
+func<<<blk_in_grid, thr_per_blk>>>(a, b);
 }
 </d-code>
 
@@ -602,7 +625,7 @@ int main(int argc, char* argv[]) {
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**Intra-Device Bandwidth: PCIe vs. SXM & NVLink**. When dealing with larger workloads, another bottleneck to consider is device-device and host-device communication bottlenecks. The standard interface is [Peripheral Component Interconnect Express (PCIe)](https://en.wikipedia.org/wiki/PCI_Express), which can be used to connect devices to other devices or to the host. PCIe lanes connect your devices, and a **larger number of lines provides more (potential) throughput for data movement**. Starting from the [Pascal microarchitecture](https://en.wikipedia.org/wiki/Pascal_(microarchitecture)), NVIDIA also began selling GPUs with the [SXM form factor](https://www.arccompute.io/arc-blog/nvidia-h100-pcie-vs-sxm5-form-factors-which-gpu-is-right-for-your-company), which basically means they have specific ports for SXM interconnects and are connected on a specific SXM board (it still communicates to the CPU through PCIe). The SXM GPUs can also use NVLink, which is a special protocol for larger memory bandwidth. Generally, unless you are dealing with huge workloads, the type of intra-device communication will not even be the bottleneck you are looking for. For example, the H100 PCIe device-to-device bandwidth is 2 TB/s, while the H100 SXM5 device-to-device bandwidth is 3.35 TB/s.
+**Intra-Device Bandwidth: PCIe vs. SXM & NVLink**. When dealing with larger workloads, another bottleneck to consider is device-device and host-device communication bottlenecks. The standard interface is [Peripheral Component Interconnect Express (PCIe)](https://en.wikipedia.org/wiki/PCI_Express), which can be used to connect devices to other devices or to the host. PCIe lanes connect your devices, and a **larger number of lines provides more (potential) throughput for data movement**. Starting from the [Pascal microarchitecture](<https://en.wikipedia.org/wiki/Pascal_(microarchitecture)>), NVIDIA also began selling GPUs with the [SXM form factor](https://www.arccompute.io/arc-blog/nvidia-h100-pcie-vs-sxm5-form-factors-which-gpu-is-right-for-your-company), which basically means they have specific ports for SXM interconnects and are connected on a specific SXM board (it still communicates to the CPU through PCIe). The SXM GPUs can also use NVLink, which is a special protocol for larger memory bandwidth. Generally, unless you are dealing with huge workloads, the type of intra-device communication will not even be the bottleneck you are looking for. For example, the H100 PCIe device-to-device bandwidth is 2 TB/s, while the H100 SXM5 device-to-device bandwidth is 3.35 TB/s.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -616,6 +639,7 @@ int main(int argc, char* argv[]) {
 - **Streams:** We can avoid “waiting” sequentially for independent blocking operations by telling the device to put them on different streams, so it is safe to run them concurrently.
 
 **Parallel patterns.** It is also important to understand what types of operations are known to be parallelizable. In deep learning, we understand that matrix multiplications (matmuls) are extremely efficient, but many other operations are also parallelizable and have well-known design patterns:
+
 - All BLAS operations
 - Convolutions
 - Stencil operations
@@ -691,6 +715,7 @@ A comparison of notable GPU specs over the years. We’ll be using PCIe and not 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### II.x.2: Google’s Tensor Processing Units (TPUs)
+
 <figure>
 <center>
     <img src="/assets/img/efficient_dl/15.png" style="width:70%" alt="TPU">
@@ -698,7 +723,7 @@ A comparison of notable GPU specs over the years. We’ll be using PCIe and not 
 </center>
 </figure>
 
-The CUDA ecosystem is not the only choice for parallel processing. Google’s in-house [Tensor Processing Units (TPUs)](https://en.wikipedia.org/wiki/Tensor_Processing_Unit), first introduced publicly in 2016, are a custom application-specific integrated circuit ([ASIC](https://en.wikipedia.org/wiki/Application-specific_integrated_circuit)) designed for deep learning workloads at Google. TensorFlow and Jax have dedicated compilers for TPUs, making them the standard choice for programming these devices (PyTorch support has been added, but it’s not great). 
+The CUDA ecosystem is not the only choice for parallel processing. Google’s in-house [Tensor Processing Units (TPUs)](https://en.wikipedia.org/wiki/Tensor_Processing_Unit), first introduced publicly in 2016, are a custom application-specific integrated circuit ([ASIC](https://en.wikipedia.org/wiki/Application-specific_integrated_circuit)) designed for deep learning workloads at Google. TensorFlow and Jax have dedicated compilers for TPUs, making them the standard choice for programming these devices (PyTorch support has been added, but it’s not great).
 
 - While NVIDIA and [AMD GPUs](https://www.amd.com/en/products/graphics/desktops/radeon.html) have features like the [texture cache](https://fileadmin.cs.lth.se/cs/Personal/Michael_Doggett/pubs/doggett12-tc.pdf) that are designed for gaming applications, TPUs specialize in high-throughput, low-precision matrix multiplication with low energy usage.
 - TPUs use **their own systolic array “Tensor Core”**, which handles [128x128 multiply-accumulate operations](https://cloud.google.com/tpu/docs/system-architecture-tpu-vm#chips) (compared to the 4x4 for NVIDIA!) in a single instruction cycle. This design favors large matrix computations.
@@ -711,9 +736,9 @@ The CUDA ecosystem is not the only choice for parallel processing. Google’s in
 
 **II.x.3: Potpourri of other interesting hardware**
 
-The popularity of NVIDIA GPUs is in part due to the success of the Transformer and other parallelizable architectures. However, for different memory access patterns, there exist other hardware alternatives that could later play a pivotal role in the field. 
+The popularity of NVIDIA GPUs is in part due to the success of the Transformer and other parallelizable architectures. However, for different memory access patterns, there exist other hardware alternatives that could later play a pivotal role in the field.
 
-**Field-gate Programmable Arrays (FPGA).** [FPGAs](https://www.arm.com/glossary/fpga) have seen some use in efficient deep learning as a low-cost hardware to target. Because of the availability of GPUs and ASICs like TPUs, it is hard to justify designing and programming these devices for actual workloads. Nevertheless, I wouldn’t write off FPGAs — they have a variety of [use-cases in the sciences](https://halverscience.net/fpgas_for_sci_and_eng/) and [low-latency applications](https://www.imc.com/us/articles/how-are-fpgas-used-in-trading), and there is a chance that they will become important in deep learning as well. 
+**Field-gate Programmable Arrays (FPGA).** [FPGAs](https://www.arm.com/glossary/fpga) have seen some use in efficient deep learning as a low-cost hardware to target. Because of the availability of GPUs and ASICs like TPUs, it is hard to justify designing and programming these devices for actual workloads. Nevertheless, I wouldn’t write off FPGAs — they have a variety of [use-cases in the sciences](https://halverscience.net/fpgas_for_sci_and_eng/) and [low-latency applications](https://www.imc.com/us/articles/how-are-fpgas-used-in-trading), and there is a chance that they will become important in deep learning as well.
 
 **Neuromorphic Chips.** We know that the human brain is extraordinarily efficient and powerful (except maybe mine), so a natural question is whether we can design computer hardware around the brain. There are some primitives like [Spiking Neural Networks](https://en.wikipedia.org/wiki/Spiking_neural_network) that have been designed in the past, but most of this work has not really taken off in “modern deep learning”. There are also some small neuromorphic chips like [IBM’s TrueNorth](https://research.ibm.com/publications/truenorth-design-and-tool-flow-of-a-65-mw-1-million-neuron-programmable-neurosynaptic-chip), but I haven’t seen significant progress in this area yet. Like quantum computers, however, I am hopeful that people crack this research direction and apply them to AI!
 
@@ -722,6 +747,7 @@ The popularity of NVIDIA GPUs is in part due to the success of the Transformer a
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ## Part III: The Era of Scale till we Fail (2020-Now)
+
 **[GPT-3](https://arxiv.org/abs/2005.14165) (OpenAI, 2020<d-cite key="brown2020languagemodelsfewshotlearners"></d-cite>)**. The introduction of GPT-3 was eye-opening for a lot of researchers in the field — **simply scaling a Transformer to 175B parameters** while maintaining the same tricks used in prior works in the field was sufficient to build a syntactically sound and somewhat semantically reasonable model. Furthermore, while most prior works had been task-specific, GPT-3 was flexible enough to perform reasonably on a wide variety of language tasks.
 
 <figure>
@@ -731,7 +757,7 @@ The popularity of NVIDIA GPUs is in part due to the success of the Transformer a
 </center>
 </figure>
 
-Its successor, [GPT-3.5 / ChatGPT](https://openai.com/index/chatgpt/) would later blow up the field of AI to the public, but these methods would introduce a combination of new post-training tricks ([instruction-tuning](https://arxiv.org/pdf/2109.01652) & [RLHF](https://arxiv.org/abs/2203.02155)) and [better data](https://arxiv.org/abs/2306.11644) that are not rigorously understood. Scaling these models became a whole new game than all previous works, with the goal of building general-purpose “[foundation models](https://en.wikipedia.org/wiki/Foundation_model)” that could be applied to any task. For this reason, the rest of this post will primarily focus on transformer-based architectures or recent alternatives (e.g. state-space models, [Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)). Many of the following ideas certainly apply to existing deep learning methods, and molding these approaches to older algorithms is definitely a useful research direction that may yield meaningful results. 
+Its successor, [GPT-3.5 / ChatGPT](https://openai.com/index/chatgpt/) would later blow up the field of AI to the public, but these methods would introduce a combination of new post-training tricks ([instruction-tuning](https://arxiv.org/pdf/2109.01652) & [RLHF](https://arxiv.org/abs/2203.02155)) and [better data](https://arxiv.org/abs/2306.11644) that are not rigorously understood. Scaling these models became a whole new game than all previous works, with the goal of building general-purpose “[foundation models](https://en.wikipedia.org/wiki/Foundation_model)” that could be applied to any task. For this reason, the rest of this post will primarily focus on transformer-based architectures or recent alternatives (e.g. state-space models, [Kolmogorov-Arnold Networks](https://arxiv.org/abs/2404.19756)). Many of the following ideas certainly apply to existing deep learning methods, and molding these approaches to older algorithms is definitely a useful research direction that may yield meaningful results.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -743,7 +769,8 @@ Its successor, [GPT-3.5 / ChatGPT](https://openai.com/index/chatgpt/) would late
 </center>
 </figure>
 
-NVIDIA’s [Hopwell microarchitecture](https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/) (2022), along with the H100/H200 GPUs, introduced a few notable new features to accelerate deep learning workloads.  In addition to having effectively more/faster memory, higher memory bandwidth, and more CUDA & Tensor Cores than the A100, the H100 also features:
+NVIDIA’s [Hopwell microarchitecture](https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/) (2022), along with the H100/H200 GPUs, introduced a few notable new features to accelerate deep learning workloads. In addition to having effectively more/faster memory, higher memory bandwidth, and more CUDA & Tensor Cores than the A100, the H100 also features:
+
 - **Tensor Memory Accelerator** (TMA). The whole concept behind “[streams](https://developer.download.nvidia.com/CUDA/training/StreamsAndConcurrencyWebinar.pdf)” that we introduced before was to ensure non-overlapping operations like memory movement and using the Tensor Cores were done in parallel. The TMA is a new hardware unit that **asynchronously** computes memory addresses (this is not a free operation on older devices and had to be done with registers!) for fetching data between shared memory and global memory. In other words, we no longer need to dedicate threads to perform data transfers and can instead focus on feeding the Tensor Cores.
 - **High-speed low-precision**. Tensor Cores now support the FP8 data type and can theoretically reach **3300 TFLOPS** for FP8 operations.
 - **Thread block clusters.** A new level of the CUDA programming hierarchy sits above the thread block — all threads in a thread block cluster are concurrently scheduled onto SMs, making communicating **between them** more efficient with the CUDA cooperative_groups API.
@@ -754,20 +781,22 @@ With the release of the H100, a few interesting developments have been made to t
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**WGMMA (Warpgroup Matrix-multiply-accumulate)**<d-footnote>This blogpost by Colfax is so good: https://research.colfax-intl.com/cutlass-tutorial-wgmma-hopper/</d-footnote>.  The `wgmma.mma_async` instruction allows threads to launch matrix multiplication on the Tensor Cores as a **non-blocking operation**. In other words, they're free to handle other tasks like data loading to further increase throughput and hide latency.
+**WGMMA (Warpgroup Matrix-multiply-accumulate)**<d-footnote>This blogpost by Colfax is so good: https://research.colfax-intl.com/cutlass-tutorial-wgmma-hopper/</d-footnote>. The `wgmma.mma_async` instruction allows threads to launch matrix multiplication on the Tensor Cores as a **non-blocking operation**. In other words, they're free to handle other tasks like data loading to further increase throughput and hide latency.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**ThunderKittens** ([Spector et al., 2024](https://hazyresearch.stanford.edu/blog/2024-05-12-tk)). The H100 has a lot of new features that are really annoying to target yourself. [ThunderKittens](https://github.com/HazyResearch/ThunderKittens) is a **domain-specific language** (just an extension on top of CUDA C++ basically)  that you can use to abstract away a lot of these features at the warp-level while the compiler handles all of the nitty-gritty details. I haven’t tried it myself because I don’t have an H100, but it looks like a promising library to consider using. I also included the blog in this section because it has some nice details about how they target the H100 that are really well-written!
+**ThunderKittens** ([Spector et al., 2024](https://hazyresearch.stanford.edu/blog/2024-05-12-tk)). The H100 has a lot of new features that are really annoying to target yourself. [ThunderKittens](https://github.com/HazyResearch/ThunderKittens) is a **domain-specific language** (just an extension on top of CUDA C++ basically) that you can use to abstract away a lot of these features at the warp-level while the compiler handles all of the nitty-gritty details. I haven’t tried it myself because I don’t have an H100, but it looks like a promising library to consider using. I also included the blog in this section because it has some nice details about how they target the H100 that are really well-written!
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### Part III.1: The Era of Scale (on a single GPU)
+
 By this point, there were clear signs that **scaling up the number of parameters in a model and the amount of data was almost purely beneficial** for improving model capabilities. The obvious solution to scaling networks was to 1) add more compute and 2) wait for longer training runs. But **adding devices is extremely expensive and does not linearly add more memory and training speed** as we will discuss in [Part III.2](#part-iii2-the-era-of-scale-distributed-version), so there was a lot of interest in squeezing out as many FLOPS and bytes out of every GPU as possible. Before it was settled that the attention mechanism was extremely important as is, alternatives with better runtime and memory scaling were first proposed.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.1.0: Early insights
+
 **[Activation checkpointing](https://arxiv.org/abs/1604.06174) (Chen et al., 2016<d-cite key="chen2016trainingdeepnetssublinear"></d-cite>)**. One widely used technique for trading speed for memory is to re-compute activations during the backwards pass instead of storing them during the forward pass. This idea is also used to speed up overall training in important works like [ZeRO](https://arxiv.org/abs/1910.02054) due to the nature of the GPU memory hierarchy, which we will cover in the next section.
 
 **[KV Caching](https://peterchng.com/blog/2024/06/11/what-is-the-transformer-kv-cache/)** (2017?).<d-footnote>I actually have no idea when this trick was first introduced — my guess is that it was sort of an obvious engineering trick that people knew about for a while, but didn’t really need to talk about in publications until LLM serving became bigger as a field / after ChatGPT came out in 2022.</d-footnote> For causal Transformers (upper-triangular mask), a well-known trick for next-token prediction is to store the previously computed keys and values in memory, so we only need to compute $K/V/Q $ for the most-recent token. A large number of works we will discuss deal with the growing KV cache, which takes up a large chunk of valuable DRAM and is not a fixed size.
@@ -808,6 +837,7 @@ While many tricks like sparsity, [low-rankness](https://www.ethanepperly.com/ind
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.1.b: Architecture Design
+
 Some architecture choices have been motivated by existing bottlenecks in scaling large models. For language models, the naive approach is to just increase the number of attention blocks, but there are other methods that balance memory and capacity tradeoffs differently.
 
 <figure>
@@ -830,6 +860,7 @@ Some architecture choices have been motivated by existing bottlenecks in scaling
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.1.c: Fine-tuning Large Models Efficiently
+
 It is well known that pre-training large foundation models is way out of the budget of a standard researcher<d-footnote>For example, Llama-3 is known to have cost tens of millions of dollars to pre-train.</d-footnote>. Fine-tuning or general post-training (e.g. instruction tuning and RLHF) has become a popular research avenue because it is significantly cheaper and can be task-specific. Researchers began to notice over time that shortcuts could be made to the fine-tuning process to make it feasible for independent researchers to play with.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
@@ -838,7 +869,7 @@ It is well known that pre-training large foundation models is way out of the bud
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**[LoRA](https://arxiv.org/abs/2106.09685) (Hu et al., 2021<d-cite key="hu2021loralowrankadaptationlarge"></d-cite>)**. Given a pre-trained model with parameters $\theta$, the central hypothesis of LoRA is that a fine-tuned model weights can be decomposed into $\theta + \Delta \hat{\theta}$, where $\Delta \hat{\theta} \in \mathbb{R}^{m \times n}$ is low-rank and $\theta$ is frozen. In other words, we can factorize $\Delta \hat{\theta} = AB$ where $A \in \mathbb{R}^{m \times r}$ and $B \in \mathbb{R}^{r \times n}$ and $r \ll \min(m,n)$<d-footnote>Strangely, I don’t have a lot of intuition for learned matrix decomposition. This idea is popular in recommendation systems / factorization machines, and is supposedly SVD-esque, but I don’t know what properties you can derive from these factorized matrices. If anyone knows, please tell me! </d-footnote>. Furthermore, unlike adaptors, LoRA adds no extra overhead during inference time! 
+**[LoRA](https://arxiv.org/abs/2106.09685) (Hu et al., 2021<d-cite key="hu2021loralowrankadaptationlarge"></d-cite>)**. Given a pre-trained model with parameters $\theta$, the central hypothesis of LoRA is that a fine-tuned model weights can be decomposed into $\theta + \Delta \hat{\theta}$, where $\Delta \hat{\theta} \in \mathbb{R}^{m \times n}$ is low-rank and $\theta$ is frozen. In other words, we can factorize $\Delta \hat{\theta} = AB$ where $A \in \mathbb{R}^{m \times r}$ and $B \in \mathbb{R}^{r \times n}$ and $r \ll \min(m,n)$<d-footnote>Strangely, I don’t have a lot of intuition for learned matrix decomposition. This idea is popular in recommendation systems / factorization machines, and is supposedly SVD-esque, but I don’t know what properties you can derive from these factorized matrices. If anyone knows, please tell me! </d-footnote>. Furthermore, unlike adaptors, LoRA adds no extra overhead during inference time!
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -849,10 +880,11 @@ It is well known that pre-training large foundation models is way out of the bud
 </center>
 </figure>
 
-**[Q-LoRA](https://arxiv.org/abs/2305.14314) (Dettmers et al., 2023<d-cite key="dettmers2023qloraefficientfinetuningquantized"></d-cite>)**. This landmark paper enabled a lot of future work on fine-tuning LLMs, diffusion models, and other foundation models on a single device. They observe that 1) base models are still huge and need to **fit in memory when using LoRA**, 2) activations/gradients have a large memory footprint in LoRA, which [activation/gradient checkpointing](#CITE EARLY INSIGHTS) can partially solve, and 3) block-wise quantization can have many constants take up significant space in memory. 
-* To solve (1), they introduce the **4-bit NormalFloat** type, which quantizes the weights by evenly dividing the range based on the [Gaussian measure](https://en.wikipedia.org/wiki/Gaussian_measure). 
-* To solve (2), they introduced a paged optimizer based on [NVIDIA unified memory](https://developer.nvidia.com/blog/unified-memory-cuda-beginners/) to move optimizer states between GPU DRAM and CPU RAM when necessary, as they are only used for backpropagation. 
-* To solve (3), they quantize the quantization constants to a lower precision. Q-LoRA is basically a whole collection of memory reduction techniques for performing LLM fine-tuning on affordable hardware. The LoRA component remains untouched, but the memory reductions allow LoRA to be applied to all layers in a model for better performance. 
+**[Q-LoRA](https://arxiv.org/abs/2305.14314) (Dettmers et al., 2023<d-cite key="dettmers2023qloraefficientfinetuningquantized"></d-cite>)**. This landmark paper enabled a lot of future work on fine-tuning LLMs, diffusion models, and other foundation models on a single device. They observe that 1) base models are still huge and need to **fit in memory when using LoRA**, 2) activations/gradients have a large memory footprint in LoRA, which [activation/gradient checkpointing](#CITE EARLY INSIGHTS) can partially solve, and 3) block-wise quantization can have many constants take up significant space in memory.
+
+- To solve (1), they introduce the **4-bit NormalFloat** type, which quantizes the weights by evenly dividing the range based on the [Gaussian measure](https://en.wikipedia.org/wiki/Gaussian_measure).
+- To solve (2), they introduced a paged optimizer based on [NVIDIA unified memory](https://developer.nvidia.com/blog/unified-memory-cuda-beginners/) to move optimizer states between GPU DRAM and CPU RAM when necessary, as they are only used for backpropagation.
+- To solve (3), they quantize the quantization constants to a lower precision. Q-LoRA is basically a whole collection of memory reduction techniques for performing LLM fine-tuning on affordable hardware. The LoRA component remains untouched, but the memory reductions allow LoRA to be applied to all layers in a model for better performance.
 
 Combined together, a Q-LoRA tuned layer can be written as:
 
@@ -871,7 +903,8 @@ $$
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.1.d: Fused kernels and the GPGPU
-*Read [Part II.x: Hardware](#part-iix-hardware) before continuing in this section.*
+
+_Read [Part II.x: Hardware](#part-iix-hardware) before continuing in this section._
 
 Eventually, it became clear that cute tricks like sparsity and dimensionality reduction on the attention mechanism were not only hurting model performance, but they weren't even providing [wall-clock speed](https://stackoverflow.com/questions/7335920/what-specifically-are-wall-clock-time-user-cpu-time-and-system-cpu-time-in-uni) improvements to these models. You may have heard the term “[fused kernel](https://stackoverflow.com/questions/56601075/what-is-a-fused-kernel-or-fused-layer-in-deep-learning)” used to describe an optimization to a deep learning model. The term kernel is overloaded quite often, but in this instance it just refers to a program run on the GPU. We focused a lot in the earlier sections on building up models as modular, stackable components that we could freely optimize, but allowing this flexibility is not necessarily hardware-friendly. Consider the following example for computing the attention operation in PyTorch:
 
@@ -890,7 +923,7 @@ def attention(Q: torch.Tensor, K: torch.Tensor, V: torch.Tensor) -> torch.Tensor
     return O
 </d-code>
 
-In eager execution mode or without a clever compiler, every assignment $y = f(x_1,x_2,...)$ in the code above will do something like this. 
+In eager execution mode or without a clever compiler, every assignment $y = f(x_1,x_2,...)$ in the code above will do something like this.
 
 1. The variable(s) $x_1,x_2,...$ will be sitting in the GPU DRAM/HBM. We first have to **load** it onto the processors/SMs, which is quite slow.
 2. We perform the transform $f(x_1,x_2,...)$ on device. This operation is relatively fast because the torch functions (e.g. `torch.matmul`) are heavily optimized.
@@ -939,13 +972,13 @@ In the following section, we’ll talk a bit about existing fused kernel strateg
 
 **[FlashAttention](https://arxiv.org/abs/2205.14135) (Dao et al., 2022<d-cite key="dao2022flashattentionfastmemoryefficientexact"></d-cite>)**. Standard attention implementations, like the PyTorch implementation above, involve several passes to and from GPU DRAM/HBM. The key insight in building the fused attention kernel is computing the softmax block-by-block — however, computing the softmax requires loading all keys into a block, which does not fit into the limited SRAM space. The authors instead minimize accesses to global memory by using a trick called the [online softmax](https://arxiv.org/abs/1805.02867) while simultaneously loading in the relevant value blocks. Furthermore, they re-compute the attention matrix in the backwards pass. Launched kernels are parallelized over the batch size and the number of heads.
 
-**[FlashAttention2](https://arxiv.org/abs/2307.08691) (Dao, 2023<d-cite key="dao2023flashattention2fasterattentionbetter"></d-cite>)**. The successor implementation of FlashAttention minimizes non-matrix multiplication operations such as the online softmax scaling term, which are significantly slower due to A100 Tensor Cores — while the **max throughput for FP16 matmuls is 312 TFLOPS**, for **standard FP32 operations it is only 19.5 TFLOPS**. Furthermore, they avoid [intra-warp synchronization](https://www.youtube.com/watch?v=g5ZKBH6UQvE&list=PLRRuQYjFhpmubuwx-w8X964ofVkW1T8O4&index=21&ab_channel=ProgrammingMassivelyParallelProcessors)<d-footnote>Recall that threads in a warp call the same instructions SIMT-style. However, across warps in the same block, we often will call a block-level synchronization barrier with `__syncthread()` when we need to wait for all previous threads to finish. The authors minimizes these barrier calls in FA2 by changing which warps handle which matrices. If this whole explanation is confusing to you, I totally understand. The original paper has some nice diagrams that explain it better, but it’s definitely a GPU-specific detail.</d-footnote> by switching how they loop over the $\mathbf{Q}$ and $\mathbf{K}/\mathbf{V}$ matrices. One particular limitation of these methods is no support for custom attention masks and attention biases, which is now supported in [FlexAttention](https://pytorch.org/blog/flexattention/) as of August 2024 (I also had written a [Triton implementation for FA2](https://github.com/alexzhang13/flashattention2-custom-mask)). 
+**[FlashAttention2](https://arxiv.org/abs/2307.08691) (Dao, 2023<d-cite key="dao2023flashattention2fasterattentionbetter"></d-cite>)**. The successor implementation of FlashAttention minimizes non-matrix multiplication operations such as the online softmax scaling term, which are significantly slower due to A100 Tensor Cores — while the **max throughput for FP16 matmuls is 312 TFLOPS**, for **standard FP32 operations it is only 19.5 TFLOPS**. Furthermore, they avoid [intra-warp synchronization](https://www.youtube.com/watch?v=g5ZKBH6UQvE&list=PLRRuQYjFhpmubuwx-w8X964ofVkW1T8O4&index=21&ab_channel=ProgrammingMassivelyParallelProcessors)<d-footnote>Recall that threads in a warp call the same instructions SIMT-style. However, across warps in the same block, we often will call a block-level synchronization barrier with `__syncthread()` when we need to wait for all previous threads to finish. The authors minimizes these barrier calls in FA2 by changing which warps handle which matrices. If this whole explanation is confusing to you, I totally understand. The original paper has some nice diagrams that explain it better, but it’s definitely a GPU-specific detail.</d-footnote> by switching how they loop over the $\mathbf{Q}$ and $\mathbf{K}/\mathbf{V}$ matrices. One particular limitation of these methods is no support for custom attention masks and attention biases, which is now supported in [FlexAttention](https://pytorch.org/blog/flexattention/) as of August 2024 (I also had written a [Triton implementation for FA2](https://github.com/alexzhang13/flashattention2-custom-mask)).
 
-**[FlashAttention3](https://arxiv.org/abs/2407.08608) (Shah et al., 2024<d-cite key="shah2024flashattention3fastaccurateattention"></d-cite>)**. The latest version of FlashAttention specifically targets the H100/H200 GPUs, and the focus reads completely differently from v1 and v2. Namely, the new [WGMMA instruction](https://docs.nvidia.com/cuda/parallel-thread-execution/#tensors) we talked about in [Part III.0](#part-iii0-lets-talk-about-the-h100-gpu) and the TMA offer essentially free speed-ups. Furthermore, separating data loading (TMA) and computation (WGMMA) in different warps, a technique called [warp specialization](https://github.com/NVIDIA/cutlass/blob/main/media/docs/efficient_gemm.md#warp-specialization), is also used to **maximize Tensor Core usage**. Finally, the authors observe that **non-matmul operations like exponentiation in softmax are up to 256x slower** than matmuls, so they [manually schedule warpgroups in a pipelined fashion](https://tridao.me/blog/2024/flash3/#inter-warpgroup-overlapping-with-pingpong-scheduling) to reduce potential bubbles created by these interleaved operations.  
+**[FlashAttention3](https://arxiv.org/abs/2407.08608) (Shah et al., 2024<d-cite key="shah2024flashattention3fastaccurateattention"></d-cite>)**. The latest version of FlashAttention specifically targets the H100/H200 GPUs, and the focus reads completely differently from v1 and v2. Namely, the new [WGMMA instruction](https://docs.nvidia.com/cuda/parallel-thread-execution/#tensors) we talked about in [Part III.0](#part-iii0-lets-talk-about-the-h100-gpu) and the TMA offer essentially free speed-ups. Furthermore, separating data loading (TMA) and computation (WGMMA) in different warps, a technique called [warp specialization](https://github.com/NVIDIA/cutlass/blob/main/media/docs/efficient_gemm.md#warp-specialization), is also used to **maximize Tensor Core usage**. Finally, the authors observe that **non-matmul operations like exponentiation in softmax are up to 256x slower** than matmuls, so they [manually schedule warpgroups in a pipelined fashion](https://tridao.me/blog/2024/flash3/#inter-warpgroup-overlapping-with-pingpong-scheduling) to reduce potential bubbles created by these interleaved operations.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**xFormers (Facebook Research, 2021) [[Repo](https://github.com/facebookresearch/xformers/releases)]**. The xFormers repository features a series of CUDA and Triton kernels for various Transformer components like attention, layer norms, dropout, etc. Prior to the release of FlexAttention, the xFormers repo was also the standard for a fast attention algorithm with custom attention biases. 
+**xFormers (Facebook Research, 2021) [[Repo](https://github.com/facebookresearch/xformers/releases)]**. The xFormers repository features a series of CUDA and Triton kernels for various Transformer components like attention, layer norms, dropout, etc. Prior to the release of FlexAttention, the xFormers repo was also the standard for a fast attention algorithm with custom attention biases.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -955,7 +988,7 @@ In the following section, we’ll talk a bit about existing fused kernel strateg
 
 **Other examples.** While fused kernels have seen extensive interest in transformer-based LLM applications, there are other areas where fused kernels were critical to their success. We list a few notable examples below.
 
-- **[FlashFFTConv](https://arxiv.org/abs/2311.05908) (Fu et al. 2023<d-cite key="fu2023flashfftconvefficientconvolutionslong"></d-cite>).** It is well known that for functions $u(x), v(x)$ with Fourier transforms $\mathcal{F}(u), \mathcal{F}(v)$, the convolution can be written as $ \\{u * v \\} (x) = \mathcal{F}^{-1} \\{\mathcal{F}(u) \cdot \mathcal{F}(v) \\} $. It is also well known that the Fast Fourier Transform can be computed in $O(N \log N)$, so we can compute convolutions for state-space models in $O(N \log N)$ where $N$ is the sequence length! However, despite the better runtime complexity than attention, in practice, Transformers are still faster to train on modern hardware. **FlashFFTConv re-writes the FFT into a different decomposition that contains matrix multiplications** to take advantage of Tensor Cores.
+- **[FlashFFTConv](https://arxiv.org/abs/2311.05908) (Fu et al. 2023<d-cite key="fu2023flashfftconvefficientconvolutionslong"></d-cite>).** It is well known that for functions $u(x), v(x)$ with Fourier transforms $\mathcal{F}(u), \mathcal{F}(v)$, the convolution can be written as $ \\{u \* v \\} (x) = \mathcal{F}^{-1} \\{\mathcal{F}(u) \cdot \mathcal{F}(v) \\} $. It is also well known that the Fast Fourier Transform can be computed in $O(N \log N)$, so we can compute convolutions for state-space models in $O(N \log N)$ where $N$ is the sequence length! However, despite the better runtime complexity than attention, in practice, Transformers are still faster to train on modern hardware. **FlashFFTConv re-writes the FFT into a different decomposition that contains matrix multiplications** to take advantage of Tensor Cores.
 - **[Mamba: Linear-Time Sequence Modeling with Selective State Spaces](https://arxiv.org/abs/2312.00752) (Gu et al., 2023<d-cite key="gu2024mambalineartimesequencemodeling"></d-cite>)**. Prior state-space model methods (e.g. [S4](https://arxiv.org/abs/2111.00396)) impose a linear-time-invariant (LTI) constraint on the state update matrices so they can be re-written as a convolution to avoid the sequential computation needed for recurrent algorithms. While these models were interesting at the time, Mamba was a huge deal in the community because it removed the LTI constraint and added an input-dependent selection mechanism for its parameters. To remove the LTI constraint, the authors wrote a **kernel to keep the recurrent state in fast shared memory** to keep the computation fast.
 - **[InstantNGP](https://nvlabs.github.io/instant-ngp/) (Müller et al. 2022<d-cite key="M_ller_2022"></d-cite>)**. The novel view synthesis problem<d-footnote>The novel view synthesis problem is generating unseen views of a scene given a few reference images. With a fine granularity, you can even produce entire videos or interactable scenes from just an image.</d-footnote> has mostly been solved using Neural Radiance Fields (NeRFs), but the computational bottleneck of increasing resolution was large. InstantNGP was a hashing scheme for position-dependent features that was entirely written as a fused kernel, and is widely used as a standard in many subsequent NeRF works as well.
 - **[MSA Pair Weighted Averaging for AlphaFold3](https://github.com/Ligo-Biosciences/AlphaFold3) (Me!)**. [AlphaFold3](https://www.nature.com/articles/s41586-024-07487-w) is a closed-source scientific breakthrough (most notably winning the [2024 Nobel Prize in Chemistry](https://www.nobelprize.org/prizes/chemistry/2024/summary/)!) developed by Google DeepMind for predicting generic molecule interactions. While they most likely developed the model in Jax and optimized it for their in-house TPUs, researchers and start-ups outside of Google are interested in using the model for their own biotech use-cases. [Ligo Biosciences](https://www.ligo.bio/) is a start-up developing an open-source version of this model, but certain algorithms such as the [Triangular Multiplicative Update](https://github.com/lucidrains/triangle-multiplicative-module) and the [MSA Pair Weighted Averaging](https://github.com/alexzhang13/msa) algorithm have extreme memory bottlenecks when written naively in PyTorch. I was interested in was writing fast and readable kernels for these algorithms (both forward and backwards passes), which I wrote in Triton<d-footnote>Triton is a programming language (it’s more of a library for Python) that compiles to an intermediate representation (IR) that NVIDIA GPUs can use. Rather than abstract at the thread-level like we’ve discussed for CUDA, it instead operates at the thread block level, and is far easier to prototype with. We will talk about this later, but torch.jit() compiles to Triton code.</d-footnote>. The MSA Pair Weighted Averaging algorithm in particular also has a pesky global softmax operation, and I used tricks similar to FlashAttention2 to minimize HBM accesses. Removing these bottlenecks has helped them feasibly scale their models on more data!
@@ -963,6 +996,7 @@ In the following section, we’ll talk a bit about existing fused kernel strateg
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.1.e: Deep Learning Compilers
+
 Another parallel thread that the community was interested in was building specialized compilers<d-footnote>I’m going to assume the reader is at least familiar with what a compiler is useful for. A lot of the optimizations done by programming language compilers like constant folding and register assignment are also done by a deep learning compiler, and LLVM itself is used in this setting for compiling to the instruction-level. </d-footnote> for deep learning operations. ML compilers are really annoying to build because 1) there are so many different hardware devices that we can use (e.g. CPU, GPU, TPU, other ASICs), 2) in a standard compiler like gcc, we would normally have access to the entire codebase we are compiling. For ML, a “codebase” is basically the model computation graph, but this isn’t always accessible (i.e. eager mode in PyTorch)<d-footnote>On point (2), you probably don’t need a powerful compiler unless you are running production code, in which case you should not be running your models in eager mode. Regardless, as we will see, the PyTorch team still added an option through torch.jit() for compiling parts of your eager execution code.</d-footnote>.
 
 <figure>
@@ -997,7 +1031,7 @@ Another parallel thread that the community was interested in was building specia
 **Examples of prominent specific-compilers.** These compilers are technically general-use, but are mostly used to target specific devices or specific libraries. Unlike the frameworks above, they are highly optimized for specific use-cases and are much more useful as tools rather than personal development. If you’re not very interested in compilers, it is nice to know some of the stuff listed below.
 
 - **nvcc (NVIDIA, 2007).** nvcc is NVIDIA’s compiler for CUDA to PTX (NVIDIA GPU’s assembly code). As far as I’m aware, a lot of the details about how what the compiler does under the hood are proprietary.
-- **XLA (Google, 2017)**. The accelerated linear algebra (XLA) compiler is mainly for linear algebra workloads in TensorFlow/Jax.  It also features a just-in-time (JIT) compiler and operates at the computation graph-level. The OpenXLA project designed it to be able to target other non-TPU hardware as well.
+- **XLA (Google, 2017)**. The accelerated linear algebra (XLA) compiler is mainly for linear algebra workloads in TensorFlow/Jax. It also features a just-in-time (JIT) compiler and operates at the computation graph-level. The OpenXLA project designed it to be able to target other non-TPU hardware as well.
 - **TensorRT (NVIDIA, 2019).** [TensorRT](https://github.com/NVIDIA/TensorRT) (and now [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM)) are inference engines that target NVIDIA devices. Given a computational graph in PyTorch/Tensorflow or ONNX, these libraries apply a set of optimizations (e.g. layer fusion, quantization, kernel selection) on CUDA devices for low-latency inference.
 - **PyTorch’s Compilers over the Years.** PyTorch supports both eager execution and graph execution, and it compiles these separately. Recently, PyTorch 2.0 introduced the [torch.compile()](https://pytorch.org/tutorials/intermediate/torch_compile_tutorial.html) decorator for easily applying JIT compilation to your code (with some restrictions of course). The PyTorch umbrella includes several different compilers such as the two-phase IR [Glow](https://github.com/pytorch/glow) (2018), [nvFuser](https://pytorch.org/blog/introducing-nvfuser-a-deep-learning-compiler-for-pytorch/) (2022), and the JIT compiler [TorchDynamo](https://pytorch.org/docs/stable/torch.compiler_dynamo_overview.html) + [TorchInductor](https://dev-discuss.pytorch.org/t/torchinductor-a-pytorch-native-compiler-with-define-by-run-ir-and-symbolic-shapes/747).
 - **Triton IR (Philippe Tillet / OpenAI, 2021).** Triton is a domain-specific language for programming NVIDIA GPU kernels in Python<d-footnote>If you’ve used Triton, you’ll notice the compute hierarchy is less granular than CUDA. Kernels operates at the block level, and there are specific functions for loading memory into threads. The other downside is the reliance on the Triton compiler when new hardware comes out, e.g. targeting H100 features like the TMA.</d-footnote>. By default, the `torch.compile()` function generates Triton code using TorchInductor. Triton has its own compiler, which converts Triton code into the MLIR-based Triton IR. The Triton-JIT compiler then optimizes this code and generates PTX code. I have found [Sasha Rush’s GPU Puzzles](https://github.com/srush/Triton-Puzzles) to be quite useful ([my solutions](https://github.com/alexzhang13/Triton-Puzzles-Solutions)). I also found the [Liger Kernel](https://github.com/linkedin/Liger-Kernel) repository, which we talked about earlier, to be a well-written set of examples for learning Triton.
@@ -1005,6 +1039,7 @@ Another parallel thread that the community was interested in was building specia
 **Remark.** There is honestly a lot more to talk about regarding deep learning compilers, and compilers in general, but it is hard to motivate it at a high-level without going into details. There’s also a lot that goes into the design choices for specific optimizations, and I’m really not an expert on this stuff. I linked this earlier, but I did find [The Deep Learning Compiler: A Comprehensive Survey](https://arxiv.org/pdf/2002.03794) to be extremely informative on the design choices of these compilers.
 
 ## Part III.2: The Era of Scale (distributed version)
+
 Imagine that you are a {insert big tech company or unicorn startup} in 2020, and you are now a big believer in scale — you want to build, say, a trillion parameter model, but you now have a whole suite of new problems in the distributed setting. I previously mentioned adding more GPUs as an “obvious” solution to scaling models, but doing this is a lot harder than it sounds — a lot of work goes into **minimizing various overheads**, circumventing **communication errors**, and building **fault-tolerant and stable** algorithms for distributed workloads.
 
 <figure>
@@ -1014,8 +1049,9 @@ Imagine that you are a {insert big tech company or unicorn startup} in 2020, and
 </center>
 </figure>
 
-### III.2.a: Data parallelism 
-Suppose I have a **1B parameter (~2GB)** language model that I want to train on the [C4 dataset](https://huggingface.co/datasets/allenai/c4) (~750 GB). One common approach to accelerating training is to increase the batch size to increase the training throughput by taking advantage of the GPU’s parallelism (e.g. [Llama 3](https://arxiv.org/pdf/2407.21783) uses a **batch size of each least 250K**). Because we know that models make updates after batches of training, the naive approach is to put a copy of the model on each GPU and distribute the batch across multiple GPUs so it can fit in memory. Certain libraries like PyTorch have wrappers that handle distributing and gathering gradients across GPUs to make sure the model copies on each device are in sync<d-footnote>See the DistributedDataParallel module: https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html</d-footnote>. The most common data parallel scheme is to distribute a large batch of samples $B$ across many devices, compute the forward and backwards passes, then sum and broadcast all gradients to all devices in an [MPI-allreduce](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/collectives.html)<d-footnote>There are a bunch of collective operations like allreduce that are used to communicate effectively across multiple nodes. For example, the NCCL operations can be found here: https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/collectives.html</d-footnote> operation. 
+### III.2.a: Data parallelism
+
+Suppose I have a **1B parameter (~2GB)** language model that I want to train on the [C4 dataset](https://huggingface.co/datasets/allenai/c4) (~750 GB). One common approach to accelerating training is to increase the batch size to increase the training throughput by taking advantage of the GPU’s parallelism (e.g. [Llama 3](https://arxiv.org/pdf/2407.21783) uses a **batch size of each least 250K**). Because we know that models make updates after batches of training, the naive approach is to put a copy of the model on each GPU and distribute the batch across multiple GPUs so it can fit in memory. Certain libraries like PyTorch have wrappers that handle distributing and gathering gradients across GPUs to make sure the model copies on each device are in sync<d-footnote>See the DistributedDataParallel module: https://pytorch.org/docs/stable/generated/torch.nn.parallel.DistributedDataParallel.html</d-footnote>. The most common data parallel scheme is to distribute a large batch of samples $B$ across many devices, compute the forward and backwards passes, then sum and broadcast all gradients to all devices in an [MPI-allreduce](https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/collectives.html)<d-footnote>There are a bunch of collective operations like allreduce that are used to communicate effectively across multiple nodes. For example, the NCCL operations can be found here: https://docs.nvidia.com/deeplearning/nccl/user-guide/docs/usage/collectives.html</d-footnote> operation.
 
 <figure>
 <center>
@@ -1029,7 +1065,8 @@ Suppose I have a **1B parameter (~2GB)** language model that I want to train on 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.2.b: Model parallelism
-Like data parallelism, model parallelism is not necessarily that technically novel or interesting, but it is still extremely important and relevant today. Data parallelism relies on the model (+ optimizer states and data) fitting on a single GPU, but for large models this may not be possible (e.g. 400B parameter full-precision model is ~800GB just for model weights, far too big to fit on any GPU). [AlexNet](#part-ii1-the-first-breakthrough-on-images), for example, split the model across two GPUs in the original implementation, as they only had 3GB of RAM. Model parallelism is far more complex than data parallelism in that there are “blocking” steps — if we have a model with layer A which goes into layer B and we put the layers on different devices, we have to wait for layer A to finish before starting computation in layer B. 
+
+Like data parallelism, model parallelism is not necessarily that technically novel or interesting, but it is still extremely important and relevant today. Data parallelism relies on the model (+ optimizer states and data) fitting on a single GPU, but for large models this may not be possible (e.g. 400B parameter full-precision model is ~800GB just for model weights, far too big to fit on any GPU). [AlexNet](#part-ii1-the-first-breakthrough-on-images), for example, split the model across two GPUs in the original implementation, as they only had 3GB of RAM. Model parallelism is far more complex than data parallelism in that there are “blocking” steps — if we have a model with layer A which goes into layer B and we put the layers on different devices, we have to wait for layer A to finish before starting computation in layer B.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -1061,6 +1098,7 @@ Some other follow-up works like [PipeDream-2BW (Narayanan, 2020)](https://arxiv.
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.2.d: Architecture-specific Parallelism
+
 This mini-section is somewhat overlapping with the previous two, as model and pipeline parallelism are not necessarily architecture-agnostic. It should be pretty clear that there are certain considerations like load balancing and how to partition the model that are difficult to optimize when the model architecture is unknown. There are many recent works that focus on parallelizing specific architectures for scale, especially transformers.
 
 **[Megatron-LM](https://arxiv.org/abs/1909.08053) (Shoeybi et al., 2020<d-cite key="shoeybi2020megatronlmtrainingmultibillionparameter"></d-cite>)**. The aforementioned distributed training frameworks have pretty complicated implementations, and have evolved over time to include extra optimizations as well. The core thesis of Megatron-LM is to reduce overhead communication costs and assign operators in a Transformer models purely by intuition, and they identify synchronization points (basically where the devices will stall) that they can remove. Since then, Megatron-LM has changed significantly to be a framework for scaling languages, with two subsequent works [https://arxiv.org/abs/2104.04473](https://arxiv.org/abs/2104.04473) and [https://arxiv.org/abs/2205.05198](https://arxiv.org/abs/2205.05198), as well as a library called [Megatron-Core](https://github.com/NVIDIA/Megatron-LM?tab=readme-ov-file#megatron-core) for handling large-scale training.
@@ -1068,6 +1106,7 @@ This mini-section is somewhat overlapping with the previous two, as model and pi
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.2.e: Multi-node distributed training
+
 We can generally get away with multi-GPU workloads on a single node (e.g. a [DGX A100 8x80GB](https://images.nvidia.com/aem-dam/Solutions/Data-Center/nvidia-dgx-a100-datasheet.pdf) server) without having to deal with a scheduling algorithm or factoring node-to-node network bandwidth as a bottleneck, but as we **start scaling even further to pre-training foundation models, we have to consider multi-node multi-GPU** training frameworks.
 
 <figure>
@@ -1077,7 +1116,7 @@ We can generally get away with multi-GPU workloads on a single node (e.g. a [DGX
 </center>
 </figure>
 
-**[ZeRO](https://arxiv.org/abs/1910.02054) (Rajbhandari et al., 2020<d-cite key="rajbhandari2020zeromemoryoptimizationstraining"></d-cite>)**. ZeRO cleans up most of the redundant memory footprint in data-parallel training schemes **by partitioning across multiple devices / nodes**. ZeRO is a family of optimizations separated into two classes: ZeRO-DP for “states”, and ZeRO-R for “residual memory”<d-footnote>The paper introduces residual memory as activations, temporary buffers, and fragmented memory, but this is basically like the constantly changing / temporary data.</d-footnote>. 
+**[ZeRO](https://arxiv.org/abs/1910.02054) (Rajbhandari et al., 2020<d-cite key="rajbhandari2020zeromemoryoptimizationstraining"></d-cite>)**. ZeRO cleans up most of the redundant memory footprint in data-parallel training schemes **by partitioning across multiple devices / nodes**. ZeRO is a family of optimizations separated into two classes: ZeRO-DP for “states”, and ZeRO-R for “residual memory”<d-footnote>The paper introduces residual memory as activations, temporary buffers, and fragmented memory, but this is basically like the constantly changing / temporary data.</d-footnote>.
 
 - **ZeRO-DP** targets various types of memory such as optimizer states (stage 1), gradients (stage 2), and the actual parameters of the model (stage 3). The general strategy is for each device to be responsible for holding and updating a partition of these components in memory, while requesting certain partitions only when needed (updates are made with a final all-gather or reduce-scatter). For example, when partitioning the model parameters, instead of performing model parallelism, where layer A sits on device 1 and sends its outputs to layer B on device 2, device 1 will instead grab layer B from device 2 and compute it all on device.
 - **ZeRO-R** also centers around the partitioning strategy, but instead patches up a lot of the potential redundancies caused by ZeRO-DP. ZeRO-R handles activation checkpointing with a partitioning strategy similar to those found in ZeRO-DP (basically request it when you need it), but also uses a buffer to ensure requests are sufficiently sized while also handling memory fragmentation by pre-allocating contiguous memory chunks as needed.
@@ -1093,7 +1132,7 @@ There are a lot of rich details regarding how each optimization is ZeRO is imple
 </center>
 </figure>
 
-**[RingAttention](https://arxiv.org/abs/2310.01889) (Liu et al., 2023<d-cite key="liu2023ringattentionblockwisetransformers"></d-cite>)** [[unofficial code](https://github.com/lucidrains/ring-attention-pytorch)]. When we increase the effective context window of a model, we start getting to the regime where a single attention operation has to be split across multiple devices. Recall from our [discussion of FlashAttention](#iii1d-fused-kernels-and-the-gpgpu) that we can compute attention by splitting $Q$  and $K,V$ into blocks. The [Blockwise Parallel Transformer (BPT)](https://arxiv.org/abs/2305.19370) takes this further by also fusing the subsequent feedforward layer with the attention layer, which operates independently on each $Q$ block<d-footnote>Allow me to clarify. When you look at FlashAttention, you’ll notice that the output block $O$ is computed by taking a block $Q$ with all the keys and values. In other words, $Q$ and $O$ are synced, and $K$ and $V$ are synced. Each FFN layer gets applied independently along the sequence dimension of the $O$ block, so we can apply it immediately when any $O$ block is computed.</d-footnote>. RingAttention uses the intuition from BPT with one more observation: for every output block $O$, we compute it using a query block $Q$ and all key/value blocks, and the order that we load $K/V$ blocks is entirely permutation invariant! Thus, we can form a “ring” of host devices that each handle one query block, while we move each $K/V$ block from host to host to compute the $O$ block so each query block will see each $K/V$ block exactly once in some arbitrary order. This scheme overlaps the communication cost of moving around the $K/V$ blocks with the BPT computation, effectively hiding most of the latency that a naive distributed Transformer would have. 
+**[RingAttention](https://arxiv.org/abs/2310.01889) (Liu et al., 2023<d-cite key="liu2023ringattentionblockwisetransformers"></d-cite>)** [[unofficial code](https://github.com/lucidrains/ring-attention-pytorch)]. When we increase the effective context window of a model, we start getting to the regime where a single attention operation has to be split across multiple devices. Recall from our [discussion of FlashAttention](#iii1d-fused-kernels-and-the-gpgpu) that we can compute attention by splitting $Q$ and $K,V$ into blocks. The [Blockwise Parallel Transformer (BPT)](https://arxiv.org/abs/2305.19370) takes this further by also fusing the subsequent feedforward layer with the attention layer, which operates independently on each $Q$ block<d-footnote>Allow me to clarify. When you look at FlashAttention, you’ll notice that the output block $O$ is computed by taking a block $Q$ with all the keys and values. In other words, $Q$ and $O$ are synced, and $K$ and $V$ are synced. Each FFN layer gets applied independently along the sequence dimension of the $O$ block, so we can apply it immediately when any $O$ block is computed.</d-footnote>. RingAttention uses the intuition from BPT with one more observation: for every output block $O$, we compute it using a query block $Q$ and all key/value blocks, and the order that we load $K/V$ blocks is entirely permutation invariant! Thus, we can form a “ring” of host devices that each handle one query block, while we move each $K/V$ block from host to host to compute the $O$ block so each query block will see each $K/V$ block exactly once in some arbitrary order. This scheme overlaps the communication cost of moving around the $K/V$ blocks with the BPT computation, effectively hiding most of the latency that a naive distributed Transformer would have.
 
 **[StripedAttention](https://arxiv.org/abs/2311.09431) (Brandon et al., 2023<d-cite key="brandon2023stripedattentionfasterring"></d-cite>)**
 StripedAttention is an extension of RingAttention that avoids redundancies caused by causal attention masks — instead of placing contiguous $K/V$ blocks on each device, they shuffle the keys/values to avoid completely masked out blocks (see Figure 28).
@@ -1101,9 +1140,10 @@ StripedAttention is an extension of RingAttention that avoids redundancies cause
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.2.f: Libraries for distributed deep learning workloads.
+
 Multi-GPU and multi-node algorithms like ZeRO have been integrated into libraries for developers to use. The community has moved extraordinarily fast on producing libraries for multi-device training and inference, making it **possible for people with no knowledge to use multiple devices**. In this section, I want to talk a little bit about those libraries, as well as provide some context for what is going on under the hood. We begin with a simple example of how to run basic distributed training in PyTorch.
 
-**[PyTorch example](https://pytorch.org/tutorials/intermediate/dist_tuto.html).**  In PyTorch, we start by initializing a process group on each device that defines a **master address/port**, its **device rank**, the **world size**, and a communication **backend**. 
+**[PyTorch example](https://pytorch.org/tutorials/intermediate/dist_tuto.html).** In PyTorch, we start by initializing a process group on each device that defines a **master address/port**, its **device rank**, the **world size**, and a communication **backend**.
 
 - The **master address** and **port** from the master node, which generally controls the whole distributed system, is set across all nodes.
 - The **device rank** or world rank is a unique identifier in $\mathbb{N}$ for each device in the distributed network. The **local rank** is the identifier of a process within a node (e.g. gpu:0), and the **world size** is the total number of devices.
@@ -1116,7 +1156,7 @@ os.environ['MASTER_PORT']= '01134'
 torch.distributed.init_process_group(backend, rank=rank, world_size=size)
 </d-code>
 
-Modern libraries like `deepspeed` will make these primitives a lot easier for you, and will even make launching these applications with their [CLI tools](https://aws.amazon.com/what-is/cli/) a lot simpler (you’ll probably just have to run `deepspeed program.py ...`).  If you were to manually run a distributed workload (e.g. with [PyTorch’s DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) or by defining your own sends and receives), you would typically have to run the program on each separate node while specifying their individual ranks. 
+Modern libraries like `deepspeed` will make these primitives a lot easier for you, and will even make launching these applications with their [CLI tools](https://aws.amazon.com/what-is/cli/) a lot simpler (you’ll probably just have to run `deepspeed program.py ...`). If you were to manually run a distributed workload (e.g. with [PyTorch’s DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) or by defining your own sends and receives), you would typically have to run the program on each separate node while specifying their individual ranks.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -1126,12 +1166,13 @@ Modern libraries like `deepspeed` will make these primitives a lot easier for yo
 - **[gloo](https://github.com/facebookincubator/gloo)**. Gloo is more flexible for supporting CPU-GPU communication as well as GPU-GPU communication, and is often noted to be more useful for CPU-intensive distributed workloads.
 - **[mpi](https://en.wikipedia.org/wiki/Message_Passing_Interface)**. MPI has been the standard backend for most high-performance computing (HPC) applications.
 
-**Some relevant modern libraries.** You can definitely code up a multi-GPU or multi-node job in PyTorch or TensorFlow, and most experienced developers choose to do this in favor of flexibility. However, there are many choices for libraries / CLI tools that handle multi-device training for you, and we list some in [A.2: Large training / finetuning frameworks](#a2-large-training-and-finetuning-frameworks). 
+**Some relevant modern libraries.** You can definitely code up a multi-GPU or multi-node job in PyTorch or TensorFlow, and most experienced developers choose to do this in favor of flexibility. However, there are many choices for libraries / CLI tools that handle multi-device training for you, and we list some in [A.2: Large training / finetuning frameworks](#a2-large-training-and-finetuning-frameworks).
 
 ## Part III.3: Scaling Laws
+
 Characterizing model performance as a function of scale is a useful signal for whether any advances in efficient deep learning are even important. There are even works that look into predicting training curves, but in this section we mainly focus on observed empirical scaling laws and what they imply. All of the following scaling laws focus on characterizing the **generalization / test loss in (nats/token)**, which is just the average negative log-likelihood with respect to the evaluation set. To keep this post focused on efficiency, I will mainly be glossing over results and leaving it to the reader to learn more about specific constant ranges or empirical findings.
 
-**[Deep learning Scaling is Predictable, Empirically](https://arxiv.org/abs/1712.00409) (Hestness et al., 2017<d-cite key="hestness2017deeplearningscalingpredictable"></d-cite>)**. One of the first papers to present empirical scaling laws on a wide range of tasks (image, language, machine translation, speech) as a function of the training set size. They model test loss as a function of dataset size: 
+**[Deep learning Scaling is Predictable, Empirically](https://arxiv.org/abs/1712.00409) (Hestness et al., 2017<d-cite key="hestness2017deeplearningscalingpredictable"></d-cite>)**. One of the first papers to present empirical scaling laws on a wide range of tasks (image, language, machine translation, speech) as a function of the training set size. They model test loss as a function of dataset size:
 
 <p>
 $$
@@ -1159,6 +1200,7 @@ $$
 </p>
 
 They notably discover through experimentation that:
+
 - Counting embedding parameters for $N$ does not result in the nice power-law relationship we would expect, but excluding them does.
 - Performance depends strongly on model scale and weakly on model shape, which is consistent with the findings of (**Hestness et al., 2017<d-cite key="hestness2017deeplearningscalingpredictable"></d-cite>)**.
 - Increasing $N$ and $D$ at a fixed rate $N^{\beta} / D$ is necessary to observe performance gains in the scaling laws.
@@ -1186,9 +1228,11 @@ $$
 Under their fitted power law, they set a constraint budget $6ND \leq C$ for their proposed compute-optimal Chinchilla model. In the domain of large language models, scaling law papers are hard to come by because of the sheer cost of running experiments. Other works like [Beyond neural scaling laws](https://arxiv.org/abs/2206.14486), [Transcending Scaling Laws with 0.1% Extra Compute](https://arxiv.org/abs/2210.11399), and [Scaling Data-Constrained Language Models](https://proceedings.neurips.cc/paper_files/paper/2023/hash/9d89448b63ce1e2e8dc7af72c984c196-Abstract-Conference.html) explore how scaling law constants change under different datasets, constraints, and model assumptions. From an efficiency standpoint, there will always be interest in deriving the upper-bound of power law constants $\alpha,\beta$.
 
 ## Part III.4: Revisiting downwards scaling
+
 A natural analogue for neural scaling laws is the lower bound of compute necessary to achieve some level of model performance. In the era of foundation models and Transformers, model compression methods have evolved to deal with the challenges of large-scale models trained on huge datasets.
 
 ### III.4.a: Small Language Models (SLMs)
+
 With foundation models getting too large to fit on affordable hardware, there has been a growing interest in how to train a small language model that performs the same as a large language model. A lot of the subsequent sections are relevant to training SLMs from scratch and from an LLM.
 
 **The Phi models.** The Phi models are a series of open-source SLMs from Microsoft Research designed to emphasize the value of high-quality training data. This idea may contradict the scaling laws we discussed in [the previous section](#part-iii3-scaling-laws), but actually the scaling laws bake in assumptions such as properties of the data distribution, types of models used, etc. that aren’t universally covered.
@@ -1210,7 +1254,7 @@ Similarly sized models follow the same training recipe (i.e. really “high qual
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**[Sheared LLaMA](https://arxiv.org/abs/2310.06694) (Xia et al., 2023<d-cite key="xia2024shearedllamaacceleratinglanguage"></d-cite>)**.  Existing pruning techniques mentioned in [II.6.a: Model Pruning](#ii6a-model-pruning) have found little success in the large language model space due to the lack of hardware-aware structure. Instead, in this work they prune at a higher abstraction such as the **number of layers, attention heads, and hidden dimensions** to enable hardware-aware structured pruning for language models. They also introduce “dynamic batch loading”, which is an online optimization-style problem for adjusting the proportion of data from each domain that is added to the training batch. I am hopeful that more theoretically motivated versions of this technique will be useful for faster convergence.
+**[Sheared LLaMA](https://arxiv.org/abs/2310.06694) (Xia et al., 2023<d-cite key="xia2024shearedllamaacceleratinglanguage"></d-cite>)**. Existing pruning techniques mentioned in [II.6.a: Model Pruning](#ii6a-model-pruning) have found little success in the large language model space due to the lack of hardware-aware structure. Instead, in this work they prune at a higher abstraction such as the **number of layers, attention heads, and hidden dimensions** to enable hardware-aware structured pruning for language models. They also introduce “dynamic batch loading”, which is an online optimization-style problem for adjusting the proportion of data from each domain that is added to the training batch. I am hopeful that more theoretically motivated versions of this technique will be useful for faster convergence.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -1222,6 +1266,7 @@ Similarly sized models follow the same training recipe (i.e. really “high qual
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.4.b: Modern quantization techniques
+
 We revisit the topic of quantization and some popular research directions related to it. Quantization is especially interesting for language models because it can be made efficient for modern hardware without affecting the architecture of the model. However, **unless the entire model is quantized, quantization methods still suffer from a lack of hardware support for speed-ups**.
 
 <figure>
@@ -1294,7 +1339,8 @@ Under this scheme, we never need to go back and forth between different precisio
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.4.c: Sparse Parameters
-One research direction that hasn’t really taken off for the past few years is **introducing sparsity or sparse decompositions to model parameters**. We mentioned in [III.1.a: Shaving complexity: Approximate Methods](#iii1a-shaving-complexity-through-approximate-methods) that sparse attention methods were just not efficient on modern parallel processors, which is not entirely true(-ish). 
+
+One research direction that hasn’t really taken off for the past few years is **introducing sparsity or sparse decompositions to model parameters**. We mentioned in [III.1.a: Shaving complexity: Approximate Methods](#iii1a-shaving-complexity-through-approximate-methods) that sparse attention methods were just not efficient on modern parallel processors, which is not entirely true(-ish).
 
 <figure>
 <center>
@@ -1313,15 +1359,17 @@ One research direction that hasn’t really taken off for the past few years is 
 - **[Monarch Matrices](https://proceedings.mlr.press/v162/dao22a.html) (Dao et al., 2022<d-cite key="pmlr-v162-dao22a"></d-cite>)**. As a follow-up, they derive a less-expressive class of matrices with hardware-friendly factorizations. Despite now being practically interesting, I haven’t seen much follow up work in this area in recently.
 
 ## Part III.5: What about model inference?
+
 The introduction of ChatGPT (2022) made it clear that building infrastructure to support querying large models ( i.e. model serving) was a necessary research direction. In addition to the compiler optimizations offered by inference engines like TensorRT for speeding up model code, people also began thinking about how to handle and schedule batches of user requests. The primary considerations were **minimizing the latency of each user request**, and **maximizing the throughput of processing all user requests**. Furthermore, due to the nature of KV-caching that we discussed in [III.1.0: Early Insights](#iii10-early-insights), these systems generally have to distinguish between the [pre-filling](https://quic.github.io/cloud-ai-sdk-pages/1.12/Getting-Started/Model-Architecture-Support/Large-Language-Models/llm/#prefill-stage) stage, where an initial prompt is fed into the model and all keys/queries/values are computed, and the [decoding phase](https://quic.github.io/cloud-ai-sdk-pages/1.12/Getting-Started/Model-Architecture-Support/Large-Language-Models/llm/#decode-stage), where cached KVs can be re-used, and only one new query token is considered.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**[llama.cpp (Gerganov, 2022)](https://github.com/ggerganov/llama.cpp)**. One of the coolest solo projects by [Georgi Gerganov](https://github.com/ggerganov) is a pure C++ implementation of the [LLaMA family](https://en.wikipedia.org/wiki/Llama_(language_model)) that optimizes for non-GPU devices (it now supports GPUs). It has since become a standard tool for running model inference on a variety of language models, and is extremely simple to use with its CLI. The downside is that adapting this code for custom LLMs is difficult without a strong understanding of the underlying implementation.
+**[llama.cpp (Gerganov, 2022)](https://github.com/ggerganov/llama.cpp)**. One of the coolest solo projects by [Georgi Gerganov](https://github.com/ggerganov) is a pure C++ implementation of the [LLaMA family](<https://en.wikipedia.org/wiki/Llama_(language_model)>) that optimizes for non-GPU devices (it now supports GPUs). It has since become a standard tool for running model inference on a variety of language models, and is extremely simple to use with its CLI. The downside is that adapting this code for custom LLMs is difficult without a strong understanding of the underlying implementation.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.5.a: Generative model serving
+
 The most naive form of model serving for generative Transformers is to batch a bunch of requests, process them, then distribute the results back to each user. There are a lot of annoying considerations like **non-uniform length prompts**, **non-uniform length generations**, and how to **handle the KV cache in memory** (which is not small!) that people quickly began figuring out in the past two years.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
@@ -1333,7 +1381,7 @@ The most naive form of model serving for generative Transformers is to batch a b
 </center>
 </figure>
 
-**[Orca](https://www.usenix.org/conference/osdi22/presentation/yu) (Yu et al., 2022<d-cite key="280922"></d-cite>)**. One of the **first open-source engines for model serving optimized for throughput**. Given a batch of requests, their **scheduler works at the token-level (they call it iteration-level)**, meaning it doesn’t care if two requests were launched at different times. Furthermore, they notice that certain operations in a Transformer in non-batchable requests (e.g. they’re in different stages or of different lengths) can actually be batched — any linear transforms can be batched regardless of length (see **Figure 35**).  
+**[Orca](https://www.usenix.org/conference/osdi22/presentation/yu) (Yu et al., 2022<d-cite key="280922"></d-cite>)**. One of the **first open-source engines for model serving optimized for throughput**. Given a batch of requests, their **scheduler works at the token-level (they call it iteration-level)**, meaning it doesn’t care if two requests were launched at different times. Furthermore, they notice that certain operations in a Transformer in non-batchable requests (e.g. they’re in different stages or of different lengths) can actually be batched — any linear transforms can be batched regardless of length (see **Figure 35**).
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -1348,11 +1396,12 @@ The most naive form of model serving for generative Transformers is to batch a b
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**[Sarathi-serve](https://arxiv.org/abs/2403.02310) (Agrawal et al., 2024<d-cite key="agrawal2024tamingthroughputlatencytradeoffllm"></d-cite>)**. Prefilling (high latency, high GPU utilization) and decoding (low latency, low GPU utilization) are difficult to schedule together, but serving systems will often having many concurrent requests at either stage. The authors observe that when optimizing for throughput or greedily scheduling prefills first, there is a tradeoff between the [time-between-token (TBT)](https://arxiv.org/html/2407.07000v1#:~:text=TBT%20%3A%20Time%20Between%20Tokens%20(TBT,of%20the%20model%20by%20users.) and the overall throughput of the model. Furthermore, certain **scheduling behavior can cause requests to get stalled because they are forced to wait for other requests to finish** first. Sarathi-serve walks in the middle by 1) chunking prefills to interleave requests at a finer granularity and 2) interleaving ongoing decodes with other requests to prevent stalling ongoing requests. **tldr;** *if you optimize too much for throughput, you’re inevitably going to make some requests really slow. Sarathi-serve tries to make sure no request gets stalled for too long while still maximizing throughput.*
+**[Sarathi-serve](https://arxiv.org/abs/2403.02310) (Agrawal et al., 2024<d-cite key="agrawal2024tamingthroughputlatencytradeoffllm"></d-cite>)**. Prefilling (high latency, high GPU utilization) and decoding (low latency, low GPU utilization) are difficult to schedule together, but serving systems will often having many concurrent requests at either stage. The authors observe that when optimizing for throughput or greedily scheduling prefills first, there is a tradeoff between the [time-between-token (TBT)](https://arxiv.org/html/2407.07000v1#:~:text=TBT%20%3A%20Time%20Between%20Tokens%20(TBT,of%20the%20model%20by%20users.) and the overall throughput of the model. Furthermore, certain **scheduling behavior can cause requests to get stalled because they are forced to wait for other requests to finish** first. Sarathi-serve walks in the middle by 1) chunking prefills to interleave requests at a finer granularity and 2) interleaving ongoing decodes with other requests to prevent stalling ongoing requests. **tldr;** _if you optimize too much for throughput, you’re inevitably going to make some requests really slow. Sarathi-serve tries to make sure no request gets stalled for too long while still maximizing throughput._
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### III.5.b: Fast decoding strategies
+
 We have mentioned over and over again that many Transformer computations are memory-bound, and this is **especially true for model inference.** While we can increase inference throughput using the methods in the previous section, the latency is lower-bounded. A new research direction on fast decoding strategies has emerged to push this lower bound down.
 
 **[Speculative decoding](https://arxiv.org/abs/2211.17192) (Leviathan et al., 2022<d-cite key="leviathan2023fastinferencetransformersspeculative"></d-cite>)**. The core idea is to sample tokens from a cheaper “draft” model $q(x_{<t})$, and use a cute probability trick to make sure the distribution we sample from is actually the large model $p(x_{<t})$<d-footnote>Up until now I’ve tried to avoid writing out math because I always recommend reading the original paper if you’re more curious about the “why”, and in this case the original paper is really simple, so I think it’s much easier to just let the math speak.</d-footnote>. The savings comes from the fact that we can actually sample multiple sequential tokens from $q(x_{<t})$ while simultaneously computing tokens and the actual distribution from $p(x_{<t})$. We can then perform rejection sampling based on the likelihood of the generated token, and choose up to the first token that was rejected. By using more compute resources, we can speed up decoding by up to how much faster the smaller model is than the larger model. This work was critical for future ideas on using smaller models for faster decoding.
@@ -1369,18 +1418,21 @@ We have mentioned over and over again that many Transformer computations are mem
 **[Medusa: Multiple Decoding Heads](https://arxiv.org/abs/2401.10774) (Cai et al., 2024<d-cite key="cai2024medusasimplellminference"></d-cite>)**. Instead of using a smaller draft model, which is hard to fit into the GPU memory hierarchy without being slow, Medusa uses **multiple prediction heads** (each head is just a [FFN](https://medium.com/image-processing-with-python/the-feedforward-network-ffn-in-the-transformer-model-6bb6e0ff18db) with a residual connection) at the last hidden state and a sparsely structured attention mask over the predictions (basically to make sure they only attend heads can’t attend to tokens they didn’t generate) which they call “tree attention”. Unlike speculative decoding, the authors argue that matching the original model distribution is unnecessary, as long as the outputs are “reasonable” (they define a rule based on [truncated sampling](https://arxiv.org/abs/2210.15191)).
 
 ## Part N: Modern Day and Beyond
-We are still in the era of scale. However, in my opinion (not necessarily shared by the community), I don’t find the recent results of “scaling” to be particularly impressive (e.g. in a lot of the domains like [decision-making game environments](https://minerl.readthedocs.io/en/latest/), [software engineering](https://www.swebench.com/multimodal.html) tasks, etc. LLMs are still pretty bad). A lot of the prior directions in [Part III](#part-iii-the-era-of-scale-till-we-fail-2020-now) are still being tackled to this day, so this section will feel a bit all over the place.  Here, I will list some interesting on-going threads without a strong answer.
+
+We are still in the era of scale. However, in my opinion (not necessarily shared by the community), I don’t find the recent results of “scaling” to be particularly impressive (e.g. in a lot of the domains like [decision-making game environments](https://minerl.readthedocs.io/en/latest/), [software engineering](https://www.swebench.com/multimodal.html) tasks, etc. LLMs are still pretty bad). A lot of the prior directions in [Part III](#part-iii-the-era-of-scale-till-we-fail-2020-now) are still being tackled to this day, so this section will feel a bit all over the place. Here, I will list some interesting on-going threads without a strong answer.
 
 ### N.1: What’s up with these superclusters?
+
 I recently listened to this [Dwarkesh podcast](https://www.youtube.com/c/DwarkeshPatel) with Leopold Aschenbrenner where they talk in the beginning about the huge cost of building compute clusters that can support scaling model training. They talk about the natural progression of scaling these data centers beyond to [100K H100s, ~150 MW](https://www.semianalysis.com/p/100000-h100-clusters-power-network), and then to 1 GW, and beyond. GPT-4, for reference, was rumored to be trained on ≥20k A100s with 13T tokens, or roughly 2e25 FLOPS. It’s also been rumored recently that [Microsoft wants to build a 100 billion dollar data center/supercluster](https://www.reuters.com/technology/microsoft-openai-planning-100-billion-data-center-project-information-reports-2024-03-29/) for their AI applications.
 
 Obviously we haven’t observed the ceiling of the “scale to model performance” relationship, but I’ve always been a bit irked by the rush to continue scaling to uncharted territory, where the superclusters in AI are finally surpassing the existing institutional superclusters. I get that it has been “working” for a few years, but in some sense it reached a level of performance that I don’t find particularly surprising. LLMs model the distribution of language in its data distribution quite well, and they “generalize” to novel tasks (what does generalization even mean? We can barely characterize the distribution we are feeding as training data so what we think is generalization could be trivial when the model optimizes with respect to the entire Internet). Even more concerning, how did we extrapolate to the idea that these newer models will be superintelligent<d-footnote>I’m not claiming AI cannot be dangerous. In fact, existing AI applications are already dangerous in not-so-sci-fi-esque ways. I also am not denying that safety / doomsday preventative research is important. But for “scale-pilled” individuals, the argument for burning billions of dollars seems a bit weak. I wonder if there is some strong prior about the equations or models we’ve been using that people have been seeing.</d-footnote>, or even that much more useful for that matter? Why is a GPT-7 that much more useful than a GPT-4?
 
-**Remark**. I’m genuinely just curious what the rationale is, and I wonder if someone has a good answer for me. I would love to see a supercluster get built because I think it’s cool, but realistically there’s a high probability that it turns out to be a massive waste of resources. 
+**Remark**. I’m genuinely just curious what the rationale is, and I wonder if someone has a good answer for me. I would love to see a supercluster get built because I think it’s cool, but realistically there’s a high probability that it turns out to be a massive waste of resources.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### N.2: How much bigger are industry resources than academia?
+
 So I graduated from Princeton this past May, and during my undergrad I was part of the Princeton NLP group — now rebranded as Princeton Language and Intelligence (PLI). At the tail end of my time there, it was announced that PLI had purchased [300 H100 GPUs](https://ai.princeton.edu/news/2024/princeton-invests-new-300-gpu-cluster-academic-ai-research), positioning itself as one of the largest academic clusters for deep learning. The only other comparable academic cluster is UT Austin’s [600 H100 cluster](https://baxtel.com/news/university-of-texas-to-host-cluster-of-600-nvidia-h100-gpus), which most research labs would love to have.
 
 I got curious about these numbers, because Meta’s [LLaMA 3.1 family was reportedly trained on](https://arxiv.org/abs/2407.21783) **16k GPUs on their 24k GPU cluster** (I wonder what kind of monstrous network topology they’ve built…) — in this [blog](https://www.factorialfunds.com/blog/thoughts-on-llama-3), they estimate training to take ~100 days on this cluster (not sure how accurate this estimate is but this ballpark seems somewhat reasonable given the FLOPs range). And this is just on Meta’s LLaMA team — I’m sure they have more compute spread out across the company. In other words, my academic lab doesn’t seem so grand in comparison. That’s not to say that you cannot do good research in academia, but it is pretty funny to me just how much more compute and money these industry labs have over some of the most prestigious academic labs in the world.
@@ -1388,6 +1440,7 @@ I got curious about these numbers, because Meta’s [LLaMA 3.1 family was report
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### N.3: How fast can we train old models with modern techniques?
+
 I’ve always been curious how fast we can train older algorithms on new hardware with all the new fancy tricks we’ve learned throughout the years. Here is a thread of some interesting works in this direction.
 
 <figure>
@@ -1418,6 +1471,7 @@ Andrej Karpathy’s super efficient implementation of GPT-2 (124M parameters) ca
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### N.4: Recent efforts to scale hybrid or non-Transformer.
+
 I sort of briefly mentioned alternatives to Transformers like SSMs and relevant algorithms like [FlashFFTConv](https://github.com/HazyResearch/flash-fft-conv) that are used to accelerate them. Given the existing constraints of Transformers and the attention mechanism, I wanted to discuss some alternatives and roughly why people have been interested in them.
 
 - **Transformer-SSM Hybrids** (e.g. [Jamba](https://www.ai21.com/jamba), [Striped Hyena](https://github.com/togethercomputer/stripedhyena)). These models attempt to combine SSM blocks with Transformer blocks to improve long context reasoning capabilities. These models are still in the early stages of research without a key production-level model, but I wouldn’t be surprised if something interesting emerged from them in the future.
@@ -1428,11 +1482,13 @@ I sort of briefly mentioned alternatives to Transformers like SSMs and relevant 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### N.5: Model efficiency Benchmarks
+
 We have a lot of benchmarks for evaluating model performance, but not as many for evaluating efficiency. The most comprehensive benchmark available is the [MLPerf](https://www.nvidia.com/en-us/data-center/resources/mlperf-benchmarks/) benchmarks, which features inference, training, and HPC tasks across a wide range of modalities. In most instances, we can directly just compare algorithms on specific hardware, but I would be interested in more rigorous benchmarking in the future.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### N.6: Startups in the Efficient Deep Learning Space
+
 I have no affiliation to any of these startups — I just came across these at some point in the last year and felt they were interesting enough to save in my Notes app. I have no way of verifying if the work they’re doing is legit or even useful, so take it all with a grain of salt.
 
 - [**Etched**](https://www.etched.com/). An ASIC specialized for Transformers. At the time of writing, little information is known about their chip.
@@ -1442,7 +1498,9 @@ I have no affiliation to any of these startups — I just came across these at s
 - [**Tenstorrent**](https://tenstorrent.com/). They develop a lot of custom hardware from chips to workstations specifically for AI applications. From what I can tell, they’re trying to build out a whole CUDA-like ecosystem, but I’m guessing they’ll need some kind of breakthrough performance to attract more interest.
 
 ## Resources
-### A.1: Where to access “free” GPUs? 
+
+### A.1: Where to access “free” GPUs?
+
 There are plenty of services like Amazon AWS, Google GCP, Microsoft Azure, etc. that offer cloud GPUs, but if you’re not rich like me, you may also be interested in what free options are currently available<d-footnote>Gradient by Paperspace used to be my go-to, but I can’t seem to find what happened to it.</d-footnote>.
 
 - [**Google Colab**](https://colab.google/). You can get access to a free [Tesla T4 16GB](https://www.nvidia.com/en-us/data-center/tesla-t4/) when using their notebooks, but the time limits are not consistent and you’ll have to use multiple emails to get consistent usage.
@@ -1453,6 +1511,7 @@ There are plenty of services like Amazon AWS, Google GCP, Microsoft Azure, etc. 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### A.2: Large training and finetuning frameworks.
+
 There are many options for handling large-scale training jobs other than PyTorch/TensorFlow’s in-house wrappers and distributed modules. A lot of these examples use config files or YAML file configurations for defining your desired job. We list some useful libraries below.
 
 - [**torchtune**](https://pytorch.org/torchtune/stable/index.html). Torchtune is PyTorch’s newest module for fine-tuning large language models. They’ve heavily modularized their code and have some nice recent examples with LLaMA 3.
@@ -1464,7 +1523,8 @@ There are many options for handling large-scale training jobs other than PyTorch
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### A.3: Model compression frameworks.
-A lot of model inference libraries like TensorRT do auto-tuned quantization under the hood, but for research purposes, there are other frameworks where you have better control over the weight / activation quantization. 
+
+A lot of model inference libraries like TensorRT do auto-tuned quantization under the hood, but for research purposes, there are other frameworks where you have better control over the weight / activation quantization.
 
 - [**torch.ao.quantization**](https://pytorch.org/docs/stable/quantization-support.html) **(2022)**. Quantization used to be quite annoying to implement because it modifies how we represent our data in memory. The PyTorch team has done a lot of work
 - [**bitsandbytes**](https://github.com/bitsandbytes-foundation/bitsandbytes) **(2023)**. A wrapper around your optimizers that allows you to use llm.int8() and Q-LoRA. It works very well with HuggingFace and PyTorch.
@@ -1473,6 +1533,7 @@ A lot of model inference libraries like TensorRT do auto-tuned quantization unde
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### A.4: Profiling Tools.
+
 For any kind of efficient deep learning work, it is always important to profile your models at all levels of the compute hierarchy. Check out the [GPU Mode lecture on profiling](https://www.youtube.com/watch?v=LuhJEEJQgUM&ab_channel=GPUMODE), which is a nice introduction to profiling in PyTorch, Triton, and CUDA. Here, we provide some useful tools for profiling your code.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
@@ -1493,10 +1554,9 @@ For any kind of efficient deep learning work, it is always important to profile 
 </center>
 </figure>
 
-[Pytorch Profiler](https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html). PyTorch has a simple profiler that you can wrap around your code for viewing the individual kernels / CPU calls. It also has peak memory usage / compute time statistics that it prints out for you, and is relatively simple to insert into your code for debugging. 
+[Pytorch Profiler](https://pytorch.org/tutorials/recipes/recipes/profiler_recipe.html). PyTorch has a simple profiler that you can wrap around your code for viewing the individual kernels / CPU calls. It also has peak memory usage / compute time statistics that it prints out for you, and is relatively simple to insert into your code for debugging.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
-
 
 <figure>
 <center>
@@ -1505,14 +1565,15 @@ For any kind of efficient deep learning work, it is always important to profile 
 </figure>
 [Nsight Compute](https://developer.nvidia.com/nsight-compute) and the [Nsight Compute CLI (ncu)](https://docs.nvidia.com/nsight-compute/NsightComputeCli/index.html) are excellent profiling tools for your CUDA kernels. It provides analysis on potential bottlenecks, as well thread, memory, and kernel call information at a very fine granularity. It also provides thorough analysis and recommendations for fixing bottlenecks in your kernels.
 
-[Nsight Systems](https://developer.nvidia.com/nsight-systems) is designed for profiling entire workloads (CPU, GPU), and is more similar to the PyTorch profiler tool. 
+[Nsight Systems](https://developer.nvidia.com/nsight-systems) is designed for profiling entire workloads (CPU, GPU), and is more similar to the PyTorch profiler tool.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### A.5: “From scratch”-style tutorials.
+
 It was always nice to get your hands dirty when learning a new topic. The machine learning community has made a lot of nice libraries for practitioners to use that lets you load and use a powerful LLM with a few lines of code. However, because the field moves so fast, it is a valuable skill to know what’s going on under the hood. Here, we list many useful resources for learning from the ground up (many of which come from Andrej Karpathy).
 
-- [Karpathy’s Neural Networks: Zero to Hero Playlist](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ).  Probably one of the most information-dense tutorials for how LLMs are coded from the ground up. I find his teaching style quite fun, and I think these are worth following in your free time.
+- [Karpathy’s Neural Networks: Zero to Hero Playlist](https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ). Probably one of the most information-dense tutorials for how LLMs are coded from the ground up. I find his teaching style quite fun, and I think these are worth following in your free time.
 - [Programming Massively Parallel Processors Lectures](https://www.youtube.com/watch?v=4pkbXmE4POc&list=PLRRuQYjFhpmubuwx-w8X964ofVkW1T8O4). The PMPP book is one of the most iconic for understanding common GPU programming primitives. The lectures are from one of the authors, and they’re extremely well-made. Most of the examples are in CUDA, which is perfect for getting into efficient deep learning.
 - [PyTorch internals](http://blog.ezyang.com/2019/05/pytorch-internals/). I’m not sure how much PyTorch has changed since this blog came out (there’s slides out there for PyTorch 2.0), but this blog has a lot of nice visuals that explains how PyTorch implements tensors, autodifferentiation, and kernel dispatches.
 - [Optimizing CUDA Matmul from Scratch](https://siboehm.com/articles/22/CUDA-MMM). I love this blog — the goal is to get to CuBLAS-level performance with raw CUDA, and they use a lot of the tricks and primitives you learn from the PMPP book. I found this blog to be one of the most helpful hands-on tutorials for getting started with CUDA.
@@ -1523,6 +1584,7 @@ It was always nice to get your hands dirty when learning a new topic. The machin
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### A.6: Designing deep learning clusters and network topology.
+
 We can design all the algorithms we want for working with multiple nodes, but if our cluster is poorly designed, we are strictly bottlenecked by speed. Ideally, we would want every device and node to share the same pair-wise communication latency, but in practice this is almost impossible.
 
 **[NVIDIA DGX servers](https://www.nvidia.com/en-gb/data-center/dgx-systems/).** NVIDIA has packaged up their GPUs nicely into these super expensive multi-GPU servers that you can plug into your cluster. They handle stuff like optimizing the inter-GPU interconnects and attaching a host processor for you<d-footnote>A lot more details about each generation of these servers can be found here: https://training.continuumlabs.ai/infrastructure/servers-and-chips/nvidia-dgx-2</d-footnote>. While researching this topic (e.g. when someone says they’re using a 8xH100, what else is there other than the H100s), I came across a bunch of other bundled up servers like [Arc Compute](https://www.arccompute.io/solutions/hardware/gpu-servers) and [Lambda Hyperplane](https://lambdalabs.com/deep-learning/servers/hyperplane) from third-party distributors.
@@ -1532,7 +1594,8 @@ We can design all the algorithms we want for working with multiple nodes, but if
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
 ### A.7: Useful surveys on efficiency.
-Part of the difficulty of research in this field is sifting through the sheer number of different papers. This post hopefully serves as a strong filter for many of these works, but perhaps for some readers it is *too* strong of a filter. Below, I list some comprehensive surveys to find more interesting works related to efficiency.
+
+Part of the difficulty of research in this field is sifting through the sheer number of different papers. This post hopefully serves as a strong filter for many of these works, but perhaps for some readers it is _too_ strong of a filter. Below, I list some comprehensive surveys to find more interesting works related to efficiency.
 
 - **[2020] Efficient Transformers: A Survey**: [https://arxiv.org/abs/2009.06732](https://arxiv.org/abs/2009.06732).
 - **[2020] The Deep Learning Compiler: A Comprehensive Survey**: [https://arxiv.org/pdf/2002.03794](https://arxiv.org/pdf/2002.03794).
@@ -1544,13 +1607,14 @@ Part of the difficulty of research in this field is sifting through the sheer nu
 - **Lil’log.** ([https://lilianweng.github.io](https://lilianweng.github.io/posts/2020-08-06-nas/)/). Just the absolute GOAT with lots of topics on deep learning in general.
 
 ## Acknowledgements
+
 I am open to suggestions and edits, even those that are critical. I want to log these edits and changes made over time in this section to give credit where credit is due!
 
-* **Eddy Wu** for finding typos in the quantization and sparsity sections.
-
+- **Eddy Wu** for finding typos in the quantization and sparsity sections.
 
 ## Citation
-Just as a formality, if you want to cite this for whatever reason, use the BibTeX below. 
+
+Just as a formality, if you want to cite this for whatever reason, use the BibTeX below.
 
 ```
 @article{zhang2024efficientdl,

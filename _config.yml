@@ -10,14 +10,14 @@ email: alzhang@princeton.edu
 description: > # the ">" symbol means to ignore newlines until "footer_text:"
   Alex Zhang's Website.
 footer_text: # footer test
-keywords: jekyll, jekyll-theme, academic-website, portfolio-website  # add your own keywords or leave empty
+keywords: jekyll, jekyll-theme, academic-website, portfolio-website # add your own keywords or leave empty
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
-icon: 🫡  # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
+icon: 🫡 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
 url: https://qiyaowei.github.io # the base hostname & protocol for your site
 baseurl: # the subpath of your site, e.g. /blog/
 last_updated: false # set to true if you want to display last updated in the footer
-impressum_path:  # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
+impressum_path: # set to path to include impressum link in the footer, use the same path as permalink in a page, helps to conform with EU GDPR
 back_to_top: true # set to false to disable the back to top button
 
 # -----------------------------------------------------------------------------
@@ -273,13 +273,13 @@ sass:
 # -----------------------------------------------------------------------------
 
 jekyll-minifier:
-  exclude: '**.*'
+  exclude: "**.*"
   # exclude: ['robots.txt', '_posts/2024-07-1-annotated-kan.md', './']
   preserve_line_breaks: true
-  remove_spaces_inside_tags: false   # Default: true
-  remove_multi_spaces: false         # Default: true
-  remove_comments: false             # Default: true
-  remove_intertag_spaces: false      # Default: false
+  remove_spaces_inside_tags: false # Default: true
+  remove_multi_spaces: false # Default: true
+  remove_comments: false # Default: true
+  remove_intertag_spaces: false # Default: false
   remove_http_protocol: false
   compress_css: false
   compress_javascript: false

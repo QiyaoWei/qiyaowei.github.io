@@ -51,12 +51,11 @@ _styles: >
     text-align: center;
     font-size: 16px;
   }
-
 ---
 
-***if the LaTeX is not loading, refresh the page.***
+**_if the LaTeX is not loading, refresh the page._**
 
-This post is analogous to and heavily inspired by the [Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) but for KANs. It is fully functional as a standalone notebook, and provides intuition along with the code. Most of the code was written to be easy to follow and to mimic the structure of a standard deep learning model in PyTorch, but some parts like training loops and visualization code were adapted from the [original codebase](https://github.com/KindXiaoming/pykan). We decided to remove some sections from the original paper that were deemed unimportant, and also includes some extra works to motivate future research on these models. 
+This post is analogous to and heavily inspired by the [Annotated Transformer](https://nlp.seas.harvard.edu/annotated-transformer/) but for KANs. It is fully functional as a standalone notebook, and provides intuition along with the code. Most of the code was written to be easy to follow and to mimic the structure of a standard deep learning model in PyTorch, but some parts like training loops and visualization code were adapted from the [original codebase](https://github.com/KindXiaoming/pykan). We decided to remove some sections from the original paper that were deemed unimportant, and also includes some extra works to motivate future research on these models.
 
 The original paper is titled ["KAN: Kolmogorov-Arnold Networks"](https://arxiv.org/abs/2404.19756) <d-cite key="liu2024kankolmogorovarnoldnetworks"></d-cite>, and the authors on this paper are: **Ziming Liu, Yixuan Wang, Sachin Vaidya, Fabian Ruehle, James Halverson, Marin Soljačić, Thomas Y. Hou, and Max Tegmark.**
 
@@ -77,9 +76,10 @@ Kolmogorov-Arnold Networks (KANs) are an alternative representation to standard 
 I have separated this article into two sections. Parts I & II describe a minimal KAN architecture and training loop without an emphasis on B-spline optimizations. You can use [the minimal KAN notebook](https://github.com/alexzhang13/Annotated-KAN/blob/main/notebooks/MinimalKAN.ipynb) if you're interested in KANs at a high-level. Parts III & IV describe B-spline specific optimizations and an application of KANs, which includes a bit of extra machinery in the KAN code. You can use the [full KAN notebook](https://github.com/alexzhang13/Annotated-KAN/blob/main/notebooks/AnnotatedKAN.ipynb) if you want to follow along there.
 
 ## Background and Motivation
+
 Before jumping into the implementation details, it is important to take a step back and understand why one should even care about these models. It is quite well known that Multi-layer Perceptrons (MLPs) have the "Universal Approximation Theorem"<d-cite key="Cybenko1989"></d-cite>, which provides a theoretical guarantee for the **existence** of an MLP that can approximate any function<d-footnote>This is a very strong guarantee that usually isn't actually true. Generally, we have some provable guarantee for a class of functions that we actually care about approximating, like say the set of functions in L1 or the set of smooth, continuous functions. </d-footnote> up to some error $$\epsilon$$. While this guarantee is important, in practice, it says nothing about how difficult it is to find such an MLP through, say, optimization with stochastic gradient descent.
 
-KANs admit a similar guarantee through the Kolmogorov-Arnold representation theorem, though with a caveat<d-footnote>See section [Are Stacked KAN Layers a Universal Approximator?]</d-footnote>. Formally, the theorem states that for a set of covariates $$(x_1,x_2,...,x_n)$$, we can write any *continuous, smooth*<d-footnote>Smooth in this context means in $C^{\infty}$, or infinitely differentiable.</d-footnote> function $$f(x_1,...,x_n) : \mathcal{D} \rightarrow \mathbb{R}$$ over a bounded domain $$\mathcal{D}$$<d-footnote>Because it is bounded, the authors argue that we can normalize the input to the space $[0,1]^{n}$, which is what is assumed in the original paper.</d-footnote> in the form
+KANs admit a similar guarantee through the Kolmogorov-Arnold representation theorem, though with a caveat<d-footnote>See section [Are Stacked KAN Layers a Universal Approximator?]</d-footnote>. Formally, the theorem states that for a set of covariates $$(x_1,x_2,...,x_n)$$, we can write any _continuous, smooth_<d-footnote>Smooth in this context means in $C^{\infty}$, or infinitely differentiable.</d-footnote> function $$f(x_1,...,x_n) : \mathcal{D} \rightarrow \mathbb{R}$$ over a bounded domain $$\mathcal{D}$$<d-footnote>Because it is bounded, the authors argue that we can normalize the input to the space $[0,1]^{n}$, which is what is assumed in the original paper.</d-footnote> in the form
 
 <p><span>
 <center>
@@ -92,6 +92,7 @@ $$
 where $$\Phi_{q,p}, \Phi_{q}$$ are univariate functions from $$\mathbb{R}$$ to $$\mathbb{R}$$. In theory, we can parameterize and learn these (potentially non-smooth and highly irregular) univariate functions $$\Phi_{q,p}, \Phi_{q}$$ by optimizing a loss function similar to any other deep learning model. But it's not that obvious how one would "parameterize" a function the same way you would parameterize a weight matrix. For now, just assume that it is possible to parameterize these functions -- the original authors choose to use a B-spline, but there is little reason to be stuck on this choice.
 
 ### What is a KAN?
+
 The expression from the theorem above does not describe a KAN with $L$ layers. This was an initial point of confusion for me. The universal approximation guarantee is only for models specifically in the form of the Kolmogorov-Arnold representation, but currently we have no notion of a "layer" or anything scalable. In fact, the number of parameters in the above theorem is a function of the number of covariates and not the choice of the engineer! Instead, the authors define a KAN layer $$\mathcal{K}_{m,n}$$ with input dimension $$n$$ and output dimension $$m$$ as a parameterized matrix of univariate functions, $$\Phi = \{\Phi_{i,j}\}_{i \in [m], j \in [n]}$$.
 
 <p><span>
@@ -102,7 +103,7 @@ $$
 </center>
 </span></p>
 
-It may seem like the authors pulled this expression out of nowhere, but it is easy to see that the KAN representation theorem can be re-written as follows. For a set of covariates $$\boldsymbol{x} = (x_1,x_2,...,x_n)$$, we can write any *continuous, smooth* function $$f(x_1,...,x_n) : \mathcal{D} \rightarrow \mathbb{R}$$ over a bounded domain $$\mathcal{D}$$ in the form
+It may seem like the authors pulled this expression out of nowhere, but it is easy to see that the KAN representation theorem can be re-written as follows. For a set of covariates $$\boldsymbol{x} = (x_1,x_2,...,x_n)$$, we can write any _continuous, smooth_ function $$f(x_1,...,x_n) : \mathcal{D} \rightarrow \mathbb{R}$$ over a bounded domain $$\mathcal{D}$$ in the form
 
 <p><span>
 <center>
@@ -112,15 +113,17 @@ $$
 </center>
 </span></p>
 
-The KAN architecture, is therefore written as a composition of stacking these KAN layers, similar to how you would compose an MLP. I want to emphasize that unless the KAN is written in the form above, there is currently no *proven*<d-footnote>I suspect that there are some provable guarantees that can be made for deep KANs. The original universal approximation theorem for MLPs refers to models with a single hidden dimension, but later works have also derived guarantees for deep MLPs. We also technically don't have very strong provable guarantees for mechanisms like self-attention (not to my knowledge at least), so I don't think it's that important in predicting the usefulness of KANs.</d-footnote> theoretical guarantee that there exists a KAN represents that approximates the desired function.
+The KAN architecture, is therefore written as a composition of stacking these KAN layers, similar to how you would compose an MLP. I want to emphasize that unless the KAN is written in the form above, there is currently no _proven_<d-footnote>I suspect that there are some provable guarantees that can be made for deep KANs. The original universal approximation theorem for MLPs refers to models with a single hidden dimension, but later works have also derived guarantees for deep MLPs. We also technically don't have very strong provable guarantees for mechanisms like self-attention (not to my knowledge at least), so I don't think it's that important in predicting the usefulness of KANs.</d-footnote> theoretical guarantee that there exists a KAN represents that approximates the desired function.
 
 ### Are Stacked KAN Layers a Universal Approximator?
-When first hearing about KANs, I was under the impression that the Kolmogorov-Arnold Representation Theorem was an analogous guarantee for KANs, but this is seemingly *not true*. Recall from the [Kolmogorov-Arnold representation theorem](#background-and-motivation) that our guarantee is only for specific 2-layer KAN models. Instead, the authors prove that there exists a KAN using B-splines as the univariate functions $$\{\Phi_{i,j}\}_{i \in [m], j \in [n]}$$ that can approximate a composition of continuously-differentiable functions within some *nice* error margin<d-footnote>This article serves mainly as a concept to code guide, so I didn't want to dive too much into theory. The error bound that the authors prove is quite strange, as the constant $C$ is not *really* a constant in the traditional sense (it depends on the function you are approximating). Also, the function family they choose to approximate seems pretty general, but I'm actually not that sure what types of functions it cannot represent well. I'd recommend reading Theorem 2.1 on your own, but it mainly serves as justification for the paper's use of B-splines rather than a universal approximation theorem for generic KAN networks. </d-footnote>. Their primary guarantees are proven to justify the use of B-splines as their learnable activations, but other works have recently sprung up that propose different learnable activations like Chebyshev polynomials<d-cite key="ss2024chebyshevpolynomialbasedkolmogorovarnoldnetworks"></d-cite>, RBFs <d-cite key="ta2024bsrbfkancombinationbsplinesradial"></d-cite>, and wavelet functions <d-cite key="bozorgasl2024wavkanwaveletkolmogorovarnoldnetworks"></d-cite>.
 
-*tldr; no, we have not shown that a generic KAN model serves as the same type of universal approximator as an MLP (yet).*
+When first hearing about KANs, I was under the impression that the Kolmogorov-Arnold Representation Theorem was an analogous guarantee for KANs, but this is seemingly _not true_. Recall from the [Kolmogorov-Arnold representation theorem](#background-and-motivation) that our guarantee is only for specific 2-layer KAN models. Instead, the authors prove that there exists a KAN using B-splines as the univariate functions $$\{\Phi_{i,j}\}_{i \in [m], j \in [n]}$$ that can approximate a composition of continuously-differentiable functions within some _nice_ error margin<d-footnote>This article serves mainly as a concept to code guide, so I didn't want to dive too much into theory. The error bound that the authors prove is quite strange, as the constant $C$ is not _really_ a constant in the traditional sense (it depends on the function you are approximating). Also, the function family they choose to approximate seems pretty general, but I'm actually not that sure what types of functions it cannot represent well. I'd recommend reading Theorem 2.1 on your own, but it mainly serves as justification for the paper's use of B-splines rather than a universal approximation theorem for generic KAN networks. </d-footnote>. Their primary guarantees are proven to justify the use of B-splines as their learnable activations, but other works have recently sprung up that propose different learnable activations like Chebyshev polynomials<d-cite key="ss2024chebyshevpolynomialbasedkolmogorovarnoldnetworks"></d-cite>, RBFs <d-cite key="ta2024bsrbfkancombinationbsplinesradial"></d-cite>, and wavelet functions <d-cite key="bozorgasl2024wavkanwaveletkolmogorovarnoldnetworks"></d-cite>.
+
+_tldr; no, we have not shown that a generic KAN model serves as the same type of universal approximator as an MLP (yet)._
 
 ### Polynomials, Splines, and B-Splines
-We talked quite extensively about "learnable activation functions", but this notion might be unclear to some readers. In order to parameterize a function, we have to define some kind of "base" function that uses coefficients. When learning the function, we are actually learning the coefficients. The original Kolmogorov-Arnold representation theorem places no conditions on the family of learnable univariate activation functions. Ideally, we would want some kind of parameterized family of functions that can approximate any function, whether it be non-smooth, fractal, or some other kind of nasty property *on a bounded domain*<d-footnote>Not only is the original KAN representation theorem over a bounded domain, but generally in most practical applications we are not dealing with data over an unbounded domain.</d-footnote>. 
+
+We talked quite extensively about "learnable activation functions", but this notion might be unclear to some readers. In order to parameterize a function, we have to define some kind of "base" function that uses coefficients. When learning the function, we are actually learning the coefficients. The original Kolmogorov-Arnold representation theorem places no conditions on the family of learnable univariate activation functions. Ideally, we would want some kind of parameterized family of functions that can approximate any function, whether it be non-smooth, fractal, or some other kind of nasty property _on a bounded domain_<d-footnote>Not only is the original KAN representation theorem over a bounded domain, but generally in most practical applications we are not dealing with data over an unbounded domain.</d-footnote>.
 
 **Enter the B-spline**. B-splines are a generalization of spline functions, which themselves are piecewise polynomials. Polynomials of degree/order $$k$$ are written as $$p(x) = a_0 + a_1x + a_2x^2 + ... + a_kx^k$$ and can be parameterized according to their coefficients $$a_0,a_1,...,a_k$$. From the Stone-Weierstrass theorem <d-cite key="weierstrass"></d-cite>, we can guarantee that every continuous function over a bounded domain can be approximated by a polynomial. Splines, and by extension B-splines, extend this guarantee to more complicated functions over a bounded domain. I don't want to take away from the focus on KANs, so for more background I'd recommend reading [this resource](https://rohangautam.github.io/blog/b_spline_intro/)<d-cite key="rohan2024bspline"></d-cite>.
 
@@ -157,11 +160,12 @@ We can plot an example for the basis functions of a B-spline with $G=5$ grid poi
 When implementing B-splines for our KAN, we are not interested in the function $$f(\cdot)$$ itself, rather we care about efficiently computing the function evaluated at a point $$f(x)$$. We will later see a nice iterative bottom-up dynamic programming formulation of the Cox-de Boor recursion.
 
 ## Part I: The Minimal KAN Model Architecture
+
 In this section, we describe a barebones, minimal KAN model. The goal is to show that the architecture is structured quite similarly to deep learning code that the reader has most likely seen in the past. To summarize the components, we modularize our code into (1) a high-level KAN module, (2) the KAN layer, (3) the parameter initialization scheme, and (4) the plotting function for interpreting the model activations.
 
 ### Preliminaries
-If you're using Colab, you can run the following as if they were code blocks. This implementation is also quite GPU-unfriendly, so a CPU will suffice.
 
+If you're using Colab, you can run the following as if they were code blocks. This implementation is also quite GPU-unfriendly, so a CPU will suffice.
 
 <d-code block language="python" style="font-size:0.7em">
 # Code was written in Python 3.11.9, but most usable versions of Python and torch suffice.
@@ -172,9 +176,7 @@ If you're using Colab, you can run the following as if they were code blocks. Th
 !pip install torchvision==0.18.1
 </d-code>
 
-
 In an attempt to make this code barebones, I've tried to use as little dependencies as possible. I've also included type annotations for the code.
-
 
 <d-code block language="python" style="font-size:0.7em">
 # Python libraries
@@ -184,6 +186,7 @@ import random
 import warnings
 
 # Installed libraries
+
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -193,9 +196,7 @@ import matplotlib.pyplot as plt
 from tqdm import tqdm
 </d-code>
 
-
 The following config file holds some preset hyperparameters described in the paper. Most of these can be changed and may not even apply to a more generic KAN architecture.
-
 
 <d-code block language="python" style="font-size:0.7em">
 class KANConfig:
@@ -208,12 +209,12 @@ class KANConfig:
     spline_order = 3
     grid_range = [-1.0, 1.0]
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 </d-code>
 
-
 ### The KAN Architecture Skeleton
-If you understand how MLPs work, then the following architecture should look familiar. As always, given some set of input features $$(x_1,...,x_n)$$ and a desired output $$(y_1,...,y_m)$$, we can think of our KAN as a function $$f : \mathbb{R}^{n} \rightarrow \mathbb{R}^{m} $$ parameterized by weights $$\theta$$. Like any other deep learning model, we can decompose KANs in a layer-wise fashion and offload the computational details to the layer class. We will fully describe our model in terms of a list of integers `layer_widths`, where the first number denotes the input dimension $$n$$, and the last number denotes the output dimension $$m$$.
 
+If you understand how MLPs work, then the following architecture should look familiar. As always, given some set of input features $$(x_1,...,x_n)$$ and a desired output $$(y_1,...,y_m)$$, we can think of our KAN as a function $$f : \mathbb{R}^{n} \rightarrow \mathbb{R}^{m} $$ parameterized by weights $$\theta$$. Like any other deep learning model, we can decompose KANs in a layer-wise fashion and offload the computational details to the layer class. We will fully describe our model in terms of a list of integers `layer_widths`, where the first number denotes the input dimension $$n$$, and the last number denotes the output dimension $$m$$.
 
 <d-code block language="python" style="font-size:0.7em">
 class KAN(nn.Module):
@@ -260,10 +261,11 @@ class KAN(nn.Module):
             x = layer(x)
 
         return x
+
 </d-code>
 
-
 ### The KAN Representation Layer
+
 The representation used at each layer is quite intuitive. For an input $$x \in \mathbb{R}^{n}$$, we can directly compare a standard MLP layer with output dimension $$m$$ to an equivalent KAN layer:
 
 <p><span>
@@ -278,9 +280,9 @@ $$
 </center>
 </span></p>
 
-In other words, both layers can be written in terms of a generalized matrix-vector operation, where for an MLP it is scalar multiplication, while for a KAN it is some *learnable* non-linear function $$\Phi_{i,k}$$. Interestingly, both layers look extremely similar! <d-footnote>Remark. As a GPU enthusiast, I should mention that while these two expressions look quite similar, this minor difference can have a huge impact on efficiency. Having the same instruction (e.g. multiplication) applied to every operation fits well within the warp abstraction used in writing CUDA kernels, while having a different function application per operation has many issues like control divergence that significantly slow down performance.</d-footnote>
+In other words, both layers can be written in terms of a generalized matrix-vector operation, where for an MLP it is scalar multiplication, while for a KAN it is some _learnable_ non-linear function $$\Phi_{i,k}$$. Interestingly, both layers look extremely similar! <d-footnote>Remark. As a GPU enthusiast, I should mention that while these two expressions look quite similar, this minor difference can have a huge impact on efficiency. Having the same instruction (e.g. multiplication) applied to every operation fits well within the warp abstraction used in writing CUDA kernels, while having a different function application per operation has many issues like control divergence that significantly slow down performance.</d-footnote>
 
-Let's think through how we would perform this computation. For our analysis, we will ignore the batch dimension, as generally this is an easy extension. Suppose we have a KAN layer $$\mathcal{K}_{m,n}$$ with input dimension$$n$$ and output dimension $$m$$. As we discussed earlier, for input $$(x_1,x_2,...,x_n)$$, 
+Let's think through how we would perform this computation. For our analysis, we will ignore the batch dimension, as generally this is an easy extension. Suppose we have a KAN layer $$\mathcal{K}_{m,n}$$ with input dimension$$n$$ and output dimension $$m$$. As we discussed earlier, for input $$(x_1,x_2,...,x_n)$$,
 
 <p><span>
 <center>
@@ -388,7 +390,7 @@ class WeightedResidualLayer(nn.Module):
         """
         Given the input to a KAN layer and the activation (e.g. spline(x)),
         compute a weighted residual.
-        
+
         x has shape (bsz, in_dim) and act has shape (bsz, out_dim, in_dim)
         """
 
@@ -396,9 +398,8 @@ class WeightedResidualLayer(nn.Module):
         res = self.residual_weight * self.residual_fn(x[:, None, :])
         act = self.univariate_weight * post_acts
         return res + act
+
 </d-code>
-
-
 
 With these operations laid out in math, we have enough information to write a basic KAN layer by abstracting away the choice of learnable activation $$s_{i,j}(\cdot)$$. Note that in the code below, the variables `spline_order`, `grid_size`, and `grid_range` are specific to B-splines as the activation, and are only passed through the constructor. You can ignore them for now. In summary, we will first compute the matrix
 
@@ -416,7 +417,6 @@ $$
 </span></p>
 
 following by the weighted residual across each entry, then we will finally sum along the rows to get our layer output. We also define a `cache()` function to store the input vector $$\boldsymbol{x}$$ and the $$\Phi \boldsymbol{x}$$ matrix to compute regularization terms defined later.
-
 
 <d-code block language="python" style="font-size:0.7em">
 class KANLayer(nn.Module):
@@ -473,18 +473,18 @@ class KANLayer(nn.Module):
         phi = self.residual_layer(x, spline)
 
         # Cache activations for regularization during training.
-        self.cache(x, phi) 
+        self.cache(x, phi)
 
         # Really inefficient matmul
         out = torch.sum(phi, dim=-1)
 
         return out
+
 </d-code>
 
-
 ### KAN Learnable Activations: B-Splines
-Recall from the [section on B-splines](#polynomials-splines-and-b-splines) that each activation $s_{i,j}(\cdot)$ is a sum of products<d-footnote>We can equivalently think of this as a dot product between two vectors $\langle c_{i,j}, B_{i,j} (x_j) \rangle$.</d-footnote> of $G + k$ learnable coefficients and basis functions $$\sum_{h=1}^{G} c^{h}_{i,j}, B^h_{i,j} (x_j)$$ where $G$ is the grid size. The recursive definition of the B-spline basis functions requires us to define the grid points $(t_1,t_2,...,t_G)$, as well as the augmented grid points $$(t_{-k},t_{-k+1},...,t_{-1},t_{G+1},....,t_{G+k})$$<d-footnote>In the original paper, you may have noticed a G + k - 1 term. I don't define $t_0$ here, and opt to not include it for indexing sake, but you can basically just shift everything by $1$ to achieve the same effect.</d-footnote>. For now, we will define them to be the endpoints of $G+1$ equally-sized intervals on the bounded interval `[low_bound, up_bound]`<d-footnote>I mentioned this earlier, but you may notice that the augmented grid points go out of the bounded domain. This is just for convenience, but as long as they are at the bounds or outside them in the right direction, it doesn't matter what they are. You can also just set them to be the boundary points.</d-footnote> but you can also choose / learn the grid point positions. Finally, we note that we need to use the grid points in the calculation of each activation $s_{i,j}(x)$, so we broadcast into a 3D tensor.
 
+Recall from the [section on B-splines](#polynomials-splines-and-b-splines) that each activation $s_{i,j}(\cdot)$ is a sum of products<d-footnote>We can equivalently think of this as a dot product between two vectors $\langle c_{i,j}, B_{i,j} (x_j) \rangle$.</d-footnote> of $G + k$ learnable coefficients and basis functions $$\sum_{h=1}^{G} c^{h}_{i,j}, B^h_{i,j} (x_j)$$ where $G$ is the grid size. The recursive definition of the B-spline basis functions requires us to define the grid points $(t_1,t_2,...,t_G)$, as well as the augmented grid points $$(t_{-k},t_{-k+1},...,t_{-1},t_{G+1},....,t_{G+k})$$<d-footnote>In the original paper, you may have noticed a G + k - 1 term. I don't define $t_0$ here, and opt to not include it for indexing sake, but you can basically just shift everything by $1$ to achieve the same effect.</d-footnote>. For now, we will define them to be the endpoints of $G+1$ equally-sized intervals on the bounded interval `[low_bound, up_bound]`<d-footnote>I mentioned this earlier, but you may notice that the augmented grid points go out of the bounded domain. This is just for convenience, but as long as they are at the bounds or outside them in the right direction, it doesn't matter what they are. You can also just set them to be the boundary points.</d-footnote> but you can also choose / learn the grid point positions. Finally, we note that we need to use the grid points in the calculation of each activation $s_{i,j}(x)$, so we broadcast into a 3D tensor.
 
 <d-code block language="python" style="font-size:0.7em">
 def generate_control_points(
@@ -503,7 +503,7 @@ def generate_control_points(
     k points on each side of the interval. See 2.4 in original paper for details.
     """
 
-    # vector of size [grid_size + 2 * spline_order + 1] 
+    # vector of size [grid_size + 2 * spline_order + 1]
     spacing = (up_bound - low_bound) / grid_size
     grid = torch.arange(-spline_order, grid_size + spline_order + 1, device=device)
     grid = grid * spacing + low_bound
@@ -511,9 +511,8 @@ def generate_control_points(
     # [out_dim, in_dim, G + 2k + 1]
     grid = grid[None, None, ...].expand(out_dim, in_dim, -1).contiguous()
     return grid
+
 </d-code>
-
-
 
 Again recall the [Cox-de Boor recurrence from before](#polynomials-splines-and-b-splines).
 As a general rule of thumb we would like to avoid writing recurrent functions in the forward pass of a model. A common trick is to turn our recurrence into a dynamic-programming solution, which we make clear by writing in array notation:
@@ -531,12 +530,12 @@ $$
 </span></p>
 
 ### Computing the B-Spline Basis Functions
-*The tricky part is writing this in tensor notation*<d-footnote>I'd recommend drawing this out yourself. It's quite hard to explain without visualizations, but quite simple to reason about. </d-footnote>. We take advantage of broadcasting rules in PyTorch/Numpy to make copies of tensors when needed. Recall that to materialize our activation matrix $$\{s_{i,j}(x_j)\}_{i \in [m], j \in [n]} $$ we need to compute the bases for each activation, i.e. $$\{B^{(i,j)}_{h,k} (x_j)\}_{h \in [G+k], i \in [m], j \in [n]}$$. 
 
-The following explanation is a bit verbose, so bear with me. Our grid initialization function above generates a rank-3 tensor of shape `(out_dim, in_dim, G+2k+1)` while the input $x$ is a rank-2 tensor of shape `(batch_size, in_dim)`. We first notice that our grid applies to every input in the batch, so we broadcast it to a rank-4 tensor of shape `(batch_size, out_dim, in_dim, G+2k+1)`.  For the input $x$, we similarly need a copy for every output dimension and every basis function to evaluate over, giving us the same shape through broadcasting. We can align the `in_dim` axis of both the grid and the input because $j$ aligns in $s_{i,j}(x_j)$. The $i$ indexes over the basis functions, or the last dimension of our tensors. We write out the vectorized DP in this form, as we note that we can fix $j$. Finally, we perform DP over our $j$ index based on the recurrence rule, yielding the B-spline basis functions evaluated on each input dimension to be used for each output dimension. This notation may be confusing, but the operation is actually quite simple -- I would recommend ignoring the batch dimension and drawing out what you need to do.
+_The tricky part is writing this in tensor notation_<d-footnote>I'd recommend drawing this out yourself. It's quite hard to explain without visualizations, but quite simple to reason about. </d-footnote>. We take advantage of broadcasting rules in PyTorch/Numpy to make copies of tensors when needed. Recall that to materialize our activation matrix $$\{s_{i,j}(x_j)\}_{i \in [m], j \in [n]} $$ we need to compute the bases for each activation, i.e. $$\{B^{(i,j)}_{h,k} (x_j)\}_{h \in [G+k], i \in [m], j \in [n]}$$.
 
-*tldr; we need to compute something for each element in a batch, for each activation, for each B-spline basis. we can use broadcasting to do this concisely, from the code below*
+The following explanation is a bit verbose, so bear with me. Our grid initialization function above generates a rank-3 tensor of shape `(out_dim, in_dim, G+2k+1)` while the input $x$ is a rank-2 tensor of shape `(batch_size, in_dim)`. We first notice that our grid applies to every input in the batch, so we broadcast it to a rank-4 tensor of shape `(batch_size, out_dim, in_dim, G+2k+1)`. For the input $x$, we similarly need a copy for every output dimension and every basis function to evaluate over, giving us the same shape through broadcasting. We can align the `in_dim` axis of both the grid and the input because $j$ aligns in $s_{i,j}(x_j)$. The $i$ indexes over the basis functions, or the last dimension of our tensors. We write out the vectorized DP in this form, as we note that we can fix $j$. Finally, we perform DP over our $j$ index based on the recurrence rule, yielding the B-spline basis functions evaluated on each input dimension to be used for each output dimension. This notation may be confusing, but the operation is actually quite simple -- I would recommend ignoring the batch dimension and drawing out what you need to do.
 
+_tldr; we need to compute something for each element in a batch, for each activation, for each B-spline basis. we can use broadcasting to do this concisely, from the code below_
 
 <d-code block language="python" style="font-size:0.7em">
 # Helper functions for computing B splines over a grid
@@ -546,32 +545,32 @@ def compute_bspline(x: torch.Tensor, grid: torch.Tensor, k: int, device: torch.d
     and evaluate each B_n(x_{ij}). x is a (batch_size, in_dim) and grid is a
     (out_dim, in_dim, # grid points + 2k + 1)
 
-    Returns a (batch_size, out_dim, in_dim, grid_size + k) intermediate tensor to 
+    Returns a (batch_size, out_dim, in_dim, grid_size + k) intermediate tensor to
     compute sum_i {c_i B_i(x)} with.
 
     """
-    
+
     grid = grid[None, :, :, :].to(device)
     x = x[:, None, :, None].to(device)
-    
+
     # Base case: B_{i,0}(x) = 1 if (grid_i <= x <= grid_{i+k}) 0 otherwise
     bases = (x >= grid[:, :, :, :-1]) * (x < grid[:, :, :, 1:])
 
     # Recurse over spline order j, vectorize over basis function i
     for j in range (1, k + 1):
         n = grid.size(-1) - (j + 1)
-        b1 = ((x[:, :, :, :] - grid[:, :, :, :n]) / (grid[:, :, :, j:-1] - grid[:, :, :, :n])) 
+        b1 = ((x[:, :, :, :] - grid[:, :, :, :n]) / (grid[:, :, :, j:-1] - grid[:, :, :, :n]))
         b1 = b1 * bases[:, :, :, :-1]
-        b2 = ((grid[:, :, :, j+1:] - x[:, :, :, :])  / (grid[:, :, :, j+1:] - grid[:, :, :, 1:n+1])) 
+        b2 = ((grid[:, :, :, j+1:] - x[:, :, :, :])  / (grid[:, :, :, j+1:] - grid[:, :, :, 1:n+1]))
         b2 = b2 * bases[:, :, :, 1:]
         bases = b1 + b2
 
     return bases
+
 </d-code>
 
-
-
 ### Computing the B-Spline Activations
+
 With the B-spline logic out of the way, we have all of our intermediate computation logic done. We still have to define our parameters $$c_i$$ and compute the B-splines from the basis functions, but this is just a simple element-wise multiplication and sum. We can now pass the B-spline output into the weighted residual layer defined earlier and compute our output vector. In summary, we are computing
 
 <p><span>
@@ -651,12 +650,13 @@ class KANActivation(nn.Module):
         spline = torch.sum(postacts, dim=-1)
 
         return spline
-</d-code>
 
+</d-code>
 
 If you've gotten to this point, congratulations! You've read through the hardest and most important part of this article. The rest of this post talks about a generic model training loop, visualization functions, and optimizations that can be made to B-spline specific KANs. If you're interested in future directions for these models, I'd recommend reading into [Awesome-KAN](https://github.com/mintisan/awesome-kan) and getting started! Otherwise, if you'd like to have a deeper understanding of the original KAN paper, keep reading!
 
 ### Sparsity through Regularization
+
 Rather unsurprisingly, regularization is an important component of KANs. The authors of KAN motivate two types of regularization -- L1 regularization to limit the number of active activation functions, and entropy regularization to penalize duplicate activation functions.
 
 L1 regularization for a weight matrix $$W$$ in an MLP is straightforward -- just take the Frobenius norm of the matrix. However, for activation functions, using the parameters of the function are not necessarily a good choice. Instead, the magnitude of the **function evaluated on the data** is used. More formally, suppose we have a batch of inputs $$\{x^{(b)}_1,...,x^{(b)}_n \}_{b \in \mathcal{B}}$$ into a KAN layer $\mathcal{K}_{m,n}$. The L1 norm of an activation from input node $j$ to output node $i$ is defined as the absolute value of the mean of that activation on $x_j$, averaged over the batch. In other words,
@@ -679,7 +679,6 @@ $$
 </center>
 </span></p>
 
-
 <d-code block language="python" style="font-size:0.7em">
 def l1_regularization(model: KAN):
     """
@@ -695,8 +694,8 @@ def l1_regularization(model: KAN):
         reg += l1_activations
 
     return reg
-</d-code>
 
+</d-code>
 
 In addition to wanting sparse activations for better interpretability and performance<d-footnote>In our implementation, sparsification does not yield performance benefits because we do not take advantage of any kind of efficient sparse kernels, at least not explicitly. While this post is mainly designed to be readable, an efficient implementation of KANs is very important for attempts to scale these models.</d-footnote>, we generally want to ensure we do not have duplicate activation functions. Another form of regularization is naturally entropy, which is defined as
 
@@ -707,7 +706,6 @@ S(\boldsymbol{\Phi}) \triangleq -\sum_{j=1}^{n} \sum_{i=1}^{m} \frac{\|\Phi_{i,j
 $$
 </center>
 </span></p>
-
 
 <d-code block language="python" style="font-size:0.7em">
 def entropy_regularization(model: KAN):
@@ -730,8 +728,8 @@ def entropy_regularization(model: KAN):
         reg += entropy
 
     return reg
-</d-code>
 
+</d-code>
 
 The regularization term is just a weighted sum of the two terms above. These regularization expressions are not specific to the B-splines representation chosen by the authors, but their effect on other choices of learnable activation functions is underexplored at the moment.
 
@@ -749,13 +747,13 @@ def regularization(
     entropy_factor * entropy_regularization(model)
 </d-code>
 
-
 ## Part II: Model Training
-In this section, we will discuss the basic training loop for a KAN, including a script for visualizing the network activations. As you will notice, the framework for training a KAN is almost identical to a standard deep learning train loop. 
+
+In this section, we will discuss the basic training loop for a KAN, including a script for visualizing the network activations. As you will notice, the framework for training a KAN is almost identical to a standard deep learning train loop.
 
 ### Training Loop
-Despite the extra machinery necessary to apply our model parameters to our input, it is easy to see that the operations themselves are differentiable. In other words, barring some extra optimization tricks that we will discuss in [Part III](#Part III - KAN-specific Optimizations), the training loop for KANs is basically just a generic deep learning train loop that takes advantage of autodifferentiation and backpropagation. We first define a function for generating training data for a function $$f(x_1,...,x_n)$$ over a bounded domain $$\mathcal{D} \in \mathbb{R}^{d}$$.
 
+Despite the extra machinery necessary to apply our model parameters to our input, it is easy to see that the operations themselves are differentiable. In other words, barring some extra optimization tricks that we will discuss in [Part III](#Part III - KAN-specific Optimizations), the training loop for KANs is basically just a generic deep learning train loop that takes advantage of autodifferentiation and backpropagation. We first define a function for generating training data for a function $$f(x_1,...,x_n)$$ over a bounded domain $$\mathcal{D} \in \mathbb{R}^{d}$$.
 
 <d-code block language="python" style="font-size:0.7em">
 # Helper function derived from https://github.com/KindXiaoming/pykan/blob/master/kan/utils.py
@@ -821,11 +819,10 @@ def create_dataset(
     dataset["test_label"] = test_label.to(device)
 
     return dataset
+
 </d-code>
 
-
 As the reader will see below, the KAN training loop is extremely simple, and uses the familiar `zero_grad()`, `backward`, `step()` PyTorch loop. We do not even use the L-BFGS<d-cite key="liu1989limited"></d-cite> optimizer specified in the original KAN paper to highlight the similarities, and opt to use the widely used Adam<d-cite key="kingma2017adammethodstochasticoptimization"></d-cite> optimizer instead. In our code, we also store and load the best validation checkpoint after training.
-
 
 <d-code block language="python" style="font-size:0.7em">
 # Adapted from https://github.com/KindXiaoming/pykan
@@ -850,7 +847,7 @@ def train(
     the loss trajectory.
     """
     if not os.path.exists(save_path):
-       os.makedirs(save_path) 
+       os.makedirs(save_path)
 
     pbar = tqdm(range(steps), desc="KAN Training", ncols=200)
 
@@ -917,7 +914,6 @@ def train(
 
 We can also define a simple plotting function that takes the `results` dictionary from above.
 
-
 <d-code block language="python" style="font-size:0.7em">
 def plot_results(results: Dict[str, List[float]]):
     """
@@ -929,10 +925,9 @@ def plot_results(results: Dict[str, List[float]]):
         plt.show()
 </d-code>
 
-
 ### Network Visualization
-We mostly adapt the network visualization code from the original repository. While the code is quite dense, all we need to do is plot our stored activations per layer, save the plots, then draw out the grid of network connections. You can mostly skim this code unless you're interested in prettifying the visualizations.
 
+We mostly adapt the network visualization code from the original repository. While the code is quite dense, all we need to do is plot our stored activations per layer, save the plots, then draw out the grid of network connections. You can mostly skim this code unless you're interested in prettifying the visualizations.
 
 <d-code block language="python" style="font-size:0.7em">
 def plot(model: KAN, folder="./figures", scale=0.5, title=None):
@@ -1042,8 +1037,8 @@ def plot(model: KAN, folder="./figures", scale=0.5, title=None):
         plt.title(title)
 
     plt.show()
-</d-code>
 
+</d-code>
 
 For example, we can visualize the base network activations with the script below.
 
@@ -1052,6 +1047,7 @@ f = lambda x: (torch.sin(x[:, [0]]) + x[:, [1]] ** 2)
 dataset = create_dataset(f, n_var=2, train_num=1000, test_num=100)
 
 # Initialize and plot KAN
+
 config = KANConfig()
 layer_widths = [2, 1, 1]
 model = KAN(layer_widths, config)
@@ -1059,16 +1055,14 @@ model(dataset["train_input"])
 plot(model)
 </d-code>
 
-
 <figure>
     <img src="/assets/img/example_viz.png" width="400" alt="KAN Visualization">
     <figcaption><center>Visualizing the activations of a randomly initialized KAN network.</center> </figcaption>
 </figure>
 
-
 ### Synthetic Example
-We can put this all together with a simple example. I would recommend scaling this further to a more interesting task, but for now you can verify that the model training is correct. Consider a function of the form $$f(x_1,x_2) = \exp \left( \sin(\pi x_1) + x_2^3 \right)$$. We are going to learn this function using a KAN of the form $$f(x) = \mathcal{K}_{1,1} \left( \mathcal{K}_{1,2} \left( x_1, x_2 \right) \right)$$. 
 
+We can put this all together with a simple example. I would recommend scaling this further to a more interesting task, but for now you can verify that the model training is correct. Consider a function of the form $$f(x_1,x_2) = \exp \left( \sin(\pi x_1) + x_2^3 \right)$$. We are going to learn this function using a KAN of the form $$f(x) = \mathcal{K}_{1,1} \left( \mathcal{K}_{1,2} \left( x_1, x_2 \right) \right)$$.
 
 <d-code block language="python" style="font-size:0.7em">
 seed = 7
@@ -1076,7 +1070,7 @@ torch.manual_seed(seed)
 np.random.seed(seed)
 random.seed(seed)
 
-f = lambda x: torch.exp(torch.sin(torch.pi * x[:, [0]]) + x[:, [1]] ** 3)
+f = lambda x: torch.exp(torch.sin(torch.pi \* x[:, [0]]) + x[:, [1]] \*\* 3)
 dataset = create_dataset(f, n_var=2, train_num=1000, test_num=100)
 
 config = KANConfig()
@@ -1084,22 +1078,24 @@ layer_widths = [2, 1, 1]
 model = KAN(layer_widths, config)
 
 results = train(
-    model,
-    dataset=dataset,
-    steps=50000,
-    batch_size=128,
-    batch_size_test=32,
-    lr=0.01,
-    device=config.device,
+model,
+dataset=dataset,
+steps=50000,
+batch_size=128,
+batch_size_test=32,
+lr=0.01,
+device=config.device,
 )
+
 # Plot training results
+
 plot_results(results)
 
 # Plot network activations
+
 model(dataset["train_input"])
 plot_model(model)
 </d-code>
-
 
 <figure>
     <img src="/assets/img/simple_eval.png" width="400" alt="KAN Visualization">
@@ -1107,6 +1103,7 @@ plot_model(model)
 </figure>
 
 ## Part III: KAN-specific Optimizations
+
 The attentive reader may have noticed that the choice of B-spline is somewhat arbitrary, and the KAN itself is not necessarily tied to this choice of function approximator. In fact, B-splines are not the only choice to use, even among the family of different spline regressors. <d-footnote>https://stats.stackexchange.com/questions/422702/what-is-the-advantage-of-b-splines-over-other-splines</d-footnote>
 
 A large portion of the original paper covers computation tricks to construct KANs with B-splines as the learnable activation function. While the authors prove a (type of) universal approximation theorem for KANs with B-splines, there are other choices of parameterized function classes that can be explored, potentially for computational efficiency.<d-footnote>B-splines are defined over an interval, and evaluating B-spline functions on an input $x$ inherently requires branching logic because the basis functions are only non-zero over a certain interval. To take advantage of modern deep learning hardware, we would ideally like to use a representation that uses a minimal number of the same type of instruction (e.g. multiplication for MLPs) to compute the layer forward pass.</d-footnote>
@@ -1114,6 +1111,7 @@ A large portion of the original paper covers computation tricks to construct KAN
 **Remark**. Because we are modifying the code from [Part I](#part-i-the-minimal-kan-model-architecture), I've tried to keep the code compact by only including areas where changes were made. You can either follow along, or use the full KAN notebook.
 
 ### B-Spline Optimizations: Grid Extension
+
 Recall that the flexibility of our B-splines are determined by the number of learnable coefficients, and therefore the number of basis functions that it has. Furthermore, the number of basis functions is determined by the number of knot points $$G$$. Suppose now that we want to include $$G'$$ knots for a finer granularity on our learnable activations. Ideally, we want to add more knot points while preserving the original shape of the function. In other words, we want
 
 <p><span>
@@ -1124,7 +1122,7 @@ $$
 </center>
 </span></p>
 
-We can tensorize this expression with respect to a batch of inputs $(z_1,...,z_b)$<d-footnote>You may be confused why I use the variable $z$. Recall that we have a unique B-spline for every activation, or $m \times n$ of them. For edge $j \rightarrow i$, each $z_1,...,z_b$ would be each $x_j$ in the batch. Using $x_1,...,x_b$ would conflate the input vector $x$ and an individual coordinate of the input. </d-footnote> 
+We can tensorize this expression with respect to a batch of inputs $(z_1,...,z_b)$<d-footnote>You may be confused why I use the variable $z$. Recall that we have a unique B-spline for every activation, or $m \times n$ of them. For edge $j \rightarrow i$, each $z_1,...,z_b$ would be each $x_j$ in the batch. Using $x_1,...,x_b$ would conflate the input vector $x$ and an individual coordinate of the input. </d-footnote>
 
 <p><span>
 <center>
@@ -1153,7 +1151,6 @@ $$
 </span></p>
 
 which is of the form $AX = B$. We can thus use least-square to solve for $X$, giving us our new coefficients on our finer set of knot points.
-
 
 <d-code block language="python" style="font-size:0.7em">
     def grid_extension(self, x: torch.Tensor, new_grid_size: int):
@@ -1197,13 +1194,12 @@ which is of the form $AX = B$. We can thus use least-square to solve for $X$, gi
         self.grid_size = new_grid_size
         self.grid = new_grid
         self.coef = torch.nn.Parameter(new_coefs, requires_grad=True)
+
 </d-code>
 
-
-I wanted to mention that for the `driver` parameter in `torch.linalg.lstsq`, there are certain solvers like QR decomposition that require full-rank columns on the basis functions. I've chosen to avoid these solvers, but there are several ways to go about solving the least-squares problem efficiently. 
+I wanted to mention that for the `driver` parameter in `torch.linalg.lstsq`, there are certain solvers like QR decomposition that require full-rank columns on the basis functions. I've chosen to avoid these solvers, but there are several ways to go about solving the least-squares problem efficiently.
 
 We can visually evaluate the accuracy of our grid extension algorithm by simply looking at the activations before and after a grid extension.
-
 
 <d-code block language="python" style="font-size:0.7em">
     seed = 7
@@ -1242,9 +1238,9 @@ We can visually evaluate the accuracy of our grid extension algorithm by simply 
 </center> 
 </figure>
 
-### Activation Pruning 
-Pruning network weights is not unique to KANs, but they help the models become more readable and interpretable. Our implementation of pruning is going to be *extremely inefficient*, as we will mask out activations **after they are calculated**. There is already a large body of works for neural networks dedicated to bringing about performance benefits through pruning<d-footnote>There are both memory footprint and computation benefits to pruning. On the memory side, reducing the number of parameters is a clear benefit. On the compute side, specific pruning patterns like 2:4 pruning can be made into efficient kernels. Our implementation yields none of these benefits, and is only useful for interpreting the model.</d-footnote> so we choose to make the code simple. To begin, we can first define a mask over the activations $$\mathcal{M}_{i,j} \in \{0,1\}^{m \times n}$$ that zeros out activations belonging to pruned edges. In practice, we would want to prune *before* the computation, but tensorizing this process efficiently is not clean.
+### Activation Pruning
 
+Pruning network weights is not unique to KANs, but they help the models become more readable and interpretable. Our implementation of pruning is going to be _extremely inefficient_, as we will mask out activations **after they are calculated**. There is already a large body of works for neural networks dedicated to bringing about performance benefits through pruning<d-footnote>There are both memory footprint and computation benefits to pruning. On the memory side, reducing the number of parameters is a clear benefit. On the compute side, specific pruning patterns like 2:4 pruning can be made into efficient kernels. Our implementation yields none of these benefits, and is only useful for interpreting the model.</d-footnote> so we choose to make the code simple. To begin, we can first define a mask over the activations $$\mathcal{M}_{i,j} \in \{0,1\}^{m \times n}$$ that zeros out activations belonging to pruned edges. In practice, we would want to prune _before_ the computation, but tensorizing this process efficiently is not clean.
 
 <d-code block language="python" style="font-size:0.7em">
 class KANLayer(nn.Module):
@@ -1266,8 +1262,8 @@ class KANLayer(nn.Module):
         # Mask out pruned edges
         phi = phi * self.activation_mask[None, ...] # <-- added mask logic
         ...
-</d-code>
 
+</d-code>
 
 We also need to define a metric for pruning. We can define this function at the high-level KAN module. For every layer, each node is assigned two scores: the input score is the absolute value of the maximum activation averaged over the training batch input<d-footnote>Ideally we want to pass in the entire training dataset when computing this, but it seems costly. For now, we just assume a large batch of data can sufficiently approximate the whole dataset.</d-footnote>, while the output score is computed the same, but for its output activations. More formally,
 
@@ -1283,7 +1279,6 @@ $$
 </span></p>
 
 If $$\text{score}^{(\ell, \text{in})}_{i} < \theta \lor \text{score}^{(\ell, \text{out})}_{i} < \theta$$ for some threshold $\theta = 0.01$, then we can prune the node by masking its incoming and outgoing activations. We tensorize this operation as a product of two indicators below.
-
 
 <d-code block language="python" style="font-size:0.7em">
 class KAN(nn.Module):
@@ -1324,8 +1319,8 @@ class KAN(nn.Module):
 In practice, you will call the `prune(...)` function after a certain number of training steps or post-training. Our current plotting function does not support these pruned activations, but we add this feature in the [Appendix](#appendix).
 
 ### Fixing Symbolic Activations
-A large selling point of the original paper is that KANs can be thought of as a sort of "pseudo-symbolic regression". In some sense, if you know the original activations before-hand or realize that the activations are converging to a known non-linear function (e.g. $b \sin(x)$), we can choose to fix these activations. There are many ways to implement this feature, but similar to [the pruning section](#activation-pruning), I've chosen to favor readability over efficiency. The original paper mentions two features that **are not implemented below**. Namely, storing coefficients affine transformations of known functions (e.g. $a f(b x + c) + d$) and fitting the current B-spline approximation to a known function. The code below allows the programmer to directly fix symbolic functions in the form of univariate Python `lambda` functions. First, we provide a function for a KAN model to fix (or unfix to the B-spline) a specific layer's activation to a specified function.
 
+A large selling point of the original paper is that KANs can be thought of as a sort of "pseudo-symbolic regression". In some sense, if you know the original activations before-hand or realize that the activations are converging to a known non-linear function (e.g. $b \sin(x)$), we can choose to fix these activations. There are many ways to implement this feature, but similar to [the pruning section](#activation-pruning), I've chosen to favor readability over efficiency. The original paper mentions two features that **are not implemented below**. Namely, storing coefficients affine transformations of known functions (e.g. $a f(b x + c) + d$) and fitting the current B-spline approximation to a known function. The code below allows the programmer to directly fix symbolic functions in the form of univariate Python `lambda` functions. First, we provide a function for a KAN model to fix (or unfix to the B-spline) a specific layer's activation to a specified function.
 
 <d-code block language="python" style="font-size:0.7em">
 class KAN(nn.Module):
@@ -1346,9 +1341,7 @@ class KAN(nn.Module):
         self.layers[layer].set_symbolic(in_index, out_index, fix, fn)
 </d-code>
 
-
-We first define a `KANSymbolic` module that is analogous to the `KANActivation` module used to compute B-spline activations. Here, we store an array of functions $$\{f_{i,j}(\cdot)\}_{i \in [m], j \in [n]}$$ that are applied in the forward pass to form a matrix $$\{f_{i,j}(x_j)\}_{i \in [m], j \in [n]}$$. Each function is initialized to be an identity function. Unfortunately, there is not (to my knowledge) an efficient way to perform this operation in the general case where all the symbolic functions are unique. 
-
+We first define a `KANSymbolic` module that is analogous to the `KANActivation` module used to compute B-spline activations. Here, we store an array of functions $$\{f_{i,j}(\cdot)\}_{i \in [m], j \in [n]}$$ that are applied in the forward pass to form a matrix $$\{f_{i,j}(x_j)\}_{i \in [m], j \in [n]}$$. Each function is initialized to be an identity function. Unfortunately, there is not (to my knowledge) an efficient way to perform this operation in the general case where all the symbolic functions are unique.
 
 <d-code block language="python" style="font-size:0.7em">
 class KANSymbolic(nn.Module):
@@ -1357,22 +1350,22 @@ class KANSymbolic(nn.Module):
     def __init__(self, in_dim: int, out_dim: int, device: torch.device):
         """
         We have to store a 2D array of univariate functions, one for each
-        edge in the KAN layer. 
+        edge in the KAN layer.
         """
         super(KANSymbolic, self).__init__()
-        
+
         self.in_dim = in_dim
         self.out_dim = out_dim
 
         self.fns = [[lambda x: x for _ in range(in_dim)] for _ in range(out_dim)]
-    
+
     def forward(self, x: torch.Tensor):
         """
         Run symbolic activations over all inputs in x, where
         x is of shape (batch_size, in_dim). Returns a tensor of shape
         (batch_size, out_dim, in_dim).
         """
-        
+
         acts = []
         # Really inefficient, try tensorizing later.
         for j in range(self.in_dim):
@@ -1389,12 +1382,11 @@ class KANSymbolic(nn.Module):
         """
         Set symbolic function at specified edge to new function.
         """
-        self.fns[out_index][in_index] = fn 
+        self.fns[out_index][in_index] = fn
+
 </d-code>
 
-
 We now have to define the symbolic activation logic inside the KAN layer. When computing the output activations, we use a similar trick to the pruning implementation by introducing a mask that is $1$ when the activation should be symbolic<d-footnote>Remember that this solution has the same inefficiencies as the pruning solution. We end up computing activations for both the B-splines and the symbolic activations. For readability, we've chosen to implement it this way, but in practice you will probably want to change this.</d-footnote> and $0$ when it should be the B-spline activation. We also add the function for setting an activation to be a symbolic function and modify the forward pass to support this operation.
-
 
 <d-code block language="python" style="font-size:0.7em">
 class KANLayer(nn.Module):
@@ -1412,7 +1404,7 @@ class KANLayer(nn.Module):
     ...
     def set_symbolic(self, in_index: int, out_index: int, fix:bool, fn):
         """
-        Set the symbolic mask to be fixed (fix=1) or unfixed. 
+        Set the symbolic mask to be fixed (fix=1) or unfixed.
         """
         if fix:
             self.symbolic_mask[out_index, in_index] = 1
@@ -1429,11 +1421,10 @@ class KANLayer(nn.Module):
         # Mask out pruned edges
         phi = phi * self.activation_mask[None, ...]
         ...
+
 </d-code>
 
-
 We can test our implementation by learning the function $$f(x_1,x_2) = \sin(x_1) + x_2^2$$ and plotting the result.
-
 
 <d-code block language="python" style="font-size:0.7em">
     config = KANConfig()
@@ -1454,8 +1445,8 @@ We can test our implementation by learning the function $$f(x_1,x_2) = \sin(x_1)
     plot_results(results)
     model(dataset["train_input"])
     plot(model)
-</d-code>
 
+</d-code>
 
 <figure>
     <img src="/assets/img/fix_activation.jpg" width="400" alt="Fixing the activation function.">
@@ -1463,8 +1454,8 @@ We can test our implementation by learning the function $$f(x_1,x_2) = \sin(x_1)
 </figure>
 
 ## Part IV: Applied Example
-This section will be focused on applying KANs to a standard machine learning problem. The original paper details a series of examples where KANs learn to fit a highly non-linear or compositional function. Of course, while these functions are difficult to learn, the use of learnable univariate functions makes KANs suitable for these specific tasks. I emphasized the similarities between KANs and standard deep learning models throughout this post, so I also wanted to present a deep learning example (even though it doesn't work very well). We will run through a simple example of training a KAN on the canonical MNIST handwritten digits dataset<d-cite key="lecun1998gradient"></d-cite> to show how easy it is to adapt these models for standard deep learning settings. We first download the relevant data.
 
+This section will be focused on applying KANs to a standard machine learning problem. The original paper details a series of examples where KANs learn to fit a highly non-linear or compositional function. Of course, while these functions are difficult to learn, the use of learnable univariate functions makes KANs suitable for these specific tasks. I emphasized the similarities between KANs and standard deep learning models throughout this post, so I also wanted to present a deep learning example (even though it doesn't work very well). We will run through a simple example of training a KAN on the canonical MNIST handwritten digits dataset<d-cite key="lecun1998gradient"></d-cite> to show how easy it is to adapt these models for standard deep learning settings. We first download the relevant data.
 
 <d-code block language="python" style="font-size:0.7em">
 # Run these without ! in terminal, or run this cell if using colab.
@@ -1472,9 +1463,7 @@ This section will be focused on applying KANs to a standard machine learning pro
 !tar -zxvf MNIST.tar.gz -C data/
 </d-code>
 
-
-In the interest of reusing the existing train logic we created [earlier](#training-loop), we write a function to turn a `torch.Dataset` with MNIST into the dictionary format. *For general applications, I recommend sticking with the torch Dataloader framework*.
-
+In the interest of reusing the existing train logic we created [earlier](#training-loop), we write a function to turn a `torch.Dataset` with MNIST into the dictionary format. _For general applications, I recommend sticking with the torch Dataloader framework_.
 
 <d-code block language="python" style="font-size:0.7em">
 def split_torch_dataset(train_data, test_data):
@@ -1489,7 +1478,7 @@ def split_torch_dataset(train_data, test_data):
     dataset['test_label'] = []
 
     for (x,y) in train_data:
-        dataset['train_input'].append(x.flatten()) 
+        dataset['train_input'].append(x.flatten())
         dataset['train_label'].append(y)
 
     dataset['train_input'] = torch.stack(dataset['train_input']).squeeze()
@@ -1497,7 +1486,7 @@ def split_torch_dataset(train_data, test_data):
     dataset['train_label'] = F.one_hot(dataset['train_label'], num_classes=10).float()
 
     for (x,y) in test_data:
-        dataset['test_input'].append(x.flatten()) 
+        dataset['test_input'].append(x.flatten())
         dataset['test_label'].append(y)
 
     dataset['test_input'] = torch.stack(dataset['test_input']).squeeze()
@@ -1510,8 +1499,8 @@ def split_torch_dataset(train_data, test_data):
     print('test label size', dataset['test_label'].shape)
 
     return dataset
-</d-code>
 
+</d-code>
 
 Finally, like all previous examples, we can run a training loop over the MNIST dataset. We compute the training loss using the standard binary cross-entropy loss and define the KAN to produce logits from 0-9. Due to restrictions in our `train()` function, we define our test loss as the total number of incorrectly marked samples out of $100$ validation samples.
 
@@ -1522,7 +1511,7 @@ layer_widths = [28 * 28, 64, 10]
 model = KAN(layer_widths, config)
 
 transform = transforms.Compose(
-    [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
+[transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
 )
 train_data = datasets.MNIST("./data", train=True, download=False, transform=transform)
 test_data = datasets.MNIST("./data", train=False, transform=transform)
@@ -1531,16 +1520,16 @@ dataset = split_torch_dataset(train_data, test_data)
 loss = nn.BCEWithLogitsLoss()
 
 results = train(
-    model,
-    dataset=dataset,
-    steps=500,
-    batch_size=128,
-    batch_size_test=100,
-    lr=0.1,
-    log=1,
-    device=config.device,
-    loss_fn=lambda x, y: loss(x, y),
-    loss_fn_eval=lambda x, y: (torch.argmax(x, dim=-1) != torch.argmax(y, dim=-1)).sum()
+model,
+dataset=dataset,
+steps=500,
+batch_size=128,
+batch_size_test=100,
+lr=0.1,
+log=1,
+device=config.device,
+loss_fn=lambda x, y: loss(x, y),
+loss_fn_eval=lambda x, y: (torch.argmax(x, dim=-1) != torch.argmax(y, dim=-1)).sum()
 )
 plot_results(results)
 </d-code>
@@ -1548,26 +1537,31 @@ plot_results(results)
 You may notice that the training is significantly slower even for such a small model. Furthermore, the results here are not good as expected. I'm confident that with sufficient tuning of the model you can get MNIST to work (there are examples of more [sophisticated KAN implementations](https://github.com/1ssb/torchkan) <d-cite key="torchkan"></d-cite> that perform extremely well), but the above example raises questions about the efficiency of the original implementation. Before we are able to properly scale these models, we need to first study the choice of parameterization and whether we should even treat KANs the way we treat MLPs.
 
 ## Conclusion
+
 I hope this resource was useful to you -- whether you learned something new, or gained a certain perspective along the way. I wrote up this annotated blog to clean up my notes on the topic, as I am interested in improving these models from an efficiency perspective. If you find any typos or have feedback about this resource, feel free to reach out!
 
 ## Appendix
+
 I may re-visit this section in the future with some more meaningful experiments when I get the time.
 
 ### Plotting Symbolic and Pruned KANs
+
 The plotting function defined in [Network Visualization](#network-visualization) doesn't include logic for handling the pruned activation masks and the symbolic activations. We will include this logic separately, or you can follow the rest of the visualization code in the original repository.
 
-
 ### Open Research: Making KANs Efficient
+
 It is known that these models currently do not scale well due to both memory and compute inefficiencies. Of course, it is unknown whether scaling these models will be useful, but the authors posit that they are more parameter efficient than standard deep learning models because of the flexibility of their learned univariate functions. As you saw in the [MNIST example](#part-iv-applied-example), it is not easy to scale the model even for MNIST training. I sort of avoided this question before, but I want to highlight a few reasons for these slowdowns.
-1. We fully materialize a lot of intermediate activations for the sake of demonstration, but even in an optimized implementation, some of these intermediate activations are unavoidable. Generally, materializing intermediate activations means lots of movement between DRAM and the processors, which can cause significant slowdown. There is a repository called [KAN-benchmarking](#https://github.com/Jerry-Master/KAN-benchmarking) dedicated to evaluating different KAN implementations. *I may include an extra section on profiling in the future.*
+
+1. We fully materialize a lot of intermediate activations for the sake of demonstration, but even in an optimized implementation, some of these intermediate activations are unavoidable. Generally, materializing intermediate activations means lots of movement between DRAM and the processors, which can cause significant slowdown. There is a repository called [KAN-benchmarking](#https://github.com/Jerry-Master/KAN-benchmarking) dedicated to evaluating different KAN implementations. _I may include an extra section on profiling in the future._
 2. Each activation $$\Phi_{i,j}$$ or edge in the network is potentially different. At an machine instruction level, this means that we cannot take advantage of SIMD or SIMT that standard GEMM or GEMV operations have on the GPU. There are alternative implementations of KANs that were mentioned earlier that attempt to get around these issues <d-cite key="ta2024bsrbfkancombinationbsplinesradial,bozorgasl2024wavkanwaveletkolmogorovarnoldnetworks,ss2024chebyshevpolynomialbasedkolmogorovarnoldnetworks">, but even then they do not scale well compared to MLPs. I suspect the choice of the family of parameterized activations will be extremely important moving forward.
 
-
 ### B-Spline Optimizations: Changing Knot Points
+
 A natural question is whether we have to fix the knot points to be uniformly spaced, or if we can use the data to adjust our knot points. The original paper does not detail this optimization, but their codebase actually includes this feature. If time permits, I may later include a section on this -- I think it may be important for performance of KANs with B-splines, but for general KANs maybe not.
 
 ## Citation
-Just as a formality, if you want to cite this for whatever reason, use the BibTeX below. 
+
+Just as a formality, if you want to cite this for whatever reason, use the BibTeX below.
 
 ```
 @article{zhang2024annotatedkan,
