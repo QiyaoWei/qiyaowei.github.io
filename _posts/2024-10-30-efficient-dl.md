@@ -254,7 +254,7 @@ While classical techniques in machine learning and statistics (e.g. [SVM](https:
     <td>84.69% <span style="color:green">&#x25B4;</span></td>
   </tr>
   <tr>
-    <td>ISI (<a href="https://ieeexplore.ieee.org/document/5995504">Fisher vectors</a>)</td>
+    <td>ISI (Fisher vectors)</td>
     <td>73.83%</td>
   </tr>
 </table>
@@ -590,7 +590,7 @@ Let’s continue where we [left off](#i2-compute-unified-device-architecture-cud
 
 1. Kernel/device functions operate at the **thread-level**, so we have to specify per-thread behavior in our device functions. Variables defined are implicitly accessed through registers.
 2. We mentioned earlier that CUDA is SIMT — **groups of threads called warps** **share the same instruction** over different data (typically 32 threads per warp). Starting from the [Volta architecture](<https://en.wikipedia.org/wiki/Volta_(microarchitecture)>), threads actually have their own program counter and [call stack](https://www.youtube.com/watch?v=jVzSBkbfdiw&ab_channel=JacobSorber) and can call different instructions.
-3. Kernels are launched in “grids” of “[thread blocks](<https://en.wikipedia.org/wiki/Thread_block_(CUDA_programming)>)”; threads/warps in the **same block can access [shared fast SRAM memory](https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/)**, which is useful for communicating between threads in operations like [stencils](https://www.mathworks.com/help/parallel-computing/stencil-operations-on-a-gpu.html) / [convolutions](https://ulhpc-tutorials.readthedocs.io/en/latest/cuda/exercises/convolution/).
+3. Kernels are launched in “grids” of “thread blocks”; threads/warps in the **same block can access [shared fast SRAM memory](https://developer.nvidia.com/blog/using-shared-memory-cuda-cc/)**, which is useful for communicating between threads in operations like [stencils](https://www.mathworks.com/help/parallel-computing/stencil-operations-on-a-gpu.html) / [convolutions](https://ulhpc-tutorials.readthedocs.io/en/latest/cuda/exercises/convolution/).
 4. Each **grid is independent** (and run in parallel), and generally cannot communicate. For example, it is often convenient to launch an independent grid for each batch in the forward pass of a network.
 5. We _usually_ **launch kernels from the CPU/host**. In PyTorch, it is implicit when we define our model code; in CUDA, it is using the triple bracket notation: `f<<<<a,b>>>>(**kwargs)`, where `a` is the number of grids, and `b` is the number of thread blocks per grid. The hardware is responsible for scheduling these threads on the relevant devices to maximize device usage, or “[occupancy](https://docs.nvidia.com/gameworks/content/developertools/desktop/analysis/report/cudaexperiments/kernellevel/achievedoccupancy.htm)”.
 
@@ -1364,7 +1364,7 @@ The introduction of ChatGPT (2022) made it clear that building infrastructure to
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
-**[llama.cpp (Gerganov, 2022)](https://github.com/ggerganov/llama.cpp)**. One of the coolest solo projects by [Georgi Gerganov](https://github.com/ggerganov) is a pure C++ implementation of the [LLaMA family](<https://en.wikipedia.org/wiki/Llama_(language_model)>) that optimizes for non-GPU devices (it now supports GPUs). It has since become a standard tool for running model inference on a variety of language models, and is extremely simple to use with its CLI. The downside is that adapting this code for custom LLMs is difficult without a strong understanding of the underlying implementation.
+**[llama.cpp (Gerganov, 2022)](https://github.com/ggerganov/llama.cpp)**. One of the coolest solo projects by [Georgi Gerganov](https://github.com/ggerganov) is a pure C++ implementation of the LLaMA family that optimizes for non-GPU devices (it now supports GPUs). It has since become a standard tool for running model inference on a variety of language models, and is extremely simple to use with its CLI. The downside is that adapting this code for custom LLMs is difficult without a strong understanding of the underlying implementation.
 
 <hr style="margin-bottom: 20px;margin-top: 20px">
 
@@ -1603,7 +1603,7 @@ Part of the difficulty of research in this field is sifting through the sheer nu
 - **[2023] Deep Learning Accelerators**: [https://arxiv.org/abs/2306.15552](https://arxiv.org/abs/2306.15552).
 - **[2023] Deep Learning Pruning**: [https://arxiv.org/abs/2308.06767](https://arxiv.org/abs/2308.06767).
 - **[2023] Efficient Large Language Models: A Survey**: [https://arxiv.org/abs/2312.03863](https://arxiv.org/abs/2312.03863).
-- **[2023]** **Survey on TinyML**: https://ieeexplore.ieee.org/document/10177729.
+- **[2023]** **Survey on TinyML**.
 - **Lil’log.** ([https://lilianweng.github.io](https://lilianweng.github.io/posts/2020-08-06-nas/)/). Just the absolute GOAT with lots of topics on deep learning in general.
 
 ## Acknowledgements
