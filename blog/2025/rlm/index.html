@@ -726,6 +726,7 @@ index 868d98c..7c335bb 100644
 <p>We did not optimize our implementation of RLMs for speed, meaning each recursive LM call is both blocking and does not take advantage of any kind of prefix caching! Depending on the partition strategy employed by the RLM’s root LM, the <strong>lack of asynchrony</strong> can cause each query to range from a few seconds to several minutes. Furthermore, while we can control the length / “thinking time” of an RLM by increasing the maximum number of iterations, we do not currently have strong guarantees about controlling either the total API cost or the total runtime of each call. For those in the systems community (<em>cough cough</em>, especially the <a href="https://www.youtube.com/@GPUMODE" rel="external nofollow noopener" target="_blank">GPU MODE</a> community), this is amazing news! There’s so much low hanging fruit to optimize here, and getting RLMs to work at scale requires re-thinking our design of inference engines.</p>
 
 <h3 id="related-works">Related Works</h3>
+
 <p><strong>Scaffolds for long input context management.</strong> RLMs defer the choice of context management to the LM / REPL environment, but most prior works do not. MemGPT<d-cite key="packer2024memgptllmsoperatingsystems"></d-cite> similarly defers the choice to the model, but builds on a single context that an LM will eventually call to return a response. MemWalker <d-cite key="chen2023walkingmemorymazecontext"></d-cite> imposes a tree-like structure to order how a LM summarizes context. LADDER <d-cite key="simonds2025ladderselfimprovingllmsrecursive"></d-cite> breaks down context from the perspective of problem decomposition, which does not generalize to huge contexts.</p>
 
 <p><strong>Other (pretty different) recursive proposals.</strong> There’s plenty of work that invokes forking threads or doing recursion in the context of deep learning, but none have the structure required for general-purpose decomposition. THREAD <d-cite key="schroeder-etal-2025-thread"></d-cite> modifies the output generation process of a model call to spawn child threads that write to the output. Tiny Recursive Model (TRM) <d-cite key="jolicoeurmartineau2025morerecursivereasoningtiny"></d-cite> is a cool idea for iteratively improving the answer of a (not necessarily language) model in its latents. <a href="https://andykonwinski.com/2023/03/20/recursive-llm.html" rel="external nofollow noopener" target="_blank">Recursive LLM Prompts</a> was an early experiment on treating the prompt as a state that evolves when you query a model. <a href="https://rsa-llm.github.io/" rel="external nofollow noopener" target="_blank">Recursive Self-Aggregation (RSA)</a> is a recent work that combines test-time inference sampling methods over a set of candidate responses.</p>
@@ -753,7 +754,9 @@ index 868d98c..7c335bb 100644
 <p>Finally, we thank Jack Cook and the other first year MIT EECS students for their support during the first year of my PhD!</p>
 
 <h2 id="citation">Citation</h2>
+
 <p>You can cite this blog (before the full paper is released) here:</p>
+
 <pre><code class="language-@article{zhang2025rlm,">  title   = "Recursive Language Models",
   author  = "Zhang, Alex and Khattab, Omar",
   year    = "2025",

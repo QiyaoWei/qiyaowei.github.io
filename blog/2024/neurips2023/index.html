@@ -627,6 +627,7 @@ I ended up searching up so many terms, I eventually started keeping track of the
 curious reader wants to know at the bottom of this post.</p>
 
 <h2 id="the-overall-vibes">The Overall Vibes</h2>
+
 <figure>
     <img src="/assets/img/neurips2023.png" width="400" alt="Visualization of NeurIPS 2023">
     <figcaption>Visualization generated from <a href="https://neurips2023.vizhub.ai/?ref=blog.roboflow.com&amp;brushed=%255B%255B14.600000381469727%252C-10%255D%252C%255B798.7249755859375%252C796.664306640625%255D%255D" rel="external nofollow noopener" target="_blank">here.</a></figcaption>
@@ -634,6 +635,7 @@ curious reader wants to know at the bottom of this post.</p>
 
 <p>2023 was a great year for AI (generative models especially), and the number of submissions to
 NeurIPS 2023 reflects that. This year, there were <b>3584</b> accepted papers out of an astonishing <b>12345</b> submissions. Honestly, I expected to go into this process marking only my top 10 or 20 favorite papers, but I discovered so many absolutely fascinating works on the most random things like applying 3D neural rendering methods to Unreal Engine. By the end of this process, I ended up reading or skimming probably 50 or so of the papers (excluding the ones that I had seen before). Of course, from the abstract alone, it is not possible to grasp the quality or impact of a work, and in an ideal world I would have read each paper in their entirety and tried their code as well. Regardless, after reading through, these are some things that stuck out to me this year:</p>
+
 <ol>
   <li>
 <strong>Multimodal is the new “thing”.</strong> Rather unsurprisingly, combining vision and language is a hot topic <d-cite key="huang2023language,wang2023connecting,luo2023cheap,gadre2023datacomp,zhu2023multimodal,mizrahi2023m,yin2023vlattack,cheng2023metaadapter,dai2023instructblip,wortsman2023stable,wu2023parameter"></d-cite>. With LLMs demonstrating impressive performance in the past few years, leveraging these models to reason over visual data is a natural progression of the technology.</li>
@@ -652,6 +654,7 @@ NeurIPS 2023 reflects that. This year, there were <b>3584</b> accepted papers ou
 </ol>
 
 <h2 id="large-language-models">Large Language Models</h2>
+
 <p>This is the section of papers I was most familiar with before reading through the abstracts.
 Generally, there have been a lot of works exploring the reasoning capabilities of LLMs through
 prompting or fine-tuning. I think the LLM papers at this conference reflect the
@@ -663,7 +666,7 @@ interests of the NLP community for the past year even though a lot of these work
 <strong>Reasoning.</strong> How can we apply algorithms or intuitions to fine-tune
 LLMs to be better planners, reasoners, etc. like in <d-cite key="phan2023training"></d-cite>? Furthermore, how can we explicitly improve their reasoning capabilities without gradient updates like in <d-cite key="yao2023tree"></d-cite>?</li>
   <li>
-<strong>Logical Reasoning.</strong> Can LLMs be used for logical tasks like mathematics <d-cite key="zhang2023evaluating,frieder2023mathematical"></d-cite>  and coding <d-cite key="yang2023intercode"></d-cite>? What are the pitfalls and potential solutions? We are interested in analyzing the limits of their abilities, as well as understand why and when they fail <d-cite key="hanna2023does"></d-cite>.</li>
+<strong>Logical Reasoning.</strong> Can LLMs be used for logical tasks like mathematics <d-cite key="zhang2023evaluating,frieder2023mathematical"></d-cite> and coding <d-cite key="yang2023intercode"></d-cite>? What are the pitfalls and potential solutions? We are interested in analyzing the limits of their abilities, as well as understand why and when they fail <d-cite key="hanna2023does"></d-cite>.</li>
   <li>
 <strong>Agents.</strong> Can LLMs be considered cognitive agents? That is, can we
 equip them with capabilities (tools, externals APIs <d-cite key="schick2023toolformer"></d-cite>, etc.) such that they can interact with environments through text generation? Furthermore, can they interact, think, and reflect in an anthropomorphic way? <d-cite key="madaan2023selfrefine,shinn2023reflexion"></d-cite>
@@ -684,10 +687,11 @@ equip them with capabilities (tools, externals APIs <d-cite key="schick2023toolf
 learning (ICL) to mimic known algorithmic procedures <d-cite key="chen2023evoprompting"></d-cite> entirely through prompting? For example, policy iteration from RL <d-cite key="brooks2023large"> </d-cite> or time-series forecasting <d-cite key="gruver2023large"> </d-cite>.</li>
   <li>
 <strong>Evaluating Language Models.</strong> What kind of metrics and
-   benchmarks are needed to effectively evaluate the abilities of different LMs? Is it by using a strong LLM as a judge <d-cite key="zheng2023judging"></d-cite>? Also, we generally just want more benchmarks for evaluating abilities like factuality <d-cite key="chen2023felm"></d-cite>, coding <d-cite key="yang2023intercode"></d-cite>, and domain-specific information <d-cite key="liu2023benchmarking,guha2023legalbench,guo2023large"></d-cite>.</li>
+benchmarks are needed to effectively evaluate the abilities of different LMs? Is it by using a strong LLM as a judge <d-cite key="zheng2023judging"></d-cite>? Also, we generally just want more benchmarks for evaluating abilities like factuality <d-cite key="chen2023felm"></d-cite>, coding <d-cite key="yang2023intercode"></d-cite>, and domain-specific information <d-cite key="liu2023benchmarking,guha2023legalbench,guo2023large"></d-cite>.</li>
 </ol>
 
 <h3 id="llm-interesting-papers">[<span style="color:orange">LLM</span>] Interesting Papers</h3>
+
 <p>Below is a list of papers I particularly liked and think are worth reading in their entirety. Of course, there were plenty of other extremely interesting and useful works at this conference, so please do not take this as some kind of definitive ranking of papers. Also, I’m mainly going to be giving a brief sentence about why I think each paper is cool/important and not a <em>tldr</em>, as I think you can get a lot more out of just reading it yourself. I have included this type of subsection at the end of every topic, so enjoy!</p>
 
 <ol>
@@ -712,7 +716,7 @@ experiments use GPT-J <d-footnote>https://huggingface.co/docs/transformers/model
   <li>
 <strong>Collaborative Alignment of NLP Models</strong><d-cite key="khani2023collaborative"></d-cite>: We have been conditioned to use single, huge foundation models because they work well in practice, but this paper looks into whether the learning of several, concept-aligned models with some meta-chooser on top actually works just as well. The primary benefit is the ability to modularize and parallelize LLMs, making them more flexible and also potentially faster.</li>
   <li>
-<strong>Hard Prompts Made Easy: Gradient-Based Discrete Optimization for Prompt Tuning and Discovery.</strong>   <d-cite key="wen2023hard"></d-cite>: You can sort of think of (hard) prompts as parameters to an LLM that transferrable to other LLMs (e.g. If I prompt GPT-4 with “Explain Newton’s laws like I’m 5”, I expect LLAMA 2 to answer similarly). In the case of text-to-image models, the images we get are often not exactly what we want (there are various reasons for this we discuss in the multi-modal section!). This work is basically a way to steer text prompts with gradient-based optimization so they generate the images you want.</li>
+<strong>Hard Prompts Made Easy: Gradient-Based Discrete Optimization for Prompt Tuning and Discovery.</strong> <d-cite key="wen2023hard"></d-cite>: You can sort of think of (hard) prompts as parameters to an LLM that transferrable to other LLMs (e.g. If I prompt GPT-4 with “Explain Newton’s laws like I’m 5”, I expect LLAMA 2 to answer similarly). In the case of text-to-image models, the images we get are often not exactly what we want (there are various reasons for this we discuss in the multi-modal section!). This work is basically a way to steer text prompts with gradient-based optimization so they generate the images you want.</li>
   <li>
 <strong>OpenAssistant Conversations - Democratizing Large Language Model Alignment</strong> <d-cite key="kopf2023openassistant"></d-cite>: So I actually followed this project on YouTube through Yannic Kilcher’s channel <d-footnote>https://youtube.com/yannickilcher</d-footnote>, and the central idea is to open-source the data required for RLHF because its extremely expensive to curate 60k+ human preference samples. I believe that open-source communities are extremely important for AI, and it’s exciting to see them produce extremely useful projects like this one. Because it is open-source, a large chunk of the paper discusses quality control and reducing “bad” or “toxic” data.</li>
   <li>
@@ -720,6 +724,7 @@ experiments use GPT-J <d-footnote>https://huggingface.co/docs/transformers/model
 </ol>
 
 <h2 id="multi-modal-learning">Multi-modal Learning</h2>
+
 <p>This year had a heavy focus on multimodal (mostly vision + language) models, with many companies/labs introducing their own shiny foundation models and associated datasets to compete with GPT-4. A lot of the desirable features in large multimodal models parallel that of large language models, so many of the research questions and themes are quite similar. In my mind, a core difference is the combinatorially larger amount of paired or associated data required to build a model that can interchangebly handle two different modalities. The obvious direction is to continue to scale the size of visual-language datasets with the size of new models, but I suspect that fundamentally answering how to “ground” two different modalities from a representation learning perspective may be able to reduce the necessary scale. At the end of the day though, this is still an open research question which I don’t know the answer to. The general themes I observed were</p>
 
 <ol>
@@ -744,6 +749,7 @@ experiments use GPT-J <d-footnote>https://huggingface.co/docs/transformers/model
 </ol>
 
 <h3 id="multimodal-interesting-papers">[<span style="color:orange">Multimodal</span>] Interesting Papers</h3>
+
 <p>There are a lot of what I like to call <em>low-hanging fruit</em> in multi-modal models that have been solved, and while they are still interesting and definitely more applicable to most problems, I wanted to focus on some works that I thought were cool.</p>
 
 <ol>
@@ -775,7 +781,9 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
    constrain this didn’t turn out to be that useful. I wonder how that applies here.</p>
 
 <h2 id="transformers">Transformers</h2>
+
 <p>With the Transformer module being the standard building block for scalable models, it is important that progress is made on improving their usage as a whole. Just as a side note, I think generally the term “transformer” is now overloaded to mean any structure using positional encodings plus an attention-mechanism, feedforward layers, and normalization in some repeated fashion, and does not necessarily refer to the original Transformer architecture. Interestingly, one thing I didn’t really find at this conference was investigating the enforcement of constraints or inductive biases like equivariance to Transformers, which may be an indicator of Sutton’s Bitter Lesson <d-footnote>http://www.incompleteideas.net/IncIdeas/BitterLesson.html</d-footnote>. The general themes were</p>
+
 <ol>
   <li>
 <strong>Studying Transformer Models.</strong> Are there provable or empirically well-understood limitations of Transformers that may be severely limiting for future research directions? We know that Transformers seem to excel at reasoning but also frequently fail in simple cases, so <d-cite key="dziri2023faith"></d-cite> argue through a series of compositional tasks that these models (GPT-3,4) tend to <em>pattern match reasoning chains</em>. Furthermore, in <d-cite key="sanford2023representational"></d-cite>, they try to examine the function classes that Transformers can efficiently approximate, which is especially important for upper bounding the representational capacity of models as they scale. Finally, there are works that examine/ablate features of the Transformer <d-cite key="kazemnejad2023impact"></d-cite> to study their impact.</li>
@@ -788,9 +796,10 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
 </ol>
 
 <h3 id="transformers-interesting-papers">[<span style="color:orange">Transformers</span>] Interesting Papers</h3>
+
 <ol>
   <li>
-<strong>Faith and Fate: Limits of Transformers on Compositionality</strong>  <d-cite key="dziri2023faith"> </d-cite>: It has always unclear how good Transformers are at compositional reasoning, and this paper tries to uncover this question in a systematic way. As in, they literally break down each task (they are mostly computational tasks like multiplication and dynamic programming puzzles) into a computation graph and train their models in a bunch of different ways, ultimately concluding that Transformers are good at pattern matching reasoning chains, but not necessarily extrapolating reasoning itself.</li>
+<strong>Faith and Fate: Limits of Transformers on Compositionality</strong> <d-cite key="dziri2023faith"> </d-cite>: It has always unclear how good Transformers are at compositional reasoning, and this paper tries to uncover this question in a systematic way. As in, they literally break down each task (they are mostly computational tasks like multiplication and dynamic programming puzzles) into a computation graph and train their models in a bunch of different ways, ultimately concluding that Transformers are good at pattern matching reasoning chains, but not necessarily extrapolating reasoning itself.</li>
   <li>
 <strong>Geometric Algebra Transformer</strong> <d-cite key="brehmer2023geometric"> </d-cite>: This paper is super cool and really well written. It’s a fairly non-traditional work that enforces equivariance with respect E(3) <d-footnote>https://en.wikipedia.org/wiki/Euclidean_group</d-footnote>, which is all linear combinations of translations, rotations, and reflections of 3D Euclidean space. This is particularly useful for learning representations of geometric data, and they apply their Transformer to a downstream planning task and demonstrate that it still works even when we don’t want to enforce this constraint.</li>
   <li>
@@ -804,7 +813,9 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
 </ol>
 
 <h2 id="reinforcement-learning">Reinforcement Learning</h2>
+
 <p>Reinforcement Learning was a huge topic this year, with many papers discussing RL in the context of other works like diffusion models <d-cite key="he2023diffusion,kang2023efficient"> </d-cite> or in-context learning <d-cite key="lee2023supervised"> </d-cite>. There is a distinction between classical RL works and deep RL works, the former of which are primarily theoretical, and the latter of which are primarily empirical. The main difference is the use of a neural network to approximate tabular mappings, especially in settings involving an infinite or combinatorially large state and/or action space. I’m not entirely sure what direction the field has been in the past few years because it is so broad, but I have noticed an emphasis on sample efficiency and the utilization of priors to accelerate RL exploration. This is probably because earlier successes in deep RL have primarily been through OpenAI or DeepMind brute forcing domain-specific trajectories into a model, so we have proven that deep RL works and can focus on efficiency. Lastly, I noticed a lot of papers related to offline RL <d-cite key="chen2023conservative,hong2023beyond"></d-cite>, where models make updates without interacting with the environment.</p>
+
 <ol>
   <li>
 <strong>Robustness.</strong> I’m specifically referring to the robustness of RL training algorithms and preventing failure modes. It is fairly well-known that RL is quite delicate and requires a lot of tricks <d-cite key="rlblogpost"> </d-cite> to get working in practice, so it is unsurprising that a lot of work goes into improving the robustness of these algorithms. There are many failure modes of RL that are addressed in this conference, and I highlight them below:
@@ -828,6 +839,7 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
 </ol>
 
 <h3 id="rl-interesting-papers">[<span style="color:orange">RL</span>] Interesting Papers</h3>
+
 <ol>
   <li>
 <strong>Conditional Mutual Information for Disentangled Representations in Reinforcement Learning</strong> <d-cite key="dunion2023conditional"> </d-cite>: I haven’t really seen prior works in RL that try to tackle disentanglement in feature representations, but the motivating factor here is that the exploring RL agent does not sufficiently capture the environment dynamics and instead learns spurrious feature correlations. I’m not sure if the technique they used was done for image/video works in the past, but it makes sense to me that this is not an RL or agent-specific technique.</li>
@@ -844,7 +856,9 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
 </ol>
 
 <h2 id="generative-ai">Generative AI</h2>
+
 <p>Generative AI as a whole has also been booming through 2023, especially as a marketable product. Given how accessible and easy to customize they have gotten, I think that the common layperson should understand at a high-level what kind of generative AI is out there. I should note that I structured this section to mostly exclude large language models or language as a modality altogether. These papers have mostly been targeted towards diffusion models, although there were still a few works at NeurIPS 2023 that focused on GANs like <d-cite key="hou2023augmentationaware,yang2023learning"></d-cite>. The general themes I’ve observed are as follows:</p>
+
 <ol>
   <li>
 <strong>Pre-trained Foundation Models.</strong> Generative models rely on a large backbone model that encodes the knowledge base of the domain that it acts on <d-cite key="wang2023facecomposer,liu2023weakly,chen2023bridging"> </d-cite>. I do wish there were some papers discussing techniques for scaling models robustly and efficiently, but perhaps it comes with experience.</li>
@@ -859,7 +873,9 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
 </ol>
 
 <h3 id="diffusion-models">Diffusion Models</h3>
+
 <p>I decided to add a separate subsection on diffusion models with a focus on techniques that improve the base diffusion model process <d-footnote>As a sidenote, check out my roommate's repository on a really simple and intuitive implementation of diffusion models: https://github.com/edogariu/nice-diffusion</d-footnote>. Honestly, there were so many diffusion model papers (also applied to other fields like RL <d-cite key="he2023diffusion,kang2023efficient"></d-cite>) that this subsection alone is more rich than most of the other sections. From my understanding, diffusion models can be viewed from several different “lenses”, with one being as a Gaussian process and another being through Langevin dynamics. You can even view diffusion models as a sequence of Variational Autoencoders (VAE). For a bit of perspective, I had the opportunity to speak with Jascha-Sohl Dickstein <d-footnote>Jascha was first-author of the original diffusion models paper: https://arxiv.org/abs/1503.03585</d-footnote> through the AI Tiger Trek trip I helped organize last April, and he said that various practical formulations of the diffusion model implementation had sprung up at around the same time from these different viewpoints. There is a lot of ongoing research into using these models effectively, but here is what I noticed from this conference:</p>
+
 <ol>
   <li>
 <strong>Inference-speed.</strong> There have been strides by labs to make the training and fine-tuning process of diffusion models cheaper <d-footnote>https://www.mosaicml.com/blog/stable-diffusion-1</d-footnote>, but inference remains quite expensive. In <d-cite key="zhao2023unipc"></d-cite>, they motivate a training-free sampling method for performing an extremely low number of sampling steps (&lt;10) while maintaining generation quality (for comparison, the standard amount is ~1000 steps and ~20 is considered low from prior works), while in <d-cite key="xue2023sasolver"></d-cite> they motivate stochastic sampling solvers and relate them to other popular solvers like the previously mentioned one.</li>
@@ -872,6 +888,7 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
 </ol>
 
 <h3 id="gen-ai--diffusion-interesting-papers">[<span style="color:orange">Gen AI + Diffusion</span>] Interesting Papers</h3>
+
 <ol>
   <li>
 <strong>Tree-Rings Watermarks: Invisible Fingerprints for Diffusion Images</strong> <d-cite key="wen2023treering"></d-cite>: Copyright and generative AI identification is going to become increasingly more important as the technology gets more accurate. This technique slowly applies an invisible watermark during the diffusion sampling process that is easy to recover when inverting the diffusion process. I have a feeling that similar to works on adversarial attacks, there is going to be a constant chase between watermark and watermark removal works in the near future.</li>
@@ -884,6 +901,7 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
 </ol>
 
 <h2 id="computer-vision">Computer Vision</h2>
+
 <p>Computer vision (CV) was the field that introduced me to the world of machine learning, and I had a glimpse when I was a little boy building robots with my Arduino of what it looked like pre-AlexNet. Perhaps because NeurIPS itself is not focused on CV, I was rather surprised by the themes I noticed. There seems to be a much larger emphasis on video understanding and human-centric perception, although fairness and bias still remains an issue that has yet to be addressed.</p>
 
 <ol>
@@ -894,7 +912,7 @@ samples to use with the standard contrastive loss during fine-tuning.</li>
     <p><strong>Video understanding.</strong> I worked on a video understanding benchmark so I’m somewhat aware of the limitations in the field. Generally, video labels are quite difficult to procure, as they’re far more compositional and free-form, and they just take longer. At the same time, having models that can reason over videos is extremely useful because videos are the primary form of media consumed on the internet these days.Compared to language, videos take up much more memory, and finding associated labels through online scraping is hard. So an important work is to build up datasets and benchmarks<d-cite key="yang2023vidchapters7m"></d-cite>. Additionally, even with multi-modal models, they have not been sufficiently trained to understand temporal aspects of a video like actions and long-term causal reasoning, which works like <d-cite key="wang2023paxion,yu2023selfchained"></d-cite> make first steps towards addressing.</p>
   </li>
   <li>
-    <p><strong>Human Data and Perception.</strong> 
+    <p><strong>Human Data and Perception.</strong>
 I noticed some interest in human-centric perception, as we ideally want vision models to understand similarity the way we intuitively perceive it. In <d-cite key="fu2023dreamsim"></d-cite>, they propose a margin loss that shapes the embedding space based on human similarity judgement data. Meanwhile, in <d-cite key="tan2023egodistill"></d-cite>, they focus on ego-centric data (video footage from the perspective of a human). We also want models to be more accurate when perceiving humans, which <d-cite key="yuan2023hap"></d-cite> argues starts at the pre-training level. Lastly, there were a few papers on human-pose estimation, mainly for robustness on expressive poses <d-cite key="enpang2023robust,cai2023smplerx"></d-cite> and for improving accuracy on reconstructing the poses in 3D <d-cite key="zhao2023single"></d-cite>.</p>
   </li>
   <li>
@@ -923,6 +941,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h2 id="adversarial-attacks-and-model-poisoning">Adversarial Attacks and Model Poisoning</h2>
+
 <p>Generally, adversarial attacks can be partitioned into two main classes: white box, where an attacker has access to the model weights (e.g. for any open-source models), and black-box, where an attacker can only use model outputs (e.g. attacking GPT4). I still think that most attacks are pretty domain-specific, so I’ve decided to generally separate the themes based on domain (e.g. language, vision, RL) rather than the type of attack (e.g. red-teaming, gradient-based, etc.) Lastly, this section is primarily dedicated to attacks that alter or manipulate the outputs of a model to be harmful or incorrect. There is another class of attacks that try to reconstruct training data using model outputs, but I decided to move that to the <a href="#privacy-and-federated-learning">section on Privacy and Federated Learning</a>.</p>
 
 <ol>
@@ -939,6 +958,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 <p>As an aside, there were lots of adversarial attack papers this year using specific attacks, targetting specific models (e.g. MARL <d-cite key="liu2023efficient"></d-cite>, federated learning <d-cite key="zhang2023afl"></d-cite>, graph neural networks <d-cite key="gosch2023adversarial"></d-cite>), or proposing specific defenses that are not reflected in the points above. I had a lot of trouble trying to categorize this section properly because of how diverse it is. This field is naturally reactive, as when someone comes up with a defense, someone will come up with an exploit (e.g. <d-cite key="kang2024diffattack"></d-cite>), and vice-versa. Some works even try to theoretically motivate the nature and existence of completely robust models like <d-cite key="pal2023adversarial"></d-cite>, but overall, it was hard for me to pinpoint the direction of these works at this conference.</p>
 
 <h3 id="adversarial-attacks-and-model-poisoning-interesting-papers">[<span style="color:orange">Adversarial Attacks and Model Poisoning</span>] Interesting Papers</h3>
+
 <ol>
   <li>
     <p><strong>Setting the Trap: Capturing and Defeating Backdoors in Pretrained Language Models through Honeypot</strong> <d-cite key="tang2023setting"></d-cite>: The strategy in this paper is really cool: basically, they first notice that backdoor triggers in poisoned models are “obvious”, in the sense that they appear in lower layers of the model in an obviously linearly separable way. Intuitively, this makes sense, as poisoned outputs are structurally out-of-distribution from “human language”. From here, they basically add these small “honeypot” layers (just a 1-layer transformer) with a classification head that purposefully get “poisoned” early on, and they use this auxiliary loss to weight the actual cross entropy loss. I think that is a really neat example of exploiting structure and abstract representations of data to achieve an effect.</p>
@@ -949,18 +969,20 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h2 id="knowledge-distillation-and-memory-reduction-schemes">Knowledge Distillation and Memory Reduction Schemes</h2>
+
 <p>As much as we like scaling models, building smaller models that can run on accessible hardware is extremely important for the growth of our community. This section is mostly referring to scaling down models so they can run <strong>on inference time</strong> on smaller hardware, which is a matter of memory efficiency. TinyML <d-footnote>A whole field of study is on ultra-low power ML: https://www.tinyml.org</d-footnote> works take it a step further and try to deploy these models on embedded systems and micro-controllers <d-cite key="liang2023mcuformer"></d-cite>. The three primary methods are weight quantization<d-footnote>Weight quantization involves using a lower-precision datatype for representing weights, which can reduce memory complexity by a multiplicative factor.</d-footnote>, pruning<d-footnote>There is extensive literature on network pruning, and it is actually quite complex. Pruning is literally taking out parts of the network (hence the name), but choosing what to take it is important. It is also important to select the time that you prune (before training, during training, after training), as this affects the performance and overhead of the pruning process. </d-footnote>, and knowledge distillation<d-footnote>Knowledge distillation involves taking a larger model and cloning its behavior in a smaller model, also known as "distilling". The idea is that a large models are often over-parameterized (there are benefits for training in this way), so once we have the model trained, we can cut down on its capacity by training a smaller model.</d-footnote>.</p>
 
 <ol>
   <li>
 <strong>Memory Reduction Techniques.</strong> We generally are intered in tradeoffs for different memory reduction schemes such as pruning and quantization. In <d-cite key="kuzmin2023pruning"></d-cite>, they claim that quantization is almost always better unless you care about extreme compression. Similar to older work doing weight quantization for MLPs and CNNs, newer works at this conference do it for transformers <d-cite key="xi2023training,dong2023packqvit"></d-cite>.</li>
   <li>
-<strong>Lottery Ticket Hypothesis (LTH)</strong><d-footnote>The lottery ticket hypothesis is the notion that dense neural networks contain a much smaller subnetwork that accounts for most of the performance. Finding these subnetworks through pruning would, in theory, preserve performance while significantly reducing memory. Read more from the original paper: https://arxiv.org/abs/1803.03635 </d-footnote><strong>.</strong>  Following the original LTH, we want to understand what metrics (e.g. weight magnitude, gradient flow) and structure are useful for pruning modern architectures like LLMs, but this also depends on what we are pruning for. In <d-cite key="kurtic2023ziplm"></d-cite> they prune LLMs based on run-time bottlenecks for inference speed-ups, while in <d-cite key="ma2023llmpruner"></d-cite> they focus on shrinking the model. Meanwhile, in convolutional neural networks, pruning based on empirics has been widely studied, so <d-cite key="dacunha2023polynomially"></d-cite> provide some theoretical motivation into better pruning based on the structure of the model.</li>
+<strong>Lottery Ticket Hypothesis (LTH)</strong><d-footnote>The lottery ticket hypothesis is the notion that dense neural networks contain a much smaller subnetwork that accounts for most of the performance. Finding these subnetworks through pruning would, in theory, preserve performance while significantly reducing memory. Read more from the original paper: https://arxiv.org/abs/1803.03635 </d-footnote><strong>.</strong> Following the original LTH, we want to understand what metrics (e.g. weight magnitude, gradient flow) and structure are useful for pruning modern architectures like LLMs, but this also depends on what we are pruning for. In <d-cite key="kurtic2023ziplm"></d-cite> they prune LLMs based on run-time bottlenecks for inference speed-ups, while in <d-cite key="ma2023llmpruner"></d-cite> they focus on shrinking the model. Meanwhile, in convolutional neural networks, pruning based on empirics has been widely studied, so <d-cite key="dacunha2023polynomially"></d-cite> provide some theoretical motivation into better pruning based on the structure of the model.</li>
   <li>
 <strong>Knowledge Distillation</strong>. Knowledge distillation (KD) is an approach for trying to force a small student model to mimic the output probabilities of a larger teacher model. KD has seen a wide array of techniques being used to preserve functionality of the teacher in the student, and many empirical experiments have been done in the past to evaluate the lower-bound capacity of student models. Nevertheless, the works at this conference were pretty unique. In <d-cite key="huang2023knowledge"></d-cite> they observe that student models have noisier features and attempt to de-noise them using diffusion. In <d-cite key="gupta2023concept"></d-cite>, they motivate “concepts” in intermediate layers as an auxiliary signal for distillation. Finally, <d-cite key="ojha2023knowledge"></d-cite> investigates whether properties like adversarial robustness, invariances, and generalization are transferred effectively during distillation.</li>
 </ol>
 
 <h3 id="memory-reduction-interesting-papers">[<span style="color:orange">Memory Reduction</span>] Interesting Papers</h3>
+
 <ol>
   <li>
 <strong>MCUFormer: Deploying Vision Transformers on Microcontrollers with Limited Memory</strong> <d-cite key="liang2023mcuformer"></d-cite>: They push the modern limits of Vision Transformers on ultra-low cost systems, using neural architecture search (NAS) to search for a compute-optimal architecture while also writing a library for performing each inference-level computation in a Vision Transformer efficiently. I’m not that aware of the pre-existing literature in this space, but this is one of the first papers I’ve seen do it for Vision Transformers.</li>
@@ -971,7 +993,9 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h2 id="graph-neural-networks">Graph Neural Networks</h2>
+
 <p>Graph neural networks (GNN) were really popular this year! I wish I had a stronger understanding overall of GNNs, but unfortunately I just haven’t found any specific use cases for them in my own research. I am aware of their use-cases in structured prediction (e.g. molecular dynamics <d-cite key="wu2023equivariant"></d-cite>, social networks) but their unique design and the prevalence of graph problems has allowed this field of research to grow steadily. I couldn’t really pinpoint the major themes at this conference, but I learned a few things about what people are interested in.</p>
+
 <ol>
   <li>
 <strong>Heterophily vs. Homophily.</strong> Earlier works with GNNs worked under the assumption of graph homophily, meaning similarly labelled nodes tend to be linked. This assumption neatly allows for even unsupervised methods to exploit graph structure when making predictions, but it is unclear what the impact of graph heterophily is on GNN performance <d-cite key="luan2024graph"></d-cite>. Thus, there has been work towards solving graphs under heterophily by focusing on non-local structure <d-cite key="liang2023predicting,liao2023ld"></d-cite>. In <d-cite key="platonov2023characterizing"></d-cite>, they even try to rigorously characterize the properties and effects of these node-level relationships.</li>
@@ -986,6 +1010,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 <p>Broadly speaking, a lot of advances in other fields that were discussed above are also active areas of research in GNNs (e.g. adversarial robustness <d-cite key="gosch2023adversarial,zhao2023adversarial"></d-cite>, interpretability <d-cite key="yin2023train"></d-cite>, multimodal <d-cite key="zhao2023gimlet"></d-cite>), so I expect to see a lot more advancements and use-cases of GNNs in the near future.</p>
 
 <h3 id="gnn-interesting-papers">[<span style="color:orange">GNN</span>] Interesting Papers</h3>
+
 <ol>
   <li>
 <strong>Zero-One Laws of Graph Neural Networks</strong> <d-cite key="adamday2023zeroone"></d-cite>: Zero-one laws generally study the limiting behavior of probabilities and show that they converges to $0$ or $1$. This paper proves equivalent zero-one laws for the outputs of certain classes of GNNs (e.g. boolean graph convolutional classifiers) as they get larger and larger. Practically speaking, I don’t currently see a use case for this kind of analysis, but it is cool nonetheless.</li>
@@ -996,6 +1021,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h2 id="privacy-and-federated-learning">Privacy and Federated Learning</h2>
+
 <p>Trust in AI and the companies that build these AIs is extremely important. This year’s conference had a strong emphasis on privacy and data protection methods, as well as federated learning methods <d-footnote>I would recommend read a survey paper or some online notes for a better explanation, but the basic idea behind federated learning is that in a distributed or cloud setting, we often want to use training data from clients (e.g. data on your mobile device), but we don't want to actually transfer this data to a centralized server for privacy reasons. Instead, we train a copy of the mobile locally, then transfer the gradients over to a server. Doing this at scale is quite difficult, as we are essentially doing sequences of delayed gradient updates. </d-footnote>. Privacy is a fairly math-heavy topic (especially outside of ML) because it often considers worst-case scenarios with high probability, so a lot of the papers in this domain are quite technical.</p>
 
 <ol>
@@ -1011,6 +1037,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="privacy-and-fed-learning-interesting-papers">[<span style="color:orange">Privacy and Fed. Learning</span>] Interesting Papers</h3>
+
 <ol>
   <li>
 <strong>Privacy Auditing with One (1) Training Run</strong> <d-cite key="steinke2023privacy"></d-cite>: We generally have to <em>prove</em> that an algorithm is differentially private (which is too hard in most cases!), but there are ways to audit or inspect empirically if an algorithm is differentially private. The problem is that DP is a probabilistic guarantee about the inclusion and exclusion of any data point, so we have to sample taking out data points. But sampling in the DP sense means re-training with or without data, which is extremely expensive. This work remarkably shows that they can audit with O(1) training runs under provable guarantees, which is a huge step from prior works. I skimmed the theoretical work, and it seems that they show the desired concentration bound of their method by showing that their process is stochasticly dominated by a binomial (a trick which appeared on my probability theory PSET!), and I’m excited to sit down and go through the math when I get the chance. Oh also, this paper won Outstanding Paper at this year’s conference.</li>
@@ -1021,11 +1048,13 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h2 id="datasets-benchmarks-challenges">Datasets, Benchmarks, Challenges</h2>
+
 <p>As NeurIPS is an AI-centric conference, there were datasets, benchmarks, and challenges for every topic above. There’s even a Datasets and Benchmarks track at NeurIPS. The more popular topics had more datasets (multimodal, LLM, etc.) and the datasets reflect the current needs of each field. A lot of the references put in earlier sections are dataset papers, so this section is going to be dedicated instead to some interest datasets I found while going through.</p>
 
 <p>One thing I noticed though was a few papers on using <strong>synthetic data</strong> <d-cite key="yang2023freemask,pronovost2023scenario,ntavelis2023autodecoding,zhu2023genimage"></d-cite>! While these are not dataset papers, they seem to imply that synthetic data works well enough for training! I’m curious to see if synthetic datasets will become more prevalent, especially given how easy they are to scale.</p>
 
 <h3 id="interesting-datasets">Interesting Datasets</h3>
+
 <ol>
   <li>
 <strong>Multimodal C4: An Open, Billion-scale Corpus of Images Interleaved with Text</strong> <d-cite key="zhu2023multimodal"></d-cite>: This is the multi-modal variant of the original C4 dataset, which has been a standard in LLM pre-training since its release. Because of how prevalent this dataset is going to be, I think it’s at worth at least taking a look at the data that’s going to be a part of most of our generative AI in the near future.</li>
@@ -1036,8 +1065,11 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h2 id="other-topics">Other Topics</h2>
+
 <p>The following sections are dedicated to topics that were either not as popular this year but are still broadly relevant or where I could not really get a sense of the central themes surrounding them. The main issue boils down to not having enough background on the topic, so I have to go through a few papers on the subject before comprehensively understanding what they’re doing. Regardless, they each had some interesting papers to highlight.</p>
+
 <h3 id="interpretability-and-explainable-ai">Interpretability and Explainable AI</h3>
+
 <p>Interpretability and explainable AI is really hard. We know that deep learning models tend to be a black box, and it’s generally because their inner mechanisms are too deep and intertwined with non-linearities that unless we make strong assumptions . I’d highly recommend going through the <a href="https://transformer-circuits.pub" rel="external nofollow noopener" target="_blank">https://transformer-circuits.pub</a> posts (start from the bottom), as they are extremely thorough and have been updated over time as well.</p>
 
 <p>On the topic of mechanistic interpretability<d-footnote>Mechanistic interpretability is breaking down and reverse engineering a network to completely understand the inner workings and structure. Networks are often viewed as a computational graph composed of "circuits" that perform a specific function. I highly recommend looking at https://www.neelnanda.io/mechanistic-interpretability/quickstart</d-footnote>, I don’t necessarily think the works at NeurIPS 2023 are reflective of all that is going on in the community, but there were some interesting papers to share nonetheless.</p>
@@ -1062,6 +1094,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 <p>which is precisely the change in test loss through perturbation. Of course, this expression is not that interesting, but through Taylor expansion and assumptions about the loss function, it has an even nicer closed form solution (albeit with an inverse Hessian) in terms of $z,x$ and $\theta^*$, the minimizer of the original unperturbed dataset. For the aforementioned closed form solution to make sense, a lot of assumptions have to be made, which this paper tries to break down and explain why it may fail on real problems.</p>
 
 <h3 id="implicit-bias">Implicit Bias</h3>
+
 <p>From a statistical learning perspective, overparameterized neural networks under gradient descent should exhibit overfitting. However, it has been shown empirically that overparameterization is generally helpful and leads to good generalization ability. Additionally, it is well known that there are many machine learning algorithms that provably generalize well on certain domains (e.g. support vector machines on linearly separable data). Implicit bias is the notion that overparameterized deep neural networks tend towards solutions that are similar to algorithms that generalize well as an explanation for their generalization ability. There has been some nice theoretical work in the field, some of which was present at NeurIPS 2023.</p>
 
 <ol>
@@ -1072,6 +1105,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="training-dynamics">Training Dynamics</h3>
+
 <p>For generic gradient-based learning in neural networks, we are often interested in understanding common patterns that emerge during different phases of the training process. Grokking<d-footnote>https://openreview.net/pdf?id=9XFSbDPmdW</d-footnote> is an example of one type of phenomena, where (Nanda et al. 2023) show that in the overparameterized regime, models exhibit clear generalization behavior later into training despite maintaining low train error for a long time. Training dynamics that generalize across a certain class of models are difficult to identify, but discovering them will significantly improve our understanding of how to train models efficiently.</p>
 
 <ol>
@@ -1084,6 +1118,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="embodied-ai">Embodied AI</h3>
+
 <p>Embodied AI is a nascent field, but it focuses on building agents that can utilize multiple modalities. The field is set up to be a pre-cursor to the fabled AGI, but progress on this field hinges on the success of other fields like NLP, multi-modal learning, RL (although this is debated frequently). I didn’t see many works directly focusing on embodied AI, but I’m sure there will be many in the future.</p>
 
 <ol>
@@ -1094,6 +1129,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="neural-architecture-search">Neural Architecture Search</h3>
+
 <p>Neural architecture search (NAS) is a class of algorithms that automatically search for model parameters (not just hyperparameters!) to optimize for some metric and has been around for a while. NAS is used a lot in finding model parameters for ultra low-cost machines like in <d-cite key="dong2023packqvit"></d-cite>. It’s actually quite complicated how these algorithms work, and I’d recommend reading Lillian Weng’s blog<d-footnote>https://lilianweng.github.io/posts/2020-08-06-nas/</d-footnote> to get a basic understanding of what people have done. The article is a bit old now, but I also don’t think the field itself has changed that much since.</p>
 
 <ol>
@@ -1102,6 +1138,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="neural-operators">Neural Operators</h3>
+
 <p>Most data is inherently discretized, or it lies on some well-defined finite-dimensional Euclidean space. However, there are many problems that involve learning <em>functions</em> (e.g. approximating partial differential equations) where we instead want to learn mappings between functional spaces. I think this paper <d-footnote>https://arxiv.org/abs/2108.08481</d-footnote> explains it better than I will (and they write it in a way that’s quite intuitive to follow) but the basic idea is that the architecture and loss functions aren’t going to be any different than your standard neural network problem. The main difference is in framing, as our models are now acting over function spaces, so we treat the linear layers as linear integral operators on function spaces. The key benefit of working over function spaces is we no longer implicitly discretize our data, so varying resolutions of data do not affect our models, and there’s also some extra machinery that we can apply.</p>
 
 <ol>
@@ -1110,7 +1147,15 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="variational-inference-methods">Variational Inference Methods</h3>
-<p>Bayesian methods are provably good at examining uncertainty in the posterior given your prior information and beliefs, but in practice they require approximating different intractible integrals in the closed for computation. More formally, suppose we want to compute the posterior $P(\theta|X)$, which represents the distribution over the parameters given our data. From Bayes rule,</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Bayesian methods are provably good at examining uncertainty in the posterior given your prior information and beliefs, but in practice they require approximating different intractible integrals in the closed for computation. More formally, suppose we want to compute the posterior $P(\theta</td>
+      <td>X)$, which represents the distribution over the parameters given our data. From Bayes rule,</td>
+    </tr>
+  </tbody>
+</table>
 
 \[P \left(\theta|\mathbf{X} \right) = \frac{P \left(\mathbf{X}|\theta \right)P\left(\theta \right)}{P \left(\mathbf{X} \right)} = \frac{P \left(\mathbf{X}|\theta \right)P \left(\theta \right)}{\int_{\theta}P \left(\mathbf{X}|\theta^{\prime} \right) P \left(\theta^{\prime} \right) d \theta^{\prime}}\]
 
@@ -1122,6 +1167,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="quantum-information-theory">Quantum Information Theory</h3>
+
 <p>Quantum computers are notably faster at solving certain classes of problems (e.g. Shor’s algorithm for prime factorization), so if they end up replacing modern processors, we ideally want to ensure machine learning algorithms are efficient on them. While there were barely any papers on this topic, I did think it was interesting to look into.</p>
 
 <ol>
@@ -1130,6 +1176,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="energy-based-models">Energy-based Models</h3>
+
 <p>Energy based models (EBM) are a different way to view and train probabilistic models based on learning an energy function, but they provably can represent a wide varieties of algorithms such as k-means and maximum likelihood estimation<d-footnote>Yann Lecun has made lots of talks about energy-based models. I found these slides online: https://cs.nyu.edu/~yann/talks/lecun-20060816-ciar-1-ebm.pdf</d-footnote>. The key benefit is that we can ignore the intractible normalization constant computation needed for variational methods. Intuitively, I think it’s easiest to understand them in a contrastive learning framework, where an energy function $F: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ describes similarity between pairs of data points. GFlowNets<d-cite key="NEURIPS2021_e614f646"></d-cite> are an exciting recent development of EBMs for generative modeling, and a few papers at this conference studied applications of them<d-cite key="zhang2023let,atanackovic2023dyngfn,zhu2023sampleefficient"></d-cite>.</p>
 
 <ol>
@@ -1138,6 +1185,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="curriculum-learning">Curriculum Learning</h3>
+
 <p>Curriculum learning is the notion of learning simple tasks first before learning complex tasks. This intuitively makes sense in RL, where we want to learn simple skills before learning complex high-level strategies, but it is not limited to RL. I have always been kind of skeptic of curriculum learning because it is not well understood, but at the same time there have been some successful use cases of it.</p>
 
 <ol>
@@ -1146,6 +1194,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="anomaly-detection">Anomaly Detection</h3>
+
 <p>Anomaly detection (AD)<d-footnote>https://arxiv.org/abs/2007.02500</d-footnote> generally refers to detecting outliers or unexpected behavior in data. These methods are especially important for tasks where we want our models to be risk-averse. I was surprised to see quite a few works focused on this field at this year’s conference, but considering how diverse the applications are, it kind of makes sense. I’m not familiar with the field at all, but a few of them did pique my interest.</p>
 
 <ol>
@@ -1156,6 +1205,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="class-imbalance-approaches">Class Imbalance Approaches</h3>
+
 <p>For multi-class classification problems, we generally want a uniform distribution of class labels across the dataset so models do not converge to the most frequently occurring label with probability 1. Class imbalance is a long-standing problem in optimization-based methods, and there has been a lot of work to try and combat it (e.g. data augmentation to balance classes, sampling, new loss funcitons).</p>
 
 <ol>
@@ -1164,6 +1214,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="continual-learning">Continual Learning</h3>
+
 <p>I was interested in continual learning, also known as lifelong learning, when I first discovered machine learning. I think continual learning, like multimodal learning, is another important piece towards artificial general intelligence (AGI), but it is not as popular at the moment. The general idea is a learning framework that continues to adapt and learn over time, but well-known problems like catastrophic forgetting (model learns A then B. model will forget A.) and plasticity (how easily does a model learn something new) make continual learning extremely difficult. It is entirely possible that completely different paradigms are necessary for continual learning, but this is an active field of research<d-footnote>A useful introduction to pre-existing works is: https://wiki.continualai.org/the-continualai-wiki/introduction-to-continual-learning</d-footnote>.</p>
 
 <ol>
@@ -1174,7 +1225,9 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="deep-learning-theory">Deep Learning Theory</h3>
+
 <p>Deep learning theory is specifically the study of deep neural network models, and generally centers around dense linear layers with activations (at least for now). The most well known result is probably the Neural Tangent Kernel (NTK) <d-cite key="jacot2020neural"></d-cite>, which describes the behavior of networks as you take their layer width to infinity. Deep learning theory is an active area of research that I personally know little about, but at the very least, I’ve observed two common approaches at this conference that were used to study it. That being said, these are definitely not the only two tools used.</p>
+
 <ol>
   <li>
 <strong>Kernel methods.</strong> This was formalized in the NTK work, but there is a provable duality between gradient descent in the infinite width limit and kernel gradient descent over the NTK as the kernel. Because of the rich theory present in kernel methods, we can apply these tools to study the behavior of neural networks as well.</li>
@@ -1185,6 +1238,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 <p>There’s a bit too much necessary background information that goes into the machinery required for deep learning theory for me to really understand any of these papers, so unfortunately I do not have anything to list for interesting papers (yet at least!). I can list some examples though: <d-cite key="bordelon2023dynamics,fiedler2023kernelbased,kumano2023adversarial">&lt;/d-footnote&gt;</d-cite></p>
 
 <h3 id="bio-inspired-ai">Bio-inspired AI</h3>
+
 <p>Artificial Intelligence is an extension of our desire to mimic biological intelligence (although I wish it wasn’t), so naturally we have a lot to gain by using ideas we discover from biology. I think over time we will always see a steady number of works on bio-inspired AI, but so far, I haven’t seen too many works of this type that really take off (e.g. spiking neural networks). Part of the problem is that we know very little about our brains and how they function, so potentially once we figure that out, we’ll start implementing those mechanisms in our AI!</p>
 
 <ol>
@@ -1193,6 +1247,7 @@ I noticed some interest in human-centric perception, as we ideally want vision m
 </ol>
 
 <h3 id="domain-specific-applications-of-ai">Domain-specific applications of AI</h3>
+
 <p>There were a lot of very cool domain-specific applications of AIML at NeurIPS this year, most of
 which was completely beyond me. Applications and datasets for the natural sciences were probably the most popular, especially related to protein modeling or protein functional prediction <d-cite key="liu2023predicting,gao2023proteininvbench,ahdritz2023openproteinset"></d-cite> and molecules <d-cite key="liu2023symmetryinformed"></d-cite>. There were also works in chemistry <d-cite key="guo2023large,tavakoli2023ai">, law <d-cite key="östling2024cambridge"></d-cite>, and even circuit prediction<d-cite key="zou2023circuit"></d-cite>!</d-cite></p>
 
@@ -1202,6 +1257,7 @@ which was completely beyond me. Applications and datasets for the natural scienc
 </ol>
 
 <h3 id="reproducibility-studies">Reproducibility Studies</h3>
+
 <p>So I didn’t know reproducibility experiments were publishable at major AI conferences like NeurIPS, but I’m happy to discover that it is. This year featured quite a few reproducibility experiments for older works, and it seems like they all follow a kind of template of how they should be conducted. I have experience working with repositories that just do not align with the results of described in the papers, so I know how annoying it is to not know if a paper actually works. I saw this paper <d-cite key="kleuver2023reproducibility"></d-cite> that attempts to reproduce the results of <d-cite key="keswani2022proto2proto"></d-cite>, but I found it funny because they basically roast their documentation and go into detail about the weaknesses in their experiments. With AI research rapidly growing, I think it’s getting more and more important that we set a bar for reproducibility.</p>
 
 <h2 id="other-papers-i-liked">Other Papers I Liked</h2>
@@ -1231,12 +1287,15 @@ which was completely beyond me. Applications and datasets for the natural scienc
 <p>During this process I also compiled a list of open research questions I think are worth pursuing, which I may clean up in the future and put up. If you made it this far, thanks for giving it a read! It took a long time to synthesize these resources and figure out the structure of this article, so regardless of your background or prior knowledge, I hope this was at least somewhat useful for you!</p>
 
 <h2 id="random-terms">Random Terms</h2>
+
 <p>I kept track of a list of terms that I had to Google while going through these abstracts. I probably
 also ended up looking into more and forgot to put them in this list, but in case you’re interested,
 <del>here they are below</del>. Edit: Ok so, this article ended up being <strong>way</strong> longer than intended, so instead if you want this list you should email me. My email is on my home page.</p>
 
 <h2 id="citation">Citation</h2>
+
 <p>Just as a formality, if you want to cite this for whatever reason, use the BibTeX below.</p>
+
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@article{zhang2024neuripshighlights,
   title   = "Highlights of NeurIPS 2023 from Abstracts",
   author  = "Zhang, Alex",
